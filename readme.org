@@ -1,8 +1,6 @@
 # Copyright 2019 Manna Harbour
 # https://github.com/manna-harbour/miryoku
 
-# After making changes to code or tables call org-babel-tangle (C-c C-v t).
-
 * Miryoku Babel [[https://raw.githubusercontent.com/manna-harbour/miryoku/master/data/logos/miryoku-roa-32.png]]
 
 [[https://raw.githubusercontent.com/manna-harbour/miryoku/master/data/cover/miryoku-kle-cover.png]]
@@ -10,20 +8,36 @@
 [[https://github.com/manna-harbour/miryoku/][Miryoku]] is an ergonomic, minimal, orthogonal, and universal keyboard layout.  Miryoku Babel generates the keymap data for Miryoku implementations from org tables using [[https://orgmode.org/worg/org-contrib/babel/][babel]].
 
 
-The layout is maintained in emacs org-mode tables and converted to keymap data structures using embedded python scripts.
-
-- https://orgmode.org/
-- https://orgmode.org/manual/Tables.html
-- https://orgmode.org/manual/Working-with-Source-Code.html
+** Tangling
 
 
-** Building
+*** Locally
+
+Emacs, python, and org 9.4 or later are required.
 
 
-*** Initial Setup
+**** Within Emacs
 
 
-*** Tangling
+***** Initial Setup
+
+Add the following to your emacs initialisation file:
+
+#+BEGIN_SRC emacs-lisp
+(require 'ob-python)
+(setq org-confirm-babel-evaluate nil)
+(setq python-indent-guess-indent-offset-verbose nil)
+#+END_SRC
+
+
+***** Tangle
+
+Call ~org-babel-tangle~ (~C-c~ ~C-v~ ~t~).
+
+
+**** Outside Emacs
+
+See [[.github/workflows]] for example shell commands.
 
 
 ** Layer Tables
@@ -33,8 +47,6 @@ The layers are maintained in tables.  ~U_NP~ indicates the key is not present an
 Basic keycodes are entered without the ~KC_~ prefix.  Symbols can be entered as-is, except for '-' (~MINS~), '.' (~DOT~), '|' (~PIPE~), and '"' (~DQUO~). Empty cells are unused.
 
 The base layer is maintained as separate tables for tap alphas, tap thumbs, and hold.  Other layers are specified as a single hand including thumbs.  Tables are combined to produce the keymap data for each layer.
-
-Unknown names are considered to be layer names.
 
 
 *** Base
@@ -286,7 +298,7 @@ Only available with ~MIRYOKU_LAYERS=FLIP~.
 | U_NP     | U_NP     | MUTE    | MPLY     | MSTP     |
 
 
-**** Clipboard
+**** COMMENT Clipboard
 
 
 ***** Default
@@ -445,6 +457,12 @@ Only available with ~MIRYOKU_LAYERS=FLIP~.
 *** Common
 
 
+**** layers
+
+#+NAME: layers
+| BASE | BUTTON | NAV | MOUSE | MEDIA | NUM | SYM | FUN |
+
+
 **** symbol-names
 
 Symbol, name, and shifted symbol mappings for use in tables.
@@ -482,21 +500,9 @@ versions.
 | LSFT | LCTL | LALT | LGUI | ALGR |
 
 
-**** header
-
-Header for tangled files.
-
-#+NAME: header
-#+BEGIN_SRC C :main no :tangle no
-Copyright 2019 Manna Harbour
-https://github.com/manna-harbour/miryoku
-generated -*- buffer-read-only: t -*-
-#+END_SRC
-
-
 **** keycode-translation
 
-standard keycode to implementation equivalent (standard, qmk, zmk)
+Source keycode to implementation equivalent (source, QMK, ZMK).
 
 #+NAME: keycode-translation
 | 0          | 0          | NUM_0           |
@@ -578,6 +584,7 @@ standard keycode to implementation equivalent (standard, qmk, zmk)
 | MS_U       | MS_U       | KP_N8           |
 | MSTP       | MSTP       | C_STOP          |
 | MUTE       | MUTE       | C_MUTE          |
+| NO         | NO         | &none           |
 | OUT_AUTO   | OUT_AUTO   | &out OUT_TOG    |
 | OUT_BT     | OUT_BT     | &out OUT_BT     |
 | OUT_USB    | OUT_USB    | &out OUT_USB    |
@@ -607,6 +614,7 @@ standard keycode to implementation equivalent (standard, qmk, zmk)
 | SPC        | SPC        | SPC             |
 | TAB        | TAB        | TAB             |
 | TILD       | TILD       | TILDE           |
+| TRNS       | TRNS       | &trans          |
 | UNDO       | UNDO       | K_UNDO          |
 | UNDS       | UNDS       | UNDER           |
 | UP         | UP         | UP              |
@@ -616,21 +624,307 @@ standard keycode to implementation equivalent (standard, qmk, zmk)
 | WH_L       | WH_L       | U_NU            |
 | WH_R       | WH_R       | U_NU            |
 | WH_U       | WH_U       | U_NU            |
-| S(KC_INS)  | S(KC_INS)  | LS(INS)         |
-| C(KC_INS)  | C(KC_INS)  | LC(INS)         |
-| S(KC_DEL)  | S(KC_DEL)  | LS(DEL)         |
-| SCMD(KC_Z) | SCMD(KC_Z) | LS(LG(Z))       |
-| LCMD(KC_V) | LCMD(KC_V) | LG(V)           |
-| LCMD(KC_C) | LCMD(KC_C) | LG(C)           |
-| LCMD(KC_X) | LCMD(KC_X) | LG(X)           |
-| LCMD(KC_Z) | LCMD(KC_Z) | LG(Z)           |
-| C(KC_Y)    | C(KC_Y)    | LC(Y)           |
-| C(KC_V)    | C(KC_V)    | LC(V)           |
-| C(KC_C)    | C(KC_C)    | LC(C)           |
-| C(KC_X)    | C(KC_X)    | LC(X)           |
-| C(KC_Z)    | C(KC_Z)    | LC(Z)           |
-| DF(TAP)    | DF(TAP)    | &tog TAP        |
 | U_MT       | U_MT       | LS(LNLCK)       |
+
+
+**** table-layer-init
+
+#+NAME: table-layer-init
+#+BEGIN_SRC python :session :var symbol_names_table=symbol-names :var nonkc_table=nonkc :var nonkp_table=nonkp :var keycode_translation_table=keycode-translation :var layers_table=layers :var mods_table=mods :var target="qmk" :tangle no :results verbatim
+width = 19
+mods_dict = dict.fromkeys(mods_table[0])
+layers_dict = dict.fromkeys(layers_table[0])
+symbol_names_dict = {}
+shifted_symbol_names_dict = {}
+for symbol, name, shifted_symbol, shifted_name in symbol_names_table:
+  symbol_names_dict[symbol] = name
+  symbol_names_dict[shifted_symbol] = shifted_name
+  shifted_symbol_names_dict[symbol] = shifted_name
+keycode_translation_dict = {}
+if target == 'qmk':
+  nonbasic_tuple = tuple(nonkc_table[0])
+  basic_prefix = 'KC_'
+  for standard, qmk, zmk in keycode_translation_table:
+    keycode_translation_dict[standard] = qmk
+elif target == 'zmk':
+  nonbasic_tuple = tuple(nonkp_table[0])
+  basic_prefix = '&kp '
+  for standard, qmk, zmk in keycode_translation_table:
+    keycode_translation_dict[standard] = zmk
+results = '// target: ' + target
+results
+#+END_SRC
+
+#+RESULTS: table-layer-init
+: // target: qmk
+
+
+**** table-layer-taphold
+
+Produce base layer from separate alphas, thumbs, and hold tables.
+
+#+NAME: table-layer-taphold
+#+BEGIN_SRC python :session :var alphas_table=colemakdh :var thumbs_table=thumbs :var hold_table=hold :tangle no :results verbatim
+results = ''
+for tap_row, hold_row in zip(alphas_table + thumbs_table, hold_table):
+  for tap, hold in zip(tap_row, hold_row):
+    if tap == '':
+      code = 'U_NU'
+    elif tap in symbol_names_dict:
+      code = symbol_names_dict[tap]
+    else:
+      code = tap
+    if code in keycode_translation_dict:
+      code = keycode_translation_dict[code]
+    if hold in mods_dict:
+      if hold in keycode_translation_dict:
+        hold = keycode_translation_dict[hold]
+      if target == 'qmk':
+        code = basic_prefix + str(code)
+        code = str(hold) + '_T(' + code + ')'
+      elif target == 'zmk':
+        code = '&hm ' + str(hold) + ' ' + code
+    elif hold in layers_dict:
+      if target == 'qmk':
+        code = basic_prefix + str(code)
+        code = 'LT(' + str(hold) + ', ' + code + ')'
+      elif target == 'zmk':
+        code = '&lt ' + str(hold) + ' ' + code
+    elif not str(code).startswith(nonbasic_tuple):
+      code = basic_prefix + str(code)
+    results += (code + ', ').ljust(width)
+  results += '\\\n'
+results = results.rstrip(', \\\n')
+results
+#+END_SRC
+
+#+RESULTS: table-layer-taphold
+: KC_Q,              KC_W,              KC_F,              KC_P,              KC_B,              KC_J,              KC_L,              KC_U,              KC_Y,              KC_QUOT,           \
+: LGUI_T(KC_A),      LALT_T(KC_R),      LCTL_T(KC_S),      LSFT_T(KC_T),      KC_G,              KC_M,              LSFT_T(KC_N),      LCTL_T(KC_E),      LALT_T(KC_I),      LGUI_T(KC_O),      \
+: LT(BUTTON, KC_Z),  ALGR_T(KC_X),      KC_C,              KC_D,              KC_V,              KC_K,              KC_H,              KC_COMM,           ALGR_T(KC_DOT),    LT(BUTTON, KC_SLSH), \
+: U_NP,              U_NP,              LT(MEDIA, KC_ESC), LT(NAV, KC_SPC),   LT(MOUSE, KC_TAB), LT(SYM, KC_ENT),   LT(NUM, KC_BSPC),  LT(FUN, KC_DEL),   U_NP,              U_NP
+
+
+
+**** table-layer-half
+
+Produce sub layers from single hand and hold tables.
+
+#+NAME: table-layer-half
+#+BEGIN_SRC python :session :var hold_table=hold :var mode="r" :var half_table=mouse-r :var shift="false" :tangle no :results verbatim
+length = len(half_table[0])
+results = ''
+for half_row, hold_row in zip(half_table, hold_table):
+  hold_row_l, hold_row_r = hold_row[:length], hold_row[length:]
+  for lr, hold_row_lr in ('l', hold_row_l), ('r', hold_row_r):
+    if lr == mode:
+      for half in half_row:
+        if half == '':
+          code = 'U_NU'
+        elif shift == "true" and half in shifted_symbol_names_dict:
+          code = shifted_symbol_names_dict[half]
+        elif half in symbol_names_dict:
+          code = symbol_names_dict[half]
+        else:
+          code = half
+        if code in keycode_translation_dict:
+          code = keycode_translation_dict[code]
+        if not str(code).startswith(nonbasic_tuple):
+          code = basic_prefix + str(code)
+        results += (str(code) + ', ').ljust(width)
+    else:
+      for hold in hold_row_lr:
+        if hold in mods_dict:
+          if hold in keycode_translation_dict:
+            hold = keycode_translation_dict[hold]
+          code = basic_prefix + str(hold)
+        else:
+          if hold in keycode_translation_dict:
+            hold = keycode_translation_dict[hold]
+          if hold == '' or hold in layers_dict:
+            code = 'U_NA'
+          elif str(hold).startswith(nonbasic_tuple):
+            code = hold
+          else:
+            code = basic_prefix + str(hold)
+        results += (str(code) + ', ').ljust(width)
+  results += '\\\n'
+results = results.rstrip(', \\\n')
+results
+#+END_SRC
+
+#+RESULTS: table-layer-half
+: KC_RESET,          U_NA,              U_NA,              U_NA,              U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+: KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MS_L,           KC_MS_D,           KC_MS_U,           KC_MS_R,           \
+: U_NA,              KC_ALGR,           U_NA,              U_NA,              U_NA,              U_NU,              KC_WH_L,           KC_WH_D,           KC_WH_U,           KC_WH_R,           \
+: U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_BTN1,           KC_BTN3,           KC_BTN2,           U_NP,              U_NP
+
+
+
+
+
+**** table-layer-full
+
+Produce full layer from single table.  Fill for unused keys is configurable.
+
+#+NAME: table-layer-full
+#+BEGIN_SRC python :session :var table=button :var fill="NO" :tangle no :results verbatim
+results = ''
+for row in table:
+  for key in row:
+    if key == '':
+      code = fill
+    elif key in symbol_names_dict:
+      code = symbol_names_dict[key]
+    else:
+      code = key
+    if code in keycode_translation_dict:
+      code = keycode_translation_dict[code]
+    if not str(code).startswith(nonbasic_tuple):
+        code = basic_prefix + str(code)
+    results += (code + ', ').ljust(width)
+  results += '\\\n'
+results = results.rstrip(', \\\n')
+results
+#+END_SRC
+
+#+RESULTS: table-layer-full
+: U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+: &kp LGUI,          &kp LALT,          &kp LCTRL,         &kp LSHFT,         &none,             &none,             &kp LSHFT,         &kp LCTRL,         &kp LALT,          &kp LGUI,          \
+: U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+: U_NP,              U_NP,              U_NU,              U_NU,              &kp KP_N5,         &kp KP_N5,         U_NU,              U_NU,              U_NP,              U_NP
+
+
+**** layer-body
+
+Body of miryoku_layer.h.
+
+#+NAME: layer-body
+#+BEGIN_SRC C :main no :tangle no
+#pragma once
+
+#include "miryoku_alternatives.h"
+
+#if !defined(MIRYOKU_LAYER_BASE)
+  #if defined (MIRYOKU_LAYERS_FLIP)
+    #if defined (MIRYOKU_ALPHAS_AZERTY)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_AZERTY_FLIP
+    #elif defined (MIRYOKU_ALPHAS_COLEMAK)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAK_FLIP
+    #elif defined (MIRYOKU_ALPHAS_COLEMAKDHK)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK_FLIP
+    #elif defined (MIRYOKU_ALPHAS_DVORAK)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_DVORAK_FLIP
+    #elif defined (MIRYOKU_ALPHAS_HALMAK)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_HALMAK_FLIP
+    #elif defined (MIRYOKU_ALPHAS_WORKMAN)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_WORKMAN_FLIP
+    #elif defined (MIRYOKU_ALPHAS_QWERTY)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_QWERTY_FLIP
+    #elif defined (MIRYOKU_ALPHAS_QWERTZ)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_QWERTZ_FLIP
+    #else
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH_FLIP
+    #endif
+  #else
+    #if defined (MIRYOKU_ALPHAS_AZERTY)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_AZERTY
+    #elif defined (MIRYOKU_ALPHAS_COLEMAK)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAK
+    #elif defined (MIRYOKU_ALPHAS_COLEMAKDHK)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK
+    #elif defined (MIRYOKU_ALPHAS_DVORAK)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_DVORAK
+    #elif defined (MIRYOKU_ALPHAS_HALMAK)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_HALMAK
+    #elif defined (MIRYOKU_ALPHAS_WORKMAN)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_WORKMAN
+    #elif defined (MIRYOKU_ALPHAS_QWERTY)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_QWERTY
+    #elif defined (MIRYOKU_ALPHAS_QWERTZ)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_QWERTZ
+    #else
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH
+    #endif
+  #endif
+#endif
+
+#if !defined(MIRYOKU_LAYER_NAV)
+  #if defined (MIRYOKU_LAYERS_FLIP)
+    #if defined (MIRYOKU_NAV_INVERTEDT)
+      #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_FLIP
+    #else
+      #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_FLIP
+    #endif
+  #else
+    #if defined (MIRYOKU_NAV_VI)
+      #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_VI
+    #else
+      #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV
+    #endif
+  #endif
+#endif
+
+#if !defined(MIRYOKU_LAYER_MOUSE)
+  #if defined (MIRYOKU_LAYERS_FLIP)
+    #if defined (MIRYOKU_NAV_INVERTEDT)
+      #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP
+    #else
+      #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE_FLIP
+    #endif
+  #else
+    #if defined (MIRYOKU_NAV_VI)
+      #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE_VI
+    #else
+      #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE
+    #endif
+  #endif
+#endif
+
+#if !defined(MIRYOKU_LAYER_MEDIA)
+  #if defined (MIRYOKU_LAYERS_FLIP)
+    #if defined (MIRYOKU_NAV_INVERTEDT)
+      #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT_FLIP
+    #else
+      #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA_FLIP
+    #endif
+  #else
+    #if defined (MIRYOKU_NAV_VI)
+      #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA_VI
+    #else
+      #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA
+    #endif
+  #endif
+#endif
+
+#if !defined(MIRYOKU_LAYER_NUM)
+  #if defined (MIRYOKU_LAYERS_FLIP)
+    #define MIRYOKU_LAYER_NUM MIRYOKU_ALTERNATIVES_NUM_FLIP
+  #else
+    #define MIRYOKU_LAYER_NUM MIRYOKU_ALTERNATIVES_NUM
+  #endif
+#endif
+
+#if !defined(MIRYOKU_LAYER_SYM)
+  #if defined (MIRYOKU_LAYERS_FLIP)
+    #define MIRYOKU_LAYER_SYM MIRYOKU_ALTERNATIVES_SYM_FLIP
+  #else
+    #define MIRYOKU_LAYER_SYM MIRYOKU_ALTERNATIVES_SYM
+  #endif
+#endif
+
+#if !defined(MIRYOKU_LAYER_FUN)
+  #if defined (MIRYOKU_LAYERS_FLIP)
+    #define MIRYOKU_LAYER_FUN MIRYOKU_ALTERNATIVES_FUN_FLIP
+  #else
+    #define MIRYOKU_LAYER_FUN MIRYOKU_ALTERNATIVES_FUN
+  #endif
+#endif
+
+#if !defined(MIRYOKU_LAYER_BUTTON)
+  #define MIRYOKU_LAYER_BUTTON MIRYOKU_ALTERNATIVES_BUTTON
+#endif
+#+END_SRC
 
 
 **** COMMENT python-version
@@ -666,159 +960,20 @@ License for tangled QMK C source files.
 #+END_SRC
 
 
-**** table-layout-taphold
+**** layer-names-list
 
-Produce base layer from separate tap and hold tables.
-
-#+NAME: table-layout-taphold
-#+BEGIN_SRC python :var alphas_table=colemakdh :var thumbs_table=thumbs :var hold_table=hold :var symbol_names_table=symbol-names :var mods_table=mods :var nonkc_table=nonkc :var keycode_translation_table=keycode-translation :tangle no :results verbatim
-width = 19
-mods_dict = dict.fromkeys(mods_table[0])
-nonkc_tuple = tuple(nonkc_table[0])
-symbol_names_dict = {}
-for symbol, name, shifted_symbol, shifted_name in symbol_names_table:
-  symbol_names_dict[symbol] = name
-  symbol_names_dict[shifted_symbol] = shifted_name
-keycode_translation_dict = {}
-for standard, qmk, zmk in keycode_translation_table:
-  keycode_translation_dict[standard] = qmk
-results = ''
-for tap_row, hold_row in zip(alphas_table + thumbs_table, hold_table):
-  for tap, hold in zip(tap_row, hold_row):
-    if tap == '':
-      code = 'U_NU'
-    elif tap in symbol_names_dict:
-      code = symbol_names_dict[tap]
-    else:
-      code = tap
-    if code in keycode_translation_dict:
-      code = keycode_translation_dict[code]
-    if not str(code).startswith(nonkc_tuple):
-      code = 'KC_' + str(code)
-    if hold in mods_dict:
-      if hold in keycode_translation_dict:
-        hold = keycode_translation_dict[hold]
-      code = str(hold) + '_T(' + code + ')'
-    elif hold != '' and hold != 'U_NP' and hold != 'RESET':
-      code = 'LT(' + str(hold) + ', ' + code + ')'
-    results += (code + ', ').ljust(width)
-  results = results.rstrip(' ') + ' \\\n'
-results = results.rstrip(', \\\n')
+#+NAME: layer-names-list
+#+BEGIN_SRC python :var layers_table=layers :tangle no
+layers_list = layers_table[0]
+results = ', '.join(layers_list)
 return results
 #+END_SRC
 
-#+RESULTS: table-layout-taphold
-: KC_Q,              KC_W,              KC_F,              KC_P,              KC_B,              KC_J,              KC_L,              KC_U,              KC_Y,              KC_QUOT, \
-: LGUI_T(KC_A),      LALT_T(KC_R),      LCTL_T(KC_S),      LSFT_T(KC_T),      KC_G,              KC_M,              LSFT_T(KC_N),      LCTL_T(KC_E),      LALT_T(KC_I),      LGUI_T(KC_O), \
-: LT(BUTTON, KC_Z),  ALGR_T(KC_X),      KC_C,              KC_D,              KC_V,              KC_K,              KC_H,              KC_COMM,           ALGR_T(KC_DOT),    LT(BUTTON, KC_SLSH), \
-: U_NP,              U_NP,              LT(MEDIA, KC_ESC), LT(NAV, KC_SPC),   LT(MOUSE, KC_TAB), LT(SYM, KC_ENT),   LT(NUM, KC_BSPC),  LT(FUN, KC_DEL),   U_NP,              U_NP
+#+RESULTS: layer-names-list
+: BASE, BUTTON, NAV, MOUSE, MEDIA, NUM, SYM, FUN
 
 
-**** table-layout-half
-
-Produce sub layers given layer name and corresponding table for single hand and
-incorporating mods and reset from base layer.  Layer names must end with 'R' or
-'L'.  A layer with shifted symbols can also be generated.
-
-#+NAME: table-layout-half
-#+BEGIN_SRC python :var hold_table=hold :var mode="r" :var half_table=media-r :var symbol_names_table=symbol-names :var mods_table=mods :var nonkc_table=nonkc :var shift="false" :var keycode_translation_table=keycode-translation :tangle no :results verbatim
-width = 19
-mods_dict = dict.fromkeys(mods_table[0])
-nonkc_tuple = tuple(nonkc_table[0])
-symbol_names_dict = {}
-shifted_symbol_names_dict = {}
-for symbol, name, shifted_symbol, shifted_name in symbol_names_table:
-  symbol_names_dict[symbol] = name
-  symbol_names_dict[shifted_symbol] = shifted_name
-  shifted_symbol_names_dict[symbol] = shifted_name
-length = len(half_table[0])
-keycode_translation_dict = {}
-for standard, qmk, zmk in keycode_translation_table:
-  keycode_translation_dict[standard] = qmk
-results = ''
-for half_row, hold_row in zip(half_table, hold_table):
-  hold_row_l, hold_row_r = hold_row[:length], hold_row[length:]
-  for lr, hold_row_lr in ('l', hold_row_l), ('r', hold_row_r):
-    if lr == mode:
-      for half in half_row:
-        if half == '':
-          code = 'U_NU'
-        elif shift == "true" and half in shifted_symbol_names_dict:
-          code = shifted_symbol_names_dict[half]
-        elif half in symbol_names_dict:
-          code = symbol_names_dict[half]
-        else:
-          code = half
-        if code in keycode_translation_dict:
-          code = keycode_translation_dict[code]
-        if not str(code).startswith(nonkc_tuple):
-          code = 'KC_' + str(code)
-        results += (str(code) + ', ').ljust(width)
-    else:
-      for hold in hold_row_lr:
-        if hold == '' or hold != 'U_NP' and hold != 'RESET' and hold not in mods_dict:
-          code = 'U_NA'
-        else:
-          code = hold
-          if hold in keycode_translation_dict:
-            hold = keycode_translation_dict[hold]
-        if not str(code).startswith(nonkc_tuple):
-          code = 'KC_' + str(code)
-        results += (str(code) + ', ').ljust(width)
-  results = results.rstrip(' ') + ' \\\n'
-results = results.rstrip(', \\\n')
-return results
-#+END_SRC
-
-#+RESULTS: table-layout-half
-: RESET,             U_NA,              U_NA,              U_NA,              U_NA,              RGB_TOG,           RGB_MOD,           RGB_HUI,           RGB_SAI,           RGB_VAI, \
-: KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              OUT_AUTO,          KC_MPRV,           KC_VOLD,           KC_VOLU,           KC_MNXT, \
-: U_NA,              KC_ALGR,           U_NA,              U_NA,              U_NA,              U_NU,              U_NU,              U_NU,              U_NU,              U_NU, \
-: U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_MSTP,           KC_MPLY,           KC_MUTE,           U_NP,              U_NP
-
-
-**** table-layout-full
-
-Produce full layer from single table.  Fill for unused keys is configurable.
-
-#+NAME: table-layout-full
-#+BEGIN_SRC python :var table=button :var fill="TRNS" :var symbol_names_table=symbol-names :var nonkc_table=nonkc :var keycode_translation_table=keycode-translation :tangle no :results verbatim
-width = 19
-symbol_names_dict = {}
-nonkc_tuple = tuple(nonkc_table[0])
-for symbol, name, shifted_symbol, shifted_name in symbol_names_table:
-  symbol_names_dict[symbol] = name
-  symbol_names_dict[shifted_symbol] = shifted_name
-keycode_translation_dict = {}
-for standard, qmk, zmk in keycode_translation_table:
-  keycode_translation_dict[standard] = qmk
-results = ''
-for row in table:
-  for key in row:
-    if key == '':
-      code = fill
-    elif key in symbol_names_dict:
-      code = symbol_names_dict[key]
-    else:
-      code = key
-    if code in keycode_translation_dict:
-      code = keycode_translation_dict[code]
-    if not str(code).startswith(nonkc_tuple):
-      code = 'KC_' + str(code)
-    results += (code + ', ').ljust(width)
-  results = results.rstrip(' ') + ' \\\n'
-results = results.rstrip(', \\\n')
-return results
-#+END_SRC
-
-#+RESULTS: table-layout-full
-: U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND, \
-: KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           KC_TRNS,           KC_TRNS,           KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI, \
-: U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND, \
-: U_NP,              U_NP,              KC_BTN2,           KC_BTN3,           KC_BTN1,           KC_BTN1,           KC_BTN3,           KC_BTN2,           U_NP,              U_NP
-
-
-**** table-layer-names-list
+**** COMMENT table-layer-names-list
 
 Produce list of layer names from layer names in hold table.
 
@@ -834,11 +989,8 @@ results = ', '.join(layers)
 return results
 #+END_SRC
 
-#+RESULTS: table-layer-names-list
-: BASE, BUTTON, MEDIA, NAV, MOUSE, SYM, NUM, FUN
 
-
-**** table-keycode-mappings
+**** COMMENT table-keycode-mappings
 
 Produce keycode mappings according to the provided table.
 
@@ -879,12 +1031,6 @@ return results
 *** Miryoku ZMK
 
 
-**** layers
-
-#+NAME: layers
-| BASE | TAP | BUTTON | NAV | MOUSE | MEDIA | NUM | SYM | FUN |
-
-
 **** nonkp
 
 Keycodes that match any of these prefixes will not have ~&kp~ automatically
@@ -894,160 +1040,9 @@ prepended.
 | U_ | & |
 
 
-**** table-map-taphold
+**** layer-names-defines
 
-#+NAME: table-map-taphold
-#+BEGIN_SRC python :var alphas_table=colemakdh :var thumbs_table=thumbs :var hold_table=hold :var symbol_names_table=symbol-names :var mods_table=mods :var nonkp_table=nonkp :var layers_table=layers :var keycode_translation_table=keycode-translation :tangle no :results verbatim
-width = 18
-mods_dict = dict.fromkeys(mods_table[0])
-nonkp_tuple = tuple(nonkp_table[0])
-layers_dict = dict.fromkeys(layers_table[0])
-symbol_names_dict = {}
-for symbol, name, shifted_symbol, shifted_name in symbol_names_table:
-  symbol_names_dict[symbol] = name
-  symbol_names_dict[shifted_symbol] = shifted_name
-keycode_translation_dict = {}
-for standard, qmk, zmk in keycode_translation_table:
-  keycode_translation_dict[standard] = zmk
-results = ''
-for tap_row, hold_row in zip(alphas_table + thumbs_table, hold_table):
-  for tap, hold in zip(tap_row, hold_row):
-    if tap == '':
-      code = 'U_NU'
-    elif tap in symbol_names_dict:
-      code = symbol_names_dict[tap]
-    else:
-      code = tap
-    if code in keycode_translation_dict:
-      code = keycode_translation_dict[code]
-    if hold in mods_dict:
-      if hold in keycode_translation_dict:
-        hold = keycode_translation_dict[hold]
-      code = '&hm ' + str(hold) + ' ' + code
-    elif hold in layers_dict:
-      code = '&lt ' + str(hold) + ' ' + code
-    elif not str(code).startswith(nonkp_tuple):
-      code = '&kp ' + str(code)
-    results += (code + ', ').ljust(width)
-  results += '\\\n'
-results = results.rstrip(', \\\n')
-return results
-#+END_SRC
-
-#+RESULTS: table-map-taphold
-: &kp Q,            &kp W,            &kp F,            &kp P,            &kp B,            &kp J,            &kp L,            &kp U,            &kp Y,            &kp SQT,          \
-: &hm LGUI A,       &hm LALT R,       &hm LCTRL S,      &hm LSHFT T,      &kp G,            &kp M,            &hm LSHFT N,      &hm LCTRL E,      &hm LALT I,       &hm LGUI O,       \
-: &lt BUTTON Z,     &hm RALT X,       &kp C,            &kp D,            &kp V,            &kp K,            &kp H,            &kp COMMA,        &hm RALT DOT,     &lt BUTTON SLASH, \
-: U_NP,             U_NP,             &lt MEDIA ESC,    &lt NAV SPC,      &lt MOUSE TAB,    &lt SYM RET,      &lt NUM BSPC,     &lt FUN DEL,      U_NP,             U_NP
-
-
-**** table-map-half
-
-#+NAME: table-map-half
-#+BEGIN_SRC python :var hold_table=hold :var mode="r" :var half_table=mouse-r :var symbol_names_table=symbol-names :var mods_table=mods :var nonkp_table=nonkp :var shift="false" :var layers_table=layers :var keycode_translation_table=keycode-translation :tangle no :results verbatim
-width = 18
-mods_dict = dict.fromkeys(mods_table[0])
-layers_dict = dict.fromkeys(layers_table[0])
-nonkp_tuple = tuple(nonkp_table[0])
-symbol_names_dict = {}
-shifted_symbol_names_dict = {}
-for symbol, name, shifted_symbol, shifted_name in symbol_names_table:
-  symbol_names_dict[symbol] = name
-  symbol_names_dict[shifted_symbol] = shifted_name
-  shifted_symbol_names_dict[symbol] = shifted_name
-keycode_translation_dict = {}
-for standard, qmk, zmk in keycode_translation_table:
-  keycode_translation_dict[standard] = zmk
-length = len(half_table[0])
-results = ''
-for half_row, hold_row in zip(half_table, hold_table):
-  hold_row_l, hold_row_r = hold_row[:length], hold_row[length:]
-  for lr, hold_row_lr in ('l', hold_row_l), ('r', hold_row_r):
-    if lr == mode:
-      for half in half_row:
-        if half == '':
-          code = 'U_NU'
-        elif shift == "true" and half in shifted_symbol_names_dict:
-          code = shifted_symbol_names_dict[half]
-        elif half in symbol_names_dict:
-          code = symbol_names_dict[half]
-        else:
-          code = half
-        if code in keycode_translation_dict:
-          code = keycode_translation_dict[code]
-        if not str(code).startswith(nonkp_tuple):
-          code = '&kp ' + str(code)
-        results += (str(code) + ', ').ljust(width)
-    else:
-      for hold in hold_row_lr:
-        if hold in mods_dict:
-          if hold in keycode_translation_dict:
-            hold = keycode_translation_dict[hold]
-          code = '&kp ' + str(hold)
-        else:
-          if hold in keycode_translation_dict:
-            hold = keycode_translation_dict[hold]
-          if hold == '' or hold in layers_dict:
-            code = 'U_NA'
-          elif str(hold).startswith(nonkp_tuple):
-            code = hold
-          else:
-            code = '&kp ' + str(hold)
-        results += (str(code) + ', ').ljust(width)
-  results += '\\\n'
-results = results.rstrip(', \\\n')
-return results
-#+END_SRC
-
-#+RESULTS: table-map-half
-: &bootloader,     U_NA,            U_NA,            U_NA,            U_NA,            U_RDO,           U_PST,           U_CPY,           U_CUT,           U_UND,           \
-: &kp LGUI,        &kp LALT,        &kp LCTRL,       &kp LSHFT,       U_NA,            U_NU,            &kp KP_N4,       &kp KP_N2,       &kp KP_N8,       &kp KP_N6,       \
-: U_NA,            &kp RALT,        U_NA,            U_NA,            U_NA,            U_NU,            U_NU,            U_NU,            U_NU,            U_NU,            \
-: U_NP,            U_NP,            U_NA,            U_NA,            U_NA,            &kp KP_N5,       U_NU,            U_NU,            U_NP,            U_NP
-
-
-**** table-map-full
-
-#+NAME: table-map-full
-#+BEGIN_SRC python :var table=button :var fill="&trans" :var symbol_names_table=symbol-names :var nonkp_table=nonkp :var keycode_translation_table=keycode-translation :tangle no :results verbatim
-width = 18
-symbol_names_dict = {}
-nonkp_tuple = tuple(nonkp_table[0])
-for symbol, name, shifted_symbol, shifted_name in symbol_names_table:
-  symbol_names_dict[symbol] = name
-  symbol_names_dict[shifted_symbol] = shifted_name
-keycode_translation_dict = {}
-for standard, qmk, zmk in keycode_translation_table:
-  keycode_translation_dict[standard] = zmk
-results = ''
-for row in table:
-  for key in row:
-    if key == '':
-      code = fill
-    elif key in symbol_names_dict:
-      code = symbol_names_dict[key]
-    else:
-      code = key
-    if code in keycode_translation_dict:
-      code = keycode_translation_dict[code]
-    if not str(code).startswith(nonkp_tuple):
-      code = '&kp ' + str(code)
-    results += (code + ', ').ljust(width)
-  results += '\\\n'
-results = results.rstrip(', \\\n')
-return results
-#+END_SRC
-
-#+RESULTS: table-map-full
-: U_UND,           U_CUT,           U_CPY,           U_PST,           U_RDO,           U_RDO,           U_PST,           U_CPY,           U_CUT,           U_UND,           \
-: &kp LGUI,        &kp LALT,        &kp LCTRL,       &kp LSHFT,       &trans,          &trans,          &kp LSHFT,       &kp LCTRL,       &kp LALT,        &kp LGUI,        \
-: U_UND,           U_CUT,           U_CPY,           U_PST,           U_RDO,           U_RDO,           U_PST,           U_CPY,           U_CUT,           U_UND,           \
-: U_NP,            U_NP,            U_NU,            U_NU,            &kp KP_N5,       &kp KP_N5,       U_NU,            U_NU,            U_NP,            U_NP
-
-
-**** table-layer-defines
-
-#+NAME: table-layer-defines
+#+NAME: layer-names-defines
 #+BEGIN_SRC python :var layers_table=layers :tangle no
 width = 7
 layers_list = layers_table[0]
@@ -1059,19 +1054,18 @@ for layer in layers_list:
 return results
 #+END_SRC
 
-#+RESULTS: table-layer-defines
+#+RESULTS: layer-names-defines
 : #define BASE   0
-: #define TAP    1
-: #define BUTTON 2
-: #define NAV    3
-: #define MOUSE  4
-: #define MEDIA  5
-: #define NUM    6
-: #define SYM    7
-: #define FUN    8
+: #define BUTTON 1
+: #define NAV    2
+: #define MOUSE  3
+: #define MEDIA  4
+: #define NUM    5
+: #define SYM    6
+: #define FUN    7
 
 
-**** table-keycode-mappings-zmk
+**** COMMENT table-keycode-mappings-zmk
 
 #+NAME: table-keycode-mappings-zmk
 #+BEGIN_SRC python :var table=clipboard :var symbol_names_table=symbol-names :var nonkp_table=nonkp :var keycode_translation_table=keycode-translation :tangle no
@@ -1113,295 +1107,323 @@ return results
 *** Miryoku QMK
 
 
-**** [[./qmk/miryoku_layer_names.h]]
+**** [[tangled/qmk/miryoku_layer_names.h]]
 
-#+BEGIN_SRC C :main no :noweb yes :padline no :tangle qmk/miryoku_layer_names.h
-// <<header>>
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/qmk/miryoku_layer_names.h
+// Copyright 2019 Manna Harbour
+// https://github.com/manna-harbour/miryoku
+// generated -*- buffer-read-only: t -*-
 
 <<license-qmk>>
 
 #if !defined (MIRYOKU_LAYER_NAMES)
-  #define MIRYOKU_LAYER_NAMES <<table-layer-names-list()>>
+  #define MIRYOKU_LAYER_NAMES <<layer-names-list()>>
 #endif
 
 #+END_SRC
 
 
-**** [[./qmk/miryoku_alternatives.h]]
+**** [[tangled/qmk/miryoku_alternatives.h]]
 
-#+BEGIN_SRC C :main no :noweb yes :padline no :tangle qmk/miryoku_alternatives.h
-// <<header>>
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/qmk/miryoku_alternatives.h
+// Copyright 2019 Manna Harbour
+// https://github.com/manna-harbour/miryoku
+// generated -*- buffer-read-only: t -*-
+<<table-layer-init(target="qmk")>>
 
 <<license-qmk>>
 
 #pragma once
 
-
 #define MIRYOKU_ALTERNATIVES_BASE_AZERTY_FLIP \
-<<table-layout-taphold(alphas_table=azerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+<<table-layer-taphold(alphas_table=azerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAK_FLIP \
-<<table-layout-taphold(alphas_table=colemak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+<<table-layer-taphold(alphas_table=colemak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH_FLIP \
-<<table-layout-taphold(alphas_table=colemakdh, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+<<table-layer-taphold(alphas_table=colemakdh, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK_FLIP \
-<<table-layout-taphold(alphas_table=colemakdhk, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+<<table-layer-taphold(alphas_table=colemakdhk, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_DVORAK_FLIP \
-<<table-layout-taphold(alphas_table=dvorak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+<<table-layer-taphold(alphas_table=dvorak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_HALMAK_FLIP \
-<<table-layout-taphold(alphas_table=halmak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+<<table-layer-taphold(alphas_table=halmak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_WORKMAN_FLIP \
-<<table-layout-taphold(alphas_table=workman, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+<<table-layer-taphold(alphas_table=workman, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTY_FLIP \
-<<table-layout-taphold(alphas_table=qwerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+<<table-layer-taphold(alphas_table=qwerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTZ_FLIP \
-<<table-layout-taphold(alphas_table=qwertz, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+<<table-layer-taphold(alphas_table=qwertz, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_AZERTY \
-<<table-layout-taphold(alphas_table=azerty)>>
+<<table-layer-taphold(alphas_table=azerty)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAK \
-<<table-layout-taphold(alphas_table=colemak)>>
+<<table-layer-taphold(alphas_table=colemak)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH \
-<<table-layout-taphold(alphas_table=colemakdh)>>
+<<table-layer-taphold(alphas_table=colemakdh)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK \
-<<table-layout-taphold(alphas_table=colemakdhk)>>
+<<table-layer-taphold(alphas_table=colemakdhk)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_DVORAK \
-<<table-layout-taphold(alphas_table=dvorak)>>
+<<table-layer-taphold(alphas_table=dvorak)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_HALMAK \
-<<table-layout-taphold(alphas_table=halmak)>>
+<<table-layer-taphold(alphas_table=halmak)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_WORKMAN \
-<<table-layout-taphold(alphas_table=workman)>>
+<<table-layer-taphold(alphas_table=workman)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTY \
-<<table-layout-taphold(alphas_table=qwerty)>>
+<<table-layer-taphold(alphas_table=qwerty)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTZ \
-<<table-layout-taphold(alphas_table=qwertz)>>
+<<table-layer-taphold(alphas_table=qwertz)>>
 
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_FLIP \
-<<table-layout-half(half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_FLIP \
-<<table-layout-half(half_table=nav-l, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(half_table=nav-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
-<<table-layout-half(half_table=nav-r-vi, mode="r")>>
+<<table-layer-half(half_table=nav-r-vi, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV \
-<<table-layout-half(half_table=nav-r, mode="r")>>
+<<table-layer-half(half_table=nav-r, mode="r")>>
 
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP \
-<<table-layout-half(half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
-<<table-layout-half(half_table=mouse-l, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(half_table=mouse-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_VI \
-<<table-layout-half(half_table=mouse-r-vi, mode="r")>>
+<<table-layer-half(half_table=mouse-r-vi, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE \
-<<table-layout-half(half_table=mouse-r, mode="r")>>
+<<table-layer-half(half_table=mouse-r, mode="r")>>
 
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT_FLIP \
-<<table-layout-half(half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
-<<table-layout-half(half_table=media-l, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(half_table=media-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_VI \
-<<table-layout-half(half_table=media-r-vi, mode="r")>>
+<<table-layer-half(half_table=media-r-vi, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA \
-<<table-layout-half(half_table=media-r, mode="r")>>
+<<table-layer-half(half_table=media-r, mode="r")>>
 
 
 #define MIRYOKU_ALTERNATIVES_NUM_FLIP \
-<<table-layout-half(half_table=num-r, mode="r", hold_table=hold-flip)>>
+<<table-layer-half(half_table=num-r, mode="r", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NUM \
-<<table-layout-half(half_table=num-l, mode="l")>>
+<<table-layer-half(half_table=num-l, mode="l")>>
 
 
 #define MIRYOKU_ALTERNATIVES_SYM_FLIP \
-<<table-layout-half(half_table=sym-r, mode="r", hold_table=hold-flip)>>
+<<table-layer-half(half_table=sym-r, mode="r", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_SYM \
-<<table-layout-half(half_table=sym-l, mode="l")>>
+<<table-layer-half(half_table=sym-l, mode="l")>>
 
 
 #define MIRYOKU_ALTERNATIVES_FUN_FLIP \
-<<table-layout-half(half_table=fun-r, mode="r", hold_table=hold-flip)>>
+<<table-layer-half(half_table=fun-r, mode="r", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_FUN \
-<<table-layout-half(half_table=fun-l, mode="l")>>
+<<table-layer-half(half_table=fun-l, mode="l")>>
 
 
 #define MIRYOKU_ALTERNATIVES_BUTTON \
-<<table-layout-full(table=button)>>
+<<table-layer-full(table=button)>>
 
 #+END_SRC
 
+
+
+**** [[tangled/qmk/miryoku_layer.h]]
+
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/qmk/miryoku_layer.h
+// Copyright 2019 Manna Harbour
+// https://github.com/manna-harbour/miryoku
+// generated -*- buffer-read-only: t -*-
+
+<<license-qmk>>
+
+<<layer-body>>
+#+END_SRC
 
 
 *** Miryoku ZMK
 
 
-**** [[zmk/layer_names.h]
+**** [[tangled/zmk/miryoku_layer_names.h]]
 
-#+BEGIN_SRC C :main no :noweb yes :padline no :tangle zmk/layer_names.h
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/zmk/miryoku_layer_names.h
 // Copyright 2021 Manna Harbour
 // https://github.com/manna-harbour/miryoku
 // generated -*- buffer-read-only: t -*-
 
-<<table-layer-defines()>>
+<<layer-names-defines()>>
 
 #+END_SRC
 
 
-**** [[zmk/alternatives.h]]
+**** [[tangled/zmk/miryoku_alternatives.h]]
 
-#+BEGIN_SRC C :main no :noweb yes :padline no :tangle zmk/alternatives.h
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/zmk/miryoku_alternatives.h
+// Copyright 2021 Manna Harbour
+// https://github.com/manna-harbour/miryoku
+// generated -*- buffer-read-only: t -*-
+<<table-layer-init(target="zmk")>>
+
+#pragma once
+
+#define MIRYOKU_ALTERNATIVES_BASE_AZERTY_FLIP \
+<<table-layer-taphold(alphas_table=azerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_COLEMAK_FLIP \
+<<table-layer-taphold(alphas_table=colemak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH_FLIP \
+<<table-layer-taphold(alphas_table=colemakdh, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK_FLIP \
+<<table-layer-taphold(alphas_table=colemakdhk, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_DVORAK_FLIP \
+<<table-layer-taphold(alphas_table=dvorak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_HALMAK_FLIP \
+<<table-layer-taphold(alphas_table=halmak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_WORKMAN_FLIP \
+<<table-layer-taphold(alphas_table=workman, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTY_FLIP \
+<<table-layer-taphold(alphas_table=qwerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTZ_FLIP \
+<<table-layer-taphold(alphas_table=qwertz, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_AZERTY \
+<<table-layer-taphold(alphas_table=azerty)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_COLEMAK \
+<<table-layer-taphold(alphas_table=colemak)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH \
+<<table-layer-taphold(alphas_table=colemakdh)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK \
+<<table-layer-taphold(alphas_table=colemakdhk)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_DVORAK \
+<<table-layer-taphold(alphas_table=dvorak)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_HALMAK \
+<<table-layer-taphold(alphas_table=halmak)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_WORKMAN \
+<<table-layer-taphold(alphas_table=workman)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTY \
+<<table-layer-taphold(alphas_table=qwerty)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTZ \
+<<table-layer-taphold(alphas_table=qwertz)>>
+
+
+#define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_FLIP \
+<<table-layer-half(half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_NAV_FLIP \
+<<table-layer-half(half_table=nav-l, mode="l", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_NAV_VI \
+<<table-layer-half(half_table=nav-r-vi, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_NAV \
+<<table-layer-half(half_table=nav-r, mode="r")>>
+
+
+#define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP \
+<<table-layer-half(half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
+<<table-layer-half(half_table=mouse-l, mode="l", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_MOUSE_VI \
+<<table-layer-half(half_table=mouse-r-vi, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_MOUSE \
+<<table-layer-half(half_table=mouse-r, mode="r")>>
+
+
+#define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT_FLIP \
+<<table-layer-half(half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
+<<table-layer-half(half_table=media-l, mode="l", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_MEDIA_VI \
+<<table-layer-half(half_table=media-r-vi, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_MEDIA \
+<<table-layer-half(half_table=media-r, mode="r")>>
+
+
+#define MIRYOKU_ALTERNATIVES_NUM_FLIP \
+<<table-layer-half(half_table=num-r, mode="r", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_NUM \
+<<table-layer-half(half_table=num-l, mode="l")>>
+
+
+#define MIRYOKU_ALTERNATIVES_SYM_FLIP \
+<<table-layer-half(half_table=sym-r, mode="r", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_SYM \
+<<table-layer-half(half_table=sym-l, mode="l")>>
+
+
+#define MIRYOKU_ALTERNATIVES_FUN_FLIP \
+<<table-layer-half(half_table=fun-r, mode="r", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_FUN \
+<<table-layer-half(half_table=fun-l, mode="l")>>
+
+
+#define MIRYOKU_ALTERNATIVES_BUTTON \
+<<table-layer-full(table=button)>>
+
+#+END_SRC
+
+
+**** [[tangled/zmk/miryoku_layer.h]]
+
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/zmk/miryoku_layer.h
 // Copyright 2021 Manna Harbour
 // https://github.com/manna-harbour/miryoku
 // generated -*- buffer-read-only: t -*-
 
-#pragma once
-
-
-#define MIRYOKU_ALTERNATIVES_BASE_AZERTY_FLIP \
-<<table-map-taphold(alphas_table=azerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_COLEMAK_FLIP \
-<<table-map-taphold(alphas_table=colemak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH_FLIP \
-<<table-map-taphold(alphas_table=colemakdh, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK_FLIP \
-<<table-map-taphold(alphas_table=colemakdhk, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_DVORAK_FLIP \
-<<table-map-taphold(alphas_table=dvorak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_HALMAK_FLIP \
-<<table-map-taphold(alphas_table=halmak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_WORKMAN_FLIP \
-<<table-map-taphold(alphas_table=workman, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_QWERTY_FLIP \
-<<table-map-taphold(alphas_table=qwerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_QWERTZ_FLIP \
-<<table-map-taphold(alphas_table=qwertz, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_AZERTY \
-<<table-map-taphold(alphas_table=azerty)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_COLEMAK \
-<<table-map-taphold(alphas_table=colemak)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDH \
-<<table-map-taphold(alphas_table=colemakdh)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_COLEMAKDHK \
-<<table-map-taphold(alphas_table=colemakdhk)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_DVORAK \
-<<table-map-taphold(alphas_table=dvorak)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_HALMAK \
-<<table-map-taphold(alphas_table=halmak)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_WORKMAN \
-<<table-map-taphold(alphas_table=workman)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_QWERTY \
-<<table-map-taphold(alphas_table=qwerty)>>
-
-#define MIRYOKU_ALTERNATIVES_BASE_QWERTZ \
-<<table-map-taphold(alphas_table=qwertz)>>
-
-
-#define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_FLIP \
-<<table-map-half(half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_NAV_FLIP \
-<<table-map-half(half_table=nav-l, mode="l", hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_NAV_VI \
-<<table-map-half(half_table=nav-r-vi, mode="r")>>
-
-#define MIRYOKU_ALTERNATIVES_NAV \
-<<table-map-half(half_table=nav-r, mode="r")>>
-
-
-#define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP \
-<<table-map-half(half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
-<<table-map-half(half_table=mouse-l, mode="l", hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_MOUSE_VI \
-<<table-map-half(half_table=mouse-r-vi, mode="r")>>
-
-#define MIRYOKU_ALTERNATIVES_MOUSE \
-<<table-map-half(half_table=mouse-r, mode="r")>>
-
-
-#define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT_FLIP \
-<<table-map-half(half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
-<<table-map-half(half_table=media-l, mode="l", hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_MEDIA_VI \
-<<table-map-half(half_table=media-r-vi, mode="r")>>
-
-#define MIRYOKU_ALTERNATIVES_MEDIA \
-<<table-map-half(half_table=media-r, mode="r")>>
-
-
-#define MIRYOKU_ALTERNATIVES_NUM_FLIP \
-<<table-map-half(half_table=num-r, mode="r", hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_NUM \
-<<table-map-half(half_table=num-l, mode="l")>>
-
-
-#define MIRYOKU_ALTERNATIVES_SYM_FLIP \
-<<table-map-half(half_table=sym-r, mode="r", hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_SYM \
-<<table-map-half(half_table=sym-l, mode="l")>>
-
-
-#define MIRYOKU_ALTERNATIVES_FUN_FLIP \
-<<table-map-half(half_table=fun-r, mode="r", hold_table=hold-flip)>>
-
-#define MIRYOKU_ALTERNATIVES_FUN \
-<<table-map-half(half_table=fun-l, mode="l")>>
-
-
-#define MIRYOKU_ALTERNATIVES_BUTTON \
-<<table-map-full(table=button)>>
-
+<<layer-body>>
 #+END_SRC
 
 

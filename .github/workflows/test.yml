@@ -1,0 +1,50 @@
+name: 'Test'
+on:
+  - push
+  - pull_request
+  - workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        emacs-package:
+          - emacs-nox
+        org-branch:
+          # - release_9.4
+          - main
+        python-version:
+          # - 2.x
+          - 3.x
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Emacs (${{ matrix.emacs-package }})
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ${{ matrix.emacs-package }}
+      - name: Install Org (${{ matrix.org-branch }})
+        run: |
+          git clone --depth 1 --single-branch --branch ${{ matrix.org-branch }} https://git.savannah.gnu.org/git/emacs/org-mode.git
+          cd org-mode
+          make autoloads
+      - name: Setup Python (${{ matrix.python-version }})
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Show Versions
+        run: |
+          emacs --version
+          emacs --batch -Q -L org-mode/lisp -f package-initialize -f org-version
+          python --version
+      - name: Remove Tangled
+        run: |
+          rm -r tangled
+          git status -s
+      - name: Tangle
+        run: |
+          emacs --batch -Q -L org-mode/lisp -f package-initialize -eval "(require 'ob-python)" -eval "(setq org-confirm-babel-evaluate nil)" -eval "(setq python-indent-guess-indent-offset-verbose nil)" ./readme.org -f org-babel-tangle
+      - name: Diff
+        run: |
+          git status -s
+          git diff --exit-code
