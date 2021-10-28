@@ -5,7 +5,20 @@
 
 [[https://raw.githubusercontent.com/manna-harbour/miryoku/master/data/cover/miryoku-kle-cover.png]]
 
-[[https://github.com/manna-harbour/miryoku/][Miryoku]] is an ergonomic, minimal, orthogonal, and universal keyboard layout.  Miryoku Babel generates the keymap data for Miryoku implementations from org tables using [[https://orgmode.org/worg/org-contrib/babel/][babel]].
+[[https://github.com/manna-harbour/miryoku/][Miryoku]] is an ergonomic, minimal, orthogonal, and universal keyboard layout.  [[https://github.com/manna-harbour/miryoku_babel][Miryoku Babel]] generates the layer data source files for Miryoku implementations from a single source.
+
+
+** Introduction
+
+[[https://www.gnu.org/software/emacs/][Emacs]] is an extensible text editor.  [[https://orgmode.org/][Org]] is an emacs mode for structured text.
+
+[[#layer-tables][Layers]] are maintained in org tables.  The tables are [[#tangling][tangled]] into Miryoku implementation [[#tangled-files][source files]] via [[#scripts-and-data][python scripts and additional data tables]].
+
+Changes to Miryoku layers can be made with convenient [[https://orgmode.org/manual/Built_002din-Table-Editor.html][org table editing commands]].
+
+For those not using emacs, changes can also be made in any editor and the tangling can be performed from the shell or via a GitHub actions workflow.
+
+The scripts can also be used by other layouts to generated multi-firmware keymaps from a single source.
 
 
 ** Tangling
@@ -37,7 +50,20 @@ Call ~org-babel-tangle~ (~C-c~ ~C-v~ ~t~).
 
 **** Outside Emacs
 
-See [[.github/workflows]] for example shell commands.
+See the Install Org and Tangle steps in [[.github/workflows/main.yml]] for example shell commands that can be run locally.
+
+
+*** GitHub Actions Workflow
+
+
+***** Initial Setup
+
+Log in to GitHub and fork the Miryoku Babel repository.
+
+
+***** Tangle
+
+Visit the Actions tab, select the Build workflow, select Run workflow, select the Branch if desired, activate Run workflow, select the Artifacts, and unzip the downloaded zip file.
 
 
 ** Layer Tables
@@ -973,60 +999,6 @@ return results
 : BASE, BUTTON, NAV, MOUSE, MEDIA, NUM, SYM, FUN
 
 
-**** COMMENT table-layer-names-list
-
-Produce list of layer names from layer names in hold table.
-
-#+NAME: table-layer-names-list
-#+BEGIN_SRC python :var hold_table=hold :var mods_table=mods :tangle no
-mods_dict = dict.fromkeys(mods_table[0])
-layers = [ 'BASE', 'BUTTON' ]
-for hold_row in hold_table:
-  for hold in hold_row:
-    if hold not in mods_dict and hold != '' and hold != 'U_NP' and hold != 'RESET' and hold not in layers:
-      layers.append(hold)
-results = ', '.join(layers)
-return results
-#+END_SRC
-
-
-**** COMMENT table-keycode-mappings
-
-Produce keycode mappings according to the provided table.
-
-#+NAME: table-keycode-mappings
-#+BEGIN_SRC python :var table=clipboard :var symbol_names_table=symbol-names :var nonkc_table=nonkc :var keycode_translation_table=keycode-translation :tangle no
-nonkc_tuple = tuple(nonkc_table[0])
-symbol_names_dict = {}
-for symbol, name, shifted_symbol, shifted_name in symbol_names_table:
-  symbol_names_dict[symbol] = name
-  symbol_names_dict[shifted_symbol] = shifted_name
-keycode_translation_dict = {}
-for standard, qmk, zmk in keycode_translation_table:
-  keycode_translation_dict[standard] = qmk
-results = ''
-for f,t in table:
-  if t == '':
-    code = 'U_NU'
-  elif t in symbol_names_dict:
-    code = symbol_names_dict[t]
-  else:
-    code = t
-  if code in keycode_translation_dict:
-    code = keycode_translation_dict[code]
-  if not str(code).startswith(nonkc_tuple):
-    code = 'KC_' + str(code)
-  results += '#define ' + f + ' ' + code + '\n'
-return results
-#+END_SRC
-
-#+RESULTS: table-keycode-mappings
-: #define U_RDO KC_AGIN
-: #define U_PST S(KC_INS)
-: #define U_CPY C(KC_INS)
-: #define U_CUT S(KC_DEL)
-: #define U_UND KC_UNDO
-
 
 *** Miryoku ZMK
 
@@ -1064,41 +1036,6 @@ return results
 : #define SYM    6
 : #define FUN    7
 
-
-**** COMMENT table-keycode-mappings-zmk
-
-#+NAME: table-keycode-mappings-zmk
-#+BEGIN_SRC python :var table=clipboard :var symbol_names_table=symbol-names :var nonkp_table=nonkp :var keycode_translation_table=keycode-translation :tangle no
-nonkp_tuple = tuple(nonkp_table[0])
-symbol_names_dict = {}
-for symbol, name, shifted_symbol, shifted_name in symbol_names_table:
-  symbol_names_dict[symbol] = name
-  symbol_names_dict[shifted_symbol] = shifted_name
-results = ''
-keycode_translation_dict = {}
-for standard, qmk, zmk in keycode_translation_table:
-  keycode_translation_dict[standard] = zmk
-for f,t in table:
-  if t == '':
-    code = 'U_NU'
-  elif t in symbol_names_dict:
-    code = symbol_names_dict[t]
-  else:
-    code = t
-  if code in keycode_translation_dict:
-    code = keycode_translation_dict[code]
-  if not str(code).startswith(nonkp_tuple):
-    code = '&kp ' + str(code)
-  results += '#define ' + f + ' ' + code + '\n'
-return results
-#+END_SRC
-
-#+RESULTS: table-keycode-mappings-zmk
-: #define U_RDO &kp K_AGAIN
-: #define U_PST &kp LS(INS)
-: #define U_CPY &kp LC(INS)
-: #define U_CUT &kp LS(DEL)
-: #define U_UND &kp K_UNDO
 
 
 ** Tangled Files

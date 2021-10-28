@@ -1,0 +1,65 @@
+name: 'Main'
+on:
+  workflow_call:
+    inputs:
+      mode:
+        type: string
+      emacs-package:
+        type: string
+        default: '["emacs-nox"]'
+      org-branch:
+        type: string
+        default: '["main"]'
+      python-version:
+        type: string
+        default: '["3.x"]'
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        mode: ${{ fromJSON(inputs.mode) }}
+        emacs-package: ${{ fromJSON(inputs.emacs-package) }}
+        org-branch: ${{ fromJSON(inputs.org-branch) }}
+        python-version: ${{ fromJSON(inputs.python-version) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install Emacs (${{ matrix.emacs-package }})
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ${{ matrix.emacs-package }}
+      - name: Install Org (${{ matrix.org-branch }})
+        run: |
+          git clone --depth 1 --single-branch --branch ${{ matrix.org-branch }} https://git.savannah.gnu.org/git/emacs/org-mode.git
+          cd org-mode
+          make autoloads
+      - name: Setup Python (${{ matrix.python-version }})
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Show Versions
+        run: |
+          lsb_release -a
+          emacs --version
+          emacs --batch -Q -L org-mode/lisp -f package-initialize -f org-version
+          python --version
+      - name: Remove Tangled
+        if: ${{ matrix.mode == 'test' }}
+        run: |
+          rm -r tangled
+          git status -s
+      - name: Tangle
+        run: |
+          emacs --batch -Q -L org-mode/lisp -f package-initialize -eval "(require 'ob-python)" -eval "(setq org-confirm-babel-evaluate nil)" -eval "(setq python-indent-guess-indent-offset-verbose nil)" ./readme.org -f org-babel-tangle
+      - name: Diff
+        if: ${{ matrix.mode == 'test' }}
+        run: |
+          git status -s
+          git diff --exit-code
+      - name: Archive Artifacts
+        if: ${{ matrix.mode == 'build' }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: 'miryoku_babel'
+          path: tangled

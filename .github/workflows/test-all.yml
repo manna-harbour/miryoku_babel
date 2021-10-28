@@ -1,0 +1,10 @@
+name: 'Test All'
+on: workflow_dispatch
+jobs:
+  test:
+    uses: manna-harbour/miryoku_babel/.github/workflows/main.yml@master
+    with:
+      mode: '["test"]'
+      emacs-package: '["emacs-nox"]'
+      org-branch: '["release_9.4","main"]'
+      python-version: '["2.x","3.x"]'

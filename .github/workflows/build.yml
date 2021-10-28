@@ -1,10 +1,7 @@
-name: 'Test'
-on:
-  - push
-  - pull_request
-  - workflow_dispatch
+name: 'Build'
+on: workflow_dispatch
 jobs:
   test:
     uses: manna-harbour/miryoku_babel/.github/workflows/main.yml@master
     with:
-      mode: '["test"]'
+      mode: '["build"]'
