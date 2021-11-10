@@ -555,9 +555,9 @@ Source keycode to implementation equivalent (source, QMK, ZMK).
 | U_BTSEL2   | U_NU       | &bt BT_SEL 2    |
 | U_BTSEL3   | U_NU       | &bt BT_SEL 3    |
 | U_BTSEL4   | U_NU       | &bt BT_SEL 4    |
-| BTN1       | BTN1       | KP_N5           |
-| BTN2       | BTN2       | U_NU            |
-| BTN3       | BTN3       | U_NU            |
+| BTN1       | BTN1       | U_BTN1          |
+| BTN2       | BTN2       | U_BTN2          |
+| BTN3       | BTN3       | U_BTN3          |
 | CAPS       | CAPS       | CAPS            |
 | CIRC       | CIRC       | CRRT            |
 | COLN       | COLN       | COLON           |
@@ -604,10 +604,10 @@ Source keycode to implementation equivalent (source, QMK, ZMK).
 | MNXT       | MNXT       | C_NEXT          |
 | MPLY       | MPLY       | C_PP            |
 | MPRV       | MPRV       | C_PREV          |
-| MS_D       | MS_D       | KP_N2           |
-| MS_L       | MS_L       | KP_N4           |
-| MS_R       | MS_R       | KP_N6           |
-| MS_U       | MS_U       | KP_N8           |
+| MS_D       | MS_D       | U_MS_D          |
+| MS_L       | MS_L       | U_MS_L          |
+| MS_R       | MS_R       | U_MS_R          |
+| MS_U       | MS_U       | U_MS_U          |
 | MSTP       | MSTP       | C_STOP          |
 | MUTE       | MUTE       | C_MUTE          |
 | NO         | NO         | &none           |
@@ -646,10 +646,10 @@ Source keycode to implementation equivalent (source, QMK, ZMK).
 | UP         | UP         | UP              |
 | VOLD       | VOLD       | C_VOL_DN        |
 | VOLU       | VOLU       | C_VOL_UP        |
-| WH_D       | WH_D       | U_NU            |
-| WH_L       | WH_L       | U_NU            |
-| WH_R       | WH_R       | U_NU            |
-| WH_U       | WH_U       | U_NU            |
+| WH_D       | WH_D       | U_WH_D          |
+| WH_L       | WH_L       | U_WH_L          |
+| WH_R       | WH_R       | U_WH_R          |
+| WH_U       | WH_U       | U_WH_U          |
 | U_MT       | U_MT       | LS(LNLCK)       |
 
 
