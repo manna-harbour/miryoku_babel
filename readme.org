@@ -298,83 +298,32 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 
 ~MIRYOKU_NAV=INVERTEDT~
 
-Only available with ~MIRYOKU_LAYERS=FLIP~.
-
 
 ****** Nav
 
-#+NAME: nav-l-invertedt
-| PGUP  | HOME  | UP    | END   | INS   |
-| PGDN  | LEFT  | DOWN  | RGHT  | CAPS  |
-| U_UND | U_CUT | U_CPY | U_PST | U_RDO |
-| U_NP  | U_NP  | DEL   | BSPC  | ENT   |
+#+NAME: nav-r-invertedt
+| INS   | HOME  | UP    | END   | PGUP  |
+| CAPS  | LEFT  | DOWN  | RGHT  | PGDN  |
+| U_RDO | U_PST | U_CPY | U_CUT | U_UND |
+| ENT   | BSPC  | DEL   | U_NP  | U_NP  |
 
 
 ****** Mouse
 
-#+NAME: mouse-l-invertedt
-| WH_U  | WH_L  | MS_U  | WH_R  |       |
-| WH_D  | MS_L  | MS_D  | MS_R  |       |
-| U_UND | U_CUT | U_CPY | U_PST | U_RDO |
-| U_NP  | U_NP  | BTN2  | BTN3  | BTN1  |
+#+NAME: mouse-r-invertedt
+|       | WH_L  | MS_U  | WH_R  | WH_U  |
+|       | MS_L  | MS_D  | MS_R  | WH_D  |
+| U_RDO | U_PST | U_CPY | U_CUT | U_UND |
+| BTN1  | BTN3  | BTN2  | U_NP  | U_NP  |
 
 
 ****** Media
 
-#+NAME: media-l-invertedt
-| U_BTSEL0 | U_BTSEL1 | VOLU    | U_BTSEL2 | U_BTSEL3 |
-| U_BTCLR  | MPRV     | VOLD    | MNXT     | OUT_AUTO |
-| RGB_MOD  | RGB_HUI  | RGB_SAI | RGB_VAI  | RGB_TOG  |
-| U_NP     | U_NP     | MUTE    | MPLY     | MSTP     |
-
-
-**** COMMENT Clipboard
-
-
-***** Default
-
-#+NAME: clipboard
-| U_RDO | AGIN      |
-| U_PST | S(KC_INS) |
-| U_CPY | C(KC_INS) |
-| U_CUT | S(KC_DEL) |
-| U_UND | UNDO   |
-
-
-***** Fun Cluster
-
-~MIRYOKU_CLIPBOARD=FUN~
-
-#+NAME: clipboard-fun
-| U_RDO | AGIN |
-| U_PST | PSTE |
-| U_CPY | COPY |
-| U_CUT | CUT  |
-| U_UND | UNDO |
-
-
-***** Mac
-
-~MIRYOKU_CLIPBOARD=MAC~
-
-#+NAME: clipboard-mac
-| U_RDO | SCMD(KC_Z) |
-| U_PST | LCMD(KC_V) |
-| U_CPY | LCMD(KC_C) |
-| U_CUT | LCMD(KC_X) |
-| U_UND | LCMD(KC_Z) |
-
-
-***** Windows
-
-~MIRYOKU_CLIPBOARD=WIN~
-
-#+NAME: clipboard-win
-| U_RDO | C(KC_Y) |
-| U_PST | C(KC_V) |
-| U_CPY | C(KC_C) |
-| U_CUT | C(KC_X) |
-| U_UND | C(KC_Z) |
+#+NAME: media-r-invertedt
+| RGB_TOG  | RGB_MOD  | VOLU     | RGB_HUI  | RGB_SAI  |
+| OUT_AUTO | MPRV     | VOLD     | MNXT     | RGB_VAI  |
+| U_BTCLR  | U_BTSEL0 | U_BTSEL1 | U_BTSEL2 | U_BTSEL3 |
+| MSTP     | MPLY     | MUTE     | U_NP     | U_NP     |
 
 
 **** Layers
@@ -398,33 +347,6 @@ Only available with ~MIRYOKU_LAYERS=FLIP~.
 | LGUI   | LALT   | LCTL   | LSFT   |        |        | LSFT   | LCTL   | LALT   | LGUI   |
 | BUTTON | ALGR   |        |        |        |        |        |        | ALGR   | BUTTON |
 | U_NP   | U_NP   | FUN    | NUM    | SYM    | MOUSE  | NAV    | MEDIA  | U_NP   | U_NP   |
-
-
-****** Nav
-
-#+NAME: nav-l
-| HOME  | PGDN  | PGUP  | END   | INS   |
-| LEFT  | DOWN  | UP    | RGHT  | CAPS  |
-| U_UND | U_CUT | U_CPY | U_PST | U_RDO |
-| U_NP  | U_NP  | DEL   | BSPC  | ENT   |
-
-
-****** Mouse
-
-#+NAME: mouse-l
-| WH_L  | WH_D  | WH_U  | WH_R  |       |
-| MS_L  | MS_D  | MS_U  | MS_R  |       |
-| U_UND | U_CUT | U_CPY | U_PST | U_RDO |
-| U_NP  | U_NP  | BTN2  | BTN3  | BTN1  |
-
-
-****** Media
-
-#+NAME: media-l
-| RGB_MOD  | RGB_HUI  | RGB_SAI  | RGB_VAI  | RGB_TOG  |
-| MPRV     | VOLD     | VOLU     | MNXT     | OUT_AUTO |
-| U_BTSEL0 | U_BTSEL1 | U_BTSEL2 | U_BTSEL3 | U_BTCLR  |
-| U_NP     | U_NP     | MUTE     | MPLY     | MSTP     |
 
 
 ****** Num
@@ -452,6 +374,70 @@ Only available with ~MIRYOKU_LAYERS=FLIP~.
 | SLCK | F4   | F5   | F6   | F11  |
 | PAUS | F1   | F2   | F3   | F10  |
 | TAB  | SPC  | APP  | U_NP | U_NP |
+
+
+****** Nav
+
+******* Default
+
+******** Nav
+
+#+NAME: nav-l
+| HOME  | PGDN  | PGUP  | END   | INS   |
+| LEFT  | DOWN  | UP    | RGHT  | CAPS  |
+| U_UND | U_CUT | U_CPY | U_PST | U_RDO |
+| U_NP  | U_NP  | DEL   | BSPC  | ENT   |
+
+
+******** Mouse
+
+#+NAME: mouse-l
+| WH_L  | WH_D  | WH_U  | WH_R  |       |
+| MS_L  | MS_D  | MS_U  | MS_R  |       |
+| U_UND | U_CUT | U_CPY | U_PST | U_RDO |
+| U_NP  | U_NP  | BTN2  | BTN3  | BTN1  |
+
+
+******** Media
+
+#+NAME: media-l
+| RGB_MOD  | RGB_HUI  | RGB_SAI  | RGB_VAI  | RGB_TOG  |
+| MPRV     | VOLD     | VOLU     | MNXT     | OUT_AUTO |
+| U_BTSEL0 | U_BTSEL1 | U_BTSEL2 | U_BTSEL3 | U_BTCLR  |
+| U_NP     | U_NP     | MUTE     | MPLY     | MSTP     |
+
+
+******* Inverted-T
+
+~MIRYOKU_NAV=INVERTEDT~
+
+
+******** Nav
+
+#+NAME: nav-l-invertedt
+| PGUP  | HOME  | UP    | END   | INS   |
+| PGDN  | LEFT  | DOWN  | RGHT  | CAPS  |
+| U_UND | U_CUT | U_CPY | U_PST | U_RDO |
+| U_NP  | U_NP  | DEL   | BSPC  | ENT   |
+
+
+******** Mouse
+
+#+NAME: mouse-l-invertedt
+| WH_U  | WH_L  | MS_U  | WH_R  |       |
+| WH_D  | MS_L  | MS_D  | MS_R  |       |
+| U_UND | U_CUT | U_CPY | U_PST | U_RDO |
+| U_NP  | U_NP  | BTN2  | BTN3  | BTN1  |
+
+
+******** Media
+
+#+NAME: media-l-invertedt
+| RGB_SAI  | RGB_HUI  | VOLU     | RGB_MOD  | RGB_TOG  |
+| RGB_VAI  | MPRV     | VOLD     | MNXT     | OUT_AUTO |
+| U_BTSEL0 | U_BTSEL1 | U_BTSEL2 | U_BTSEL3 | U_BTCLR  |
+| U_NP     | U_NP     | MUTE     | MPLY     | MSTP     |
+
 
 
 *** COMMENT Templates
@@ -887,7 +873,9 @@ Body of miryoku_layer.h.
       #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_FLIP
     #endif
   #else
-    #if defined (MIRYOKU_NAV_VI)
+    #if defined (MIRYOKU_NAV_INVERTEDT)
+      #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_INVERTEDT
+    #elif defined (MIRYOKU_NAV_VI)
       #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_VI
     #else
       #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV
@@ -903,7 +891,9 @@ Body of miryoku_layer.h.
       #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE_FLIP
     #endif
   #else
-    #if defined (MIRYOKU_NAV_VI)
+    #if defined (MIRYOKU_NAV_INVERTEDT)
+      #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT
+    #elif defined (MIRYOKU_NAV_VI)
       #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE_VI
     #else
       #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE
@@ -919,7 +909,9 @@ Body of miryoku_layer.h.
       #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA_FLIP
     #endif
   #else
-    #if defined (MIRYOKU_NAV_VI)
+    #if defined (MIRYOKU_NAV_INVERTEDT)
+      #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT
+    #elif defined (MIRYOKU_NAV_VI)
       #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA_VI
     #else
       #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA
@@ -1137,6 +1129,9 @@ return results
 #define MIRYOKU_ALTERNATIVES_NAV_FLIP \
 <<table-layer-half(half_table=nav-l, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT \
+<<table-layer-half(half_table=nav-r-invertedt, mode="r")>>
+
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
 <<table-layer-half(half_table=nav-r-vi, mode="r")>>
 
@@ -1150,6 +1145,9 @@ return results
 #define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
 <<table-layer-half(half_table=mouse-l, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT \
+<<table-layer-half(half_table=mouse-r-invertedt, mode="r")>>
+
 #define MIRYOKU_ALTERNATIVES_MOUSE_VI \
 <<table-layer-half(half_table=mouse-r-vi, mode="r")>>
 
@@ -1162,6 +1160,9 @@ return results
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
 <<table-layer-half(half_table=media-l, mode="l", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT \
+<<table-layer-half(half_table=media-r-invertedt, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_VI \
 <<table-layer-half(half_table=media-r-vi, mode="r")>>
@@ -1297,6 +1298,9 @@ return results
 #define MIRYOKU_ALTERNATIVES_NAV_FLIP \
 <<table-layer-half(half_table=nav-l, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT \
+<<table-layer-half(half_table=nav-r-invertedt, mode="r")>>
+
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
 <<table-layer-half(half_table=nav-r-vi, mode="r")>>
 
@@ -1310,6 +1314,9 @@ return results
 #define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
 <<table-layer-half(half_table=mouse-l, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT \
+<<table-layer-half(half_table=mouse-r-invertedt, mode="r")>>
+
 #define MIRYOKU_ALTERNATIVES_MOUSE_VI \
 <<table-layer-half(half_table=mouse-r-vi, mode="r")>>
 
@@ -1322,6 +1329,9 @@ return results
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
 <<table-layer-half(half_table=media-l, mode="l", hold_table=hold-flip)>>
+
+#define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT \
+<<table-layer-half(half_table=media-r-invertedt, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_VI \
 <<table-layer-half(half_table=media-r-vi, mode="r")>>
