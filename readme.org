@@ -58,12 +58,16 @@ See the Install Org and Tangle steps in [[.github/workflows/main.yml]] for examp
 
 ***** Initial Setup
 
-Log in to GitHub and fork the Miryoku Babel repository.
+Log in to GitHub, fork the Miryoku Babel repository, and enable workflows.
+
+The Test workflow is not applicable when using the Build workflow and should be prevented from running on push by deleting the [[https://github.com/manna-harbour/miryoku_babel/blob/2cb587dfd19da61f584a4a3b0d57ff9b6c6ccf87/.github/workflows/test.yml#L3][push line in .github/workflows/test.yml]].
 
 
 ***** Tangle
 
 Visit the Actions tab, select the Build workflow, select Run workflow, select the Branch if desired, activate Run workflow, select the Artifacts, and unzip the downloaded zip file.
+
+
 
 
 ** Layer Tables
