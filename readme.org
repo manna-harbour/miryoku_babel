@@ -10,9 +10,7 @@
 
 ** Introduction
 
-[[https://www.gnu.org/software/emacs/][Emacs]] is an extensible text editor.  [[https://orgmode.org/][Org]] is an emacs mode for structured text.
-
-[[#layer-tables][Layers]] are maintained in org tables.  The tables are [[#tangling][tangled]] into Miryoku implementation [[#tangled-files][source files]] via [[#scripts-and-data][python scripts and additional data tables]].
+[[https://www.gnu.org/software/emacs/][Emacs]] is an extensible text editor.  [[https://orgmode.org/][Org]] is an emacs mode for structured text. [[https://orgmode.org/worg/org-contrib/babel/][Babel]] is Org's ability to execute source code from within Org documents.  This Org document uses Babel to generate the layer data source files for Miryoku implementations.  [[#layer-tables][Layers]] are maintained in org tables.  The tables are [[#tangling][tangled]] into [[#tangled-files][source files]] via [[#scripts-and-data][python scripts and additional data tables]].
 
 Changes to Miryoku layers can be made with convenient [[https://orgmode.org/manual/Built_002din-Table-Editor.html][org table editing commands]].
 
