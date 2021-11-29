@@ -187,6 +187,16 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 | W    | X    | C    | V    | B    | N    | ,    | DOT  | /    | '    |
 
 
+***** BEAKL-15
+
+~MIRYOKU_ALPHAS=BEAKL15~
+
+#+NAME: beakl15
+| Q    | H    | O    | U    | X    | G    | C    | R    | F    | Z    |
+| Y    | I    | E    | A    | DOT  | D    | S    | T    | N    | B    |
+| J    | /    | ,    | K    | '    | W    | M    | L    | P    | V    |
+
+
 ***** Colemak
 
 ~MIRYOKU_ALPHAS=COLEMAK~
@@ -857,6 +867,8 @@ Body of miryoku_layer.h.
   #if defined (MIRYOKU_LAYERS_FLIP)
     #if defined (MIRYOKU_ALPHAS_AZERTY)
       #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_AZERTY_FLIP
+    #elif defined (MIRYOKU_ALPHAS_BEAKL15)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_BEAKL15_FLIP
     #elif defined (MIRYOKU_ALPHAS_COLEMAK)
       #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAK_FLIP
     #elif defined (MIRYOKU_ALPHAS_COLEMAKDHK)
@@ -877,6 +889,8 @@ Body of miryoku_layer.h.
   #else
     #if defined (MIRYOKU_ALPHAS_AZERTY)
       #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_AZERTY
+    #elif defined (MIRYOKU_ALPHAS_BEAKL15)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_BEAKL15
     #elif defined (MIRYOKU_ALPHAS_COLEMAK)
       #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_COLEMAK
     #elif defined (MIRYOKU_ALPHAS_COLEMAKDHK)
@@ -1106,6 +1120,9 @@ return results
 #define MIRYOKU_ALTERNATIVES_BASE_AZERTY_FLIP \
 <<table-layer-taphold(alphas_table=azerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_BASE_BEAKL15_FLIP \
+<<table-layer-taphold(alphas_table=beakl15, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAK_FLIP \
 <<table-layer-taphold(alphas_table=colemak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
@@ -1132,6 +1149,9 @@ return results
 
 #define MIRYOKU_ALTERNATIVES_BASE_AZERTY \
 <<table-layer-taphold(alphas_table=azerty)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_BEAKL15 \
+<<table-layer-taphold(alphas_table=beakl15)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAK \
 <<table-layer-taphold(alphas_table=colemak)>>
@@ -1275,6 +1295,9 @@ return results
 #define MIRYOKU_ALTERNATIVES_BASE_AZERTY_FLIP \
 <<table-layer-taphold(alphas_table=azerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_BASE_BEAKL15_FLIP \
+<<table-layer-taphold(alphas_table=beakl15, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAK_FLIP \
 <<table-layer-taphold(alphas_table=colemak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
@@ -1301,6 +1324,9 @@ return results
 
 #define MIRYOKU_ALTERNATIVES_BASE_AZERTY \
 <<table-layer-taphold(alphas_table=azerty)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_BEAKL15 \
+<<table-layer-taphold(alphas_table=beakl15)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAK \
 <<table-layer-taphold(alphas_table=colemak)>>
@@ -1429,6 +1455,9 @@ return results
 #define MIRYOKU_ALTERNATIVES_BASE_AZERTY_FLIP \
 <<table-layer-taphold(alphas_table=azerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_BASE_BEAKL15_FLIP \
+<<table-layer-taphold(alphas_table=beakl15, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAK_FLIP \
 <<table-layer-taphold(alphas_table=colemak, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
@@ -1455,6 +1484,9 @@ return results
 
 #define MIRYOKU_ALTERNATIVES_BASE_AZERTY \
 <<table-layer-taphold(alphas_table=azerty)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_BEAKL15 \
+<<table-layer-taphold(alphas_table=beakl15)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_COLEMAK \
 <<table-layer-taphold(alphas_table=colemak)>>
