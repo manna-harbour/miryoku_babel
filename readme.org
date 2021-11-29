@@ -186,6 +186,15 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 | Q    | S    | D    | F    | G    | H    | J    | K    | L    | M    |
 | W    | X    | C    | V    | B    | N    | ,    | DOT  | /    | '    |
 
+***** BEAKL15
+
+~MIRYOKU_ALPHAS=BEAKL15~
+
+#+NAME: beakl15
+| Q    | H    | O    | U    | X    | G    | C    | R    | F    | Z    |
+| Y    | I    | E    | A    | DOT  | D    | S    | T    | N    | B    |
+| J    | /    | ,    | K    | '    | W    | M    | L    | P    | V    |
+
 
 ***** Colemak
 
@@ -1378,6 +1387,6 @@ return results
 #+END_SRC
 
 
-** 
+**
 
 [[https://github.com/manna-harbour][https://raw.githubusercontent.com/manna-harbour/miryoku/master/data/logos/manna-harbour-boa-32.png]]
