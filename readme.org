@@ -572,9 +572,9 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | U_BTSEL2 | U_NU     | &bt BT_SEL 2    | XX              |
 | U_BTSEL3 | U_NU     | &bt BT_SEL 3    | XX              |
 | U_BTSEL4 | U_NU     | &bt BT_SEL 4    | XX              |
-| BTN1     | BTN1     | U_BTN1          | U_HASH(kp/ kp5) |
-| BTN2     | BTN2     | U_BTN2          | U_HASH(kp- kp5) |
-| BTN3     | BTN3     | U_BTN3          | U_HASH(kp* kp5) |
+| BTN1     | BTN1     | U_BTN1          | #(kp/ kp5)      |
+| BTN2     | BTN2     | U_BTN2          | #(kp- kp5)      |
+| BTN3     | BTN3     | U_BTN3          | #(kp* kp5)      |
 | CAPS     | CAPS     | CAPS            | caps            |
 | CIRC     | CIRC     | CRRT            | ^               |
 | COLN     | COLN     | COLON           | :               |
@@ -583,7 +583,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | DLR      | DLR      | DLLR            | $               |
 | DOT      | DOT      | DOT             | .               |
 | DOWN     | DOWN     | DOWN            | down            |
-| DQUO     | DQUO     | DQT             | \"              |
+| DQUO     | DQUO     | DQT             | U_DQUO          |
 | END      | END      | END             | end             |
 | ENT      | ENT      | RET             | ent             |
 | EQL      | EQL      | EQL             | =               |
@@ -603,7 +603,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | F12      | F12      | F12             | f12             |
 | GRV      | GRV      | GRAVE           | `               |
 | GT       | GT       | GT              | >               |
-| HASH     | HASH     | HASH            | U_HASH          |
+| HASH     | HASH     | HASH            | #               |
 | HOME     | HOME     | HOME            | home            |
 | INS      | INS      | INS             | ins             |
 | LALT     | LALT     | LALT            | alt             |
