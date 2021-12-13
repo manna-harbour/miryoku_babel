@@ -8,13 +8,15 @@
 [[https://github.com/manna-harbour/miryoku/][Miryoku]] is an ergonomic, minimal, orthogonal, and universal keyboard layout.  [[https://github.com/manna-harbour/miryoku_babel][Miryoku Babel]] generates the layer data source files for Miryoku implementations from a single source.
 
 
-** Introduction
+** Overview
 
-[[https://www.gnu.org/software/emacs/][Emacs]] is an extensible text editor.  [[https://orgmode.org/][Org]] is an emacs mode for structured text. [[https://orgmode.org/worg/org-contrib/babel/][Babel]] is Org's ability to execute source code from within Org documents.  This Org document uses Babel to generate the layer data source files for Miryoku implementations.  [[#layer-tables][Layers]] are maintained in org tables.  The tables are [[#tangling][tangled]] into [[#tangled-files][source files]] via [[#scripts-and-data][python scripts and additional data tables]].
+[[https://www.gnu.org/software/emacs/][Emacs]] is an extensible text editor.  [[https://orgmode.org/][Org]] is an emacs mode for structured text. [[https://orgmode.org/worg/org-contrib/babel/][Babel]] is org's ability to execute source code from within org documents.  This org document uses babel to generate the layer data source files for Miryoku implementations.
+
+[[#layer-tables][Layers]] and [[#alternative-layouts][alternative layouts]] are maintained in org tables.  The tables are [[#tangling][tangled]] into [[#tangled-files][source files]] via [[#scripts-and-data][python scripts and additional data tables]].
 
 Changes to Miryoku layers can be made with convenient [[https://orgmode.org/manual/Built_002din-Table-Editor.html][org table editing commands]].
 
-For those not using emacs, changes can also be made in any editor and the tangling can be performed from the shell or via a GitHub actions workflow.
+For those not using emacs, changes can also be made in any editor and the tangling can be performed [[#outside-emacs][from the shell]] or via a [[#github-actions-workflow][GitHub actions workflow]].
 
 The scripts can also be used by other layouts to generated multi-firmware keymaps from a single source.
 
