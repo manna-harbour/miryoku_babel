@@ -241,6 +241,32 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 | F    | M    | V    | C    | /    | G    | P    | X    | K    | Y    |
 
 
+***** RSTHD
+
+~MIRYOKU_ALPHAS=RSTHD~
+
+Changes to RSTHD: ~E~ is moved to the right, and ~Enter~ takes the place of semicolon on Base.
+
+Changes to Miryoku: ~Backspace~ is moved to the secondary thumb, and the primary thumb has ~E~ on Base and ~Enter~ on Nav.
+
+Not available with ~MIRYOKU_LAYERS=FLIP~, ~MIRYOKU_NAV=VI~, or ~MIRYOKU_NAV=INVERTEDT~.
+
+
+#+NAME: rsthd
+| J    | C    | Y    | F    | K    | Z    | L    | ,    | U    | Q    |
+| R    | S    | T    | H    | D    | M    | N    | A    | I    | O    |
+| /    | V    | G    | P    | B    | X    | W    | DOT  | ENT  | '    |
+
+#+NAME: thumbs-rsthd
+| U_NP  | U_NP  | ESC   | SPC   | TAB   | BSPC  | E     | DEL   | U_NP  | U_NP  |
+
+#+NAME: nav-r-rsthd
+| U_RDO | U_PST | U_CPY | U_CUT | U_UND |
+| CAPS  | LEFT  | DOWN  | UP    | RGHT  |
+| INS   | HOME  | PGDN  | PGUP  | END   |
+| BSPC  | ENT   | DEL   | U_NP  | U_NP  |
+
+
 ***** Workman
 
 ~MIRYOKU_ALPHAS=WORKMAN~
@@ -903,6 +929,8 @@ Body of miryoku_layer.h.
       #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_DVORAK
     #elif defined (MIRYOKU_ALPHAS_HALMAK)
       #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_HALMAK
+    #elif defined (MIRYOKU_ALPHAS_RSTHD)
+      #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_RSTHD
     #elif defined (MIRYOKU_ALPHAS_WORKMAN)
       #define MIRYOKU_LAYER_BASE MIRYOKU_ALTERNATIVES_BASE_WORKMAN
     #elif defined (MIRYOKU_ALPHAS_QWERTY)
@@ -927,6 +955,8 @@ Body of miryoku_layer.h.
       #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_INVERTEDT
     #elif defined (MIRYOKU_NAV_VI)
       #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_VI
+    #elif defined (MIRYOKU_ALPHAS_RSTHD)
+      #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_RSTHD
     #else
       #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV
     #endif
@@ -1172,6 +1202,9 @@ return results
 #define MIRYOKU_ALTERNATIVES_BASE_HALMAK \
 <<table-layer-taphold(alphas_table=halmak)>>
 
+#define MIRYOKU_ALTERNATIVES_BASE_RSTHD \
+<<table-layer-taphold(alphas_table=rsthd, thumbs_table=thumbs-rsthd)>>
+
 #define MIRYOKU_ALTERNATIVES_BASE_WORKMAN \
 <<table-layer-taphold(alphas_table=workman)>>
 
@@ -1193,6 +1226,9 @@ return results
 
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
 <<table-layer-half(half_table=nav-r-vi, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_NAV_RSTHD \
+<<table-layer-half(half_table=nav-r-rsthd, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV \
 <<table-layer-half(half_table=nav-r, mode="r")>>
@@ -1347,6 +1383,9 @@ return results
 #define MIRYOKU_ALTERNATIVES_BASE_HALMAK \
 <<table-layer-taphold(alphas_table=halmak)>>
 
+#define MIRYOKU_ALTERNATIVES_BASE_RSTHD \
+<<table-layer-taphold(alphas_table=rsthd, thumbs_table=thumbs-rsthd)>>
+
 #define MIRYOKU_ALTERNATIVES_BASE_WORKMAN \
 <<table-layer-taphold(alphas_table=workman)>>
 
@@ -1368,6 +1407,9 @@ return results
 
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
 <<table-layer-half(half_table=nav-r-vi, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_NAV_RSTHD \
+<<table-layer-half(half_table=nav-r-rsthd, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV \
 <<table-layer-half(half_table=nav-r, mode="r")>>
@@ -1507,6 +1549,9 @@ return results
 #define MIRYOKU_ALTERNATIVES_BASE_HALMAK \
 <<table-layer-taphold(alphas_table=halmak)>>
 
+#define MIRYOKU_ALTERNATIVES_BASE_RSTHD \
+<<table-layer-taphold(alphas_table=rsthd, thumbs_table=thumbs-rsthd)>>
+
 #define MIRYOKU_ALTERNATIVES_BASE_WORKMAN \
 <<table-layer-taphold(alphas_table=workman)>>
 
@@ -1528,6 +1573,9 @@ return results
 
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
 <<table-layer-half(half_table=nav-r-vi, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_NAV_RSTHD \
+<<table-layer-half(half_table=nav-r-rsthd, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV \
 <<table-layer-half(half_table=nav-r, mode="r")>>

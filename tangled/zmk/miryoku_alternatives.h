@@ -107,6 +107,12 @@ U_NP,              U_NP,              &lt MEDIA ESC,     &lt NAV SPC,       &lt 
 &lt BUTTON F,      &hm RALT M,        &kp V,             &kp C,             &kp SLASH,         &kp G,             &kp P,             &kp X,             &hm RALT K,        &lt BUTTON Y,      \
 U_NP,              U_NP,              &lt MEDIA ESC,     &lt NAV SPC,       &lt MOUSE TAB,     &lt SYM RET,       &lt NUM BSPC,      &lt FUN DEL,       U_NP,              U_NP
 
+#define MIRYOKU_ALTERNATIVES_BASE_RSTHD \
+&kp J,             &kp C,             &kp Y,             &kp F,             &kp K,             &kp Z,             &kp L,             &kp COMMA,         &kp U,             &kp Q,             \
+&hm LGUI R,        &hm LALT S,        &hm LCTRL T,       &hm LSHFT H,       &kp D,             &kp M,             &hm LSHFT N,       &hm LCTRL A,       &hm LALT I,        &hm LGUI O,        \
+&lt BUTTON SLASH,  &hm RALT V,        &kp G,             &kp P,             &kp B,             &kp X,             &kp W,             &kp DOT,           &hm RALT RET,      &lt BUTTON SQT,    \
+U_NP,              U_NP,              &lt MEDIA ESC,     &lt NAV SPC,       &lt MOUSE TAB,     &lt SYM BSPC,      &lt NUM E,         &lt FUN DEL,       U_NP,              U_NP
+
 #define MIRYOKU_ALTERNATIVES_BASE_WORKMAN \
 &kp Q,             &kp D,             &kp R,             &kp W,             &kp B,             &kp J,             &kp F,             &kp U,             &kp P,             &kp SQT,           \
 &hm LGUI A,        &hm LALT S,        &hm LCTRL H,       &hm LSHFT T,       &kp G,             &kp Y,             &hm LSHFT N,       &hm LCTRL E,       &hm LALT O,        &hm LGUI I,        \
@@ -149,6 +155,12 @@ U_NP,              U_NP,              U_NA,              U_NA,              U_NA
 &kp LGUI,          &kp LALT,          &kp LCTRL,         &kp LSHFT,         U_NA,              &kp LEFT,          &kp DOWN,          &kp UP,            &kp RIGHT,         &kp CAPS,          \
 U_NA,              &kp RALT,          U_NA,              U_NA,              U_NA,              &kp HOME,          &kp PG_DN,         &kp PG_UP,         &kp END,           &kp INS,           \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              &kp RET,           &kp BSPC,          &kp DEL,           U_NP,              U_NP
+
+#define MIRYOKU_ALTERNATIVES_NAV_RSTHD \
+&bootloader,       U_NA,              U_NA,              U_NA,              U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+&kp LGUI,          &kp LALT,          &kp LCTRL,         &kp LSHFT,         U_NA,              &kp CAPS,          &kp LEFT,          &kp DOWN,          &kp UP,            &kp RIGHT,         \
+U_NA,              &kp RALT,          U_NA,              U_NA,              U_NA,              &kp INS,           &kp HOME,          &kp PG_DN,         &kp PG_UP,         &kp END,           \
+U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              &kp BSPC,          &kp RET,           &kp DEL,           U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_NAV \
 &bootloader,       U_NA,              U_NA,              U_NA,              U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \

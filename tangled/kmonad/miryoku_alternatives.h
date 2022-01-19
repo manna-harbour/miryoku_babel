@@ -107,6 +107,12 @@ U_MT(s, met),      U_MT(h, alt),      U_MT(n, ctl),      U_MT(t, sft),      U_CO
 U_LT(f, BUTTON),   U_MT(m, ralt),     v,                 c,                 /,                 g,                 p,                 x,                 U_MT(k, ralt),     U_LT(y, BUTTON),   \
 U_NP,              U_NP,              U_LT(esc, MEDIA),  U_LT(spc, NAV),    U_LT(tab, MOUSE),  U_LT(ent, SYM),    U_LT(bspc, NUM),   U_LT(del, FUN),    U_NP,              U_NP
 
+#define MIRYOKU_ALTERNATIVES_BASE_RSTHD \
+j,                 c,                 y,                 f,                 k,                 z,                 l,                 U_COMM,            u,                 q,                 \
+U_MT(r, met),      U_MT(s, alt),      U_MT(t, ctl),      U_MT(h, sft),      d,                 m,                 U_MT(n, sft),      U_MT(a, ctl),      U_MT(i, alt),      U_MT(o, met),      \
+U_LT(/, BUTTON),   U_MT(v, ralt),     g,                 p,                 b,                 x,                 w,                 .,                 U_MT(ent, ralt),   U_LT(U_QUOT, BUTTON), \
+U_NP,              U_NP,              U_LT(esc, MEDIA),  U_LT(spc, NAV),    U_LT(tab, MOUSE),  U_LT(bspc, SYM),   U_LT(e, NUM),      U_LT(del, FUN),    U_NP,              U_NP
+
 #define MIRYOKU_ALTERNATIVES_BASE_WORKMAN \
 q,                 d,                 r,                 w,                 b,                 j,                 f,                 u,                 p,                 U_QUOT,            \
 U_MT(a, met),      U_MT(s, alt),      U_MT(h, ctl),      U_MT(t, sft),      g,                 y,                 U_MT(n, sft),      U_MT(e, ctl),      U_MT(o, alt),      U_MT(i, met),      \
@@ -149,6 +155,12 @@ XX,                U_NA,              U_NA,              U_NA,              U_NA
 met,               alt,               ctl,               sft,               U_NA,              left,              down,              up,                right,             caps,              \
 U_NA,              ralt,              U_NA,              U_NA,              U_NA,              home,              pgdn,              pgup,              end,               ins,               \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              ent,               bspc,              del,               U_NP,              U_NP
+
+#define MIRYOKU_ALTERNATIVES_NAV_RSTHD \
+XX,                U_NA,              U_NA,              U_NA,              U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+met,               alt,               ctl,               sft,               U_NA,              caps,              left,              down,              up,                right,             \
+U_NA,              ralt,              U_NA,              U_NA,              U_NA,              ins,               home,              pgdn,              pgup,              end,               \
+U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              bspc,              ent,               del,               U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_NAV \
 XX,                U_NA,              U_NA,              U_NA,              U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \

@@ -109,6 +109,12 @@ LGUI_T(KC_S),      LALT_T(KC_H),      LCTL_T(KC_N),      LSFT_T(KC_T),      KC_C
 LT(BUTTON, KC_F),  ALGR_T(KC_M),      KC_V,              KC_C,              KC_SLSH,           KC_G,              KC_P,              KC_X,              ALGR_T(KC_K),      LT(BUTTON, KC_Y),  \
 U_NP,              U_NP,              LT(MEDIA, KC_ESC), LT(NAV, KC_SPC),   LT(MOUSE, KC_TAB), LT(SYM, KC_ENT),   LT(NUM, KC_BSPC),  LT(FUN, KC_DEL),   U_NP,              U_NP
 
+#define MIRYOKU_ALTERNATIVES_BASE_RSTHD \
+KC_J,              KC_C,              KC_Y,              KC_F,              KC_K,              KC_Z,              KC_L,              KC_COMM,           KC_U,              KC_Q,              \
+LGUI_T(KC_R),      LALT_T(KC_S),      LCTL_T(KC_T),      LSFT_T(KC_H),      KC_D,              KC_M,              LSFT_T(KC_N),      LCTL_T(KC_A),      LALT_T(KC_I),      LGUI_T(KC_O),      \
+LT(BUTTON, KC_SLSH), ALGR_T(KC_V),      KC_G,              KC_P,              KC_B,              KC_X,              KC_W,              KC_DOT,            ALGR_T(KC_ENT),    LT(BUTTON, KC_QUOT), \
+U_NP,              U_NP,              LT(MEDIA, KC_ESC), LT(NAV, KC_SPC),   LT(MOUSE, KC_TAB), LT(SYM, KC_BSPC),  LT(NUM, KC_E),     LT(FUN, KC_DEL),   U_NP,              U_NP
+
 #define MIRYOKU_ALTERNATIVES_BASE_WORKMAN \
 KC_Q,              KC_D,              KC_R,              KC_W,              KC_B,              KC_J,              KC_F,              KC_U,              KC_P,              KC_QUOT,           \
 LGUI_T(KC_A),      LALT_T(KC_S),      LCTL_T(KC_H),      LSFT_T(KC_T),      KC_G,              KC_Y,              LSFT_T(KC_N),      LCTL_T(KC_E),      LALT_T(KC_O),      LGUI_T(KC_I),      \
@@ -151,6 +157,12 @@ RESET,             U_NA,              U_NA,              U_NA,              U_NA
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              KC_LEFT,           KC_DOWN,           KC_UP,             KC_RGHT,           KC_CAPS,           \
 U_NA,              KC_ALGR,           U_NA,              U_NA,              U_NA,              KC_HOME,           KC_PGDN,           KC_PGUP,           KC_END,            KC_INS,            \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            U_NP,              U_NP
+
+#define MIRYOKU_ALTERNATIVES_NAV_RSTHD \
+RESET,             U_NA,              U_NA,              U_NA,              U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              KC_CAPS,           KC_LEFT,           KC_DOWN,           KC_UP,             KC_RGHT,           \
+U_NA,              KC_ALGR,           U_NA,              U_NA,              U_NA,              KC_INS,            KC_HOME,           KC_PGDN,           KC_PGUP,           KC_END,            \
+U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_BSPC,           KC_ENT,            KC_DEL,            U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_NAV \
 RESET,             U_NA,              U_NA,              U_NA,              U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
