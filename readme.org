@@ -106,10 +106,10 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 **** Hold
 
 #+NAME: hold
-| RESET  |        |        |        |        |        |        |        |        | RESET  |
-| LGUI   | LALT   | LCTL   | LSFT   |        |        | LSFT   | LCTL   | LALT   | LGUI   |
-| BUTTON | ALGR   |        |        |        |        |        |        | ALGR   | BUTTON |
-| U_NP   | U_NP   | MEDIA  | NAV    | MOUSE  | SYM    | NUM    | FUN    | U_NP   | U_NP   |
+| BOOT   | RESET |       |      | BT_CLR | BT_CLR |      |      | RESET | BOOT   |
+| LGUI   | LALT  | LCTL  | LSFT |        |        | LSFT | LCTL | LALT  | LGUI   |
+| BUTTON | ALGR  |       |      |        |        |      |      | ALGR  | BUTTON |
+| U_NP   | U_NP  | MEDIA | NAV  | MOUSE  | SYM    | NUM  | FUN  | U_NP  | U_NP   |
 
 
 *** Nav
@@ -142,10 +142,10 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 *** Media
 
 #+NAME: media-r
-| RGB_TOG  | RGB_MOD  | RGB_HUI  | RGB_SAI  | RGB_VAI  |
-| OUT_AUTO | MPRV     | VOLD     | VOLU     | MNXT     |
-| U_BTCLR  | U_BTSEL0 | U_BTSEL1 | U_BTSEL2 | U_BTSEL3 |
-| MSTP     | MPLY     | MUTE     | U_NP     | U_NP     |
+| RGB_TOG | RGB_MOD  | RGB_HUI  | RGB_SAI  | RGB_VAI  |
+| EP_TOG  | MPRV     | VOLD     | VOLU     | MNXT     |
+| OUT_TOG | BT_SEL_0 | BT_SEL_1 | BT_SEL_2 | BT_SEL_3 |
+| MSTP    | MPLY     | MUTE     | U_NP     | U_NP     |
 
 
 *** Num
@@ -302,10 +302,10 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 ****** Media
 
 #+NAME: media-r-vi
-| RGB_TOG  | RGB_MOD  | RGB_HUI  | RGB_SAI  | RGB_VAI  |
-| MPRV     | VOLD     | VOLU     | MNXT     | OUT_AUTO |
-| U_BTSEL0 | U_BTSEL1 | U_BTSEL2 | U_BTSEL3 | U_BTCLR  |
-| MSTP     | MPLY     | MUTE     | U_NP     | U_NP     |
+| RGB_MOD  | RGB_HUI  | RGB_SAI  | RGB_VAI  | RGB_TOG |
+| MPRV     | VOLD     | VOLU     | MNXT     | EP_TOG  |
+| BT_SEL_0 | BT_SEL_1 | BT_SEL_2 | BT_SEL_3 | OUT_TOG |
+| MSTP     | MPLY     | MUTE     | U_NP     | U_NP    |
 
 
 ***** Inverted-T
@@ -334,10 +334,10 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 ****** Media
 
 #+NAME: media-r-invertedt
-| RGB_TOG  | RGB_MOD  | VOLU     | RGB_HUI  | RGB_SAI  |
-| OUT_AUTO | MPRV     | VOLD     | MNXT     | RGB_VAI  |
-| U_BTCLR  | U_BTSEL0 | U_BTSEL1 | U_BTSEL2 | U_BTSEL3 |
-| MSTP     | MPLY     | MUTE     | U_NP     | U_NP     |
+| RGB_TOG | RGB_MOD  | VOLU     | RGB_HUI  | RGB_SAI  |
+| EP_TOG  | MPRV     | VOLD     | MNXT     | RGB_VAI  |
+| OUT_TOG | BT_SEL_0 | BT_SEL_1 | BT_SEL_2 | BT_SEL_3 |
+| MSTP    | MPLY     | MUTE     | U_NP     | U_NP     |
 
 
 **** Layers
@@ -357,10 +357,10 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 ****** Hold
 
 #+NAME: hold-flip
-| RESET  |        |        |        |        |        |        |        |        | RESET  |
-| LGUI   | LALT   | LCTL   | LSFT   |        |        | LSFT   | LCTL   | LALT   | LGUI   |
-| BUTTON | ALGR   |        |        |        |        |        |        | ALGR   | BUTTON |
-| U_NP   | U_NP   | FUN    | NUM    | SYM    | MOUSE  | NAV    | MEDIA  | U_NP   | U_NP   |
+| BOOT   | RESET |      |      | BT_CLR | BT_CLR |      |       | RESET | BOOT   |
+| LGUI   | LALT  | LCTL | LSFT |        |        | LSFT | LCTL  | LALT  | LGUI   |
+| BUTTON | ALGR  |      |      |        |        |      |       | ALGR  | BUTTON |
+| U_NP   | U_NP  | FUN  | NUM  | SYM    | MOUSE  | NAV  | MEDIA | U_NP  | U_NP   |
 
 
 ****** Num
@@ -417,10 +417,10 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 ******** Media
 
 #+NAME: media-l
-| RGB_MOD  | RGB_HUI  | RGB_SAI  | RGB_VAI  | RGB_TOG  |
-| MPRV     | VOLD     | VOLU     | MNXT     | OUT_AUTO |
-| U_BTSEL0 | U_BTSEL1 | U_BTSEL2 | U_BTSEL3 | U_BTCLR  |
-| U_NP     | U_NP     | MUTE     | MPLY     | MSTP     |
+| RGB_MOD  | RGB_HUI  | RGB_SAI  | RGB_VAI  | RGB_TOG |
+| MPRV     | VOLD     | VOLU     | MNXT     | EP_TOG  |
+| BT_SEL_0 | BT_SEL_1 | BT_SEL_2 | BT_SEL_3 | OUT_TOG |
+| U_NP     | U_NP     | MUTE     | MPLY     | MSTP    |
 
 
 ******* Inverted-T
@@ -449,10 +449,10 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 ******** Media
 
 #+NAME: media-l-invertedt
-| RGB_SAI  | RGB_HUI  | VOLU     | RGB_MOD  | RGB_TOG  |
-| RGB_VAI  | MPRV     | VOLD     | MNXT     | OUT_AUTO |
-| U_BTSEL0 | U_BTSEL1 | U_BTSEL2 | U_BTSEL3 | U_BTCLR  |
-| U_NP     | U_NP     | MUTE     | MPLY     | MSTP     |
+| RGB_SAI  | RGB_HUI  | VOLU     | RGB_MOD  | RGB_TOG |
+| RGB_VAI  | MPRV     | VOLD     | MNXT     | EP_TOG  |
+| BT_SEL_0 | BT_SEL_1 | BT_SEL_2 | BT_SEL_3 | OUT_TOG |
+| U_NP     | U_NP     | MUTE     | MPLY     | MSTP    |
 
 
 
@@ -537,147 +537,148 @@ versions.
 Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 
 #+NAME: keycode-translation
-| A        | A        | A               | a               |
-| B        | B        | B               | b               |
-| C        | C        | C               | c               |
-| D        | D        | D               | d               |
-| E        | E        | E               | e               |
-| F        | F        | F               | f               |
-| G        | G        | G               | g               |
-| H        | H        | H               | h               |
-| I        | I        | I               | i               |
-| J        | J        | J               | j               |
-| K        | K        | K               | k               |
-| L        | L        | L               | l               |
-| M        | M        | M               | m               |
-| N        | N        | N               | n               |
-| O        | O        | O               | o               |
-| P        | P        | P               | p               |
-| Q        | Q        | Q               | q               |
-| R        | R        | R               | r               |
-| S        | S        | S               | s               |
-| T        | T        | T               | t               |
-| U        | U        | U               | u               |
-| V        | V        | V               | v               |
-| W        | W        | W               | w               |
-| X        | X        | X               | x               |
-| Y        | Y        | Y               | y               |
-| Z        | Z        | Z               | z               |
-| 0        | 0        | NUM_0           | 0               |
-| 1        | 1        | NUM_1           | 1               |
-| 2        | 2        | NUM_2           | 2               |
-| 3        | 3        | NUM_3           | 3               |
-| 4        | 4        | NUM_4           | 4               |
-| 5        | 5        | NUM_5           | 5               |
-| 6        | 6        | NUM_6           | 6               |
-| 7        | 7        | NUM_7           | 7               |
-| 8        | 8        | NUM_8           | 8               |
-| 9        | 9        | NUM_9           | 9               |
-| ALGR     | ALGR     | RALT            | ralt            |
-| AMPR     | AMPR     | AMPS            | &               |
-| APP      | APP      | K_APP           | comp            |
-| ASTR     | ASTR     | ASTRK           | *               |
-| AT       | AT       | AT              | @               |
-| BSLS     | BSLS     | BSLH            | \\              |
-| BSPC     | BSPC     | BSPC            | bspc            |
-| U_BTCLR  | U_NU     | &bt BT_CLR      | XX              |
-| U_BTSEL0 | U_NU     | &bt BT_SEL 0    | XX              |
-| U_BTSEL1 | U_NU     | &bt BT_SEL 1    | XX              |
-| U_BTSEL2 | U_NU     | &bt BT_SEL 2    | XX              |
-| U_BTSEL3 | U_NU     | &bt BT_SEL 3    | XX              |
-| U_BTSEL4 | U_NU     | &bt BT_SEL 4    | XX              |
-| BTN1     | BTN1     | U_BTN1          | #(kp/ kp5)      |
-| BTN2     | BTN2     | U_BTN2          | #(kp- kp5)      |
-| BTN3     | BTN3     | U_BTN3          | #(kp* kp5)      |
-| CAPS     | CAPS     | CAPS            | caps            |
-| CIRC     | CIRC     | CRRT            | ^               |
-| COLN     | COLN     | COLON           | :               |
-| COMM     | COMM     | COMMA           | U_COMM          |
-| DEL      | DEL      | DEL             | del             |
-| DLR      | DLR      | DLLR            | $               |
-| DOT      | DOT      | DOT             | .               |
-| DOWN     | DOWN     | DOWN            | down            |
-| DQUO     | DQUO     | DQT             | U_DQUO          |
-| END      | END      | END             | end             |
-| ENT      | ENT      | RET             | ent             |
-| EQL      | EQL      | EQL             | =               |
-| ESC      | ESC      | ESC             | esc             |
-| EXLM     | EXLM     | EXCL            | !               |
-| F1       | F1       | F1              | f1              |
-| F2       | F2       | F2              | f2              |
-| F3       | F3       | F3              | f3              |
-| F4       | F4       | F4              | f4              |
-| F5       | F5       | F5              | f5              |
-| F6       | F6       | F6              | f6              |
-| F7       | F7       | F7              | f7              |
-| F8       | F8       | F8              | f8              |
-| F9       | F9       | F9              | f9              |
-| F10      | F10      | F10             | f10             |
-| F11      | F11      | F11             | f11             |
-| F12      | F12      | F12             | f12             |
-| GRV      | GRV      | GRAVE           | `               |
-| GT       | GT       | GT              | >               |
-| HASH     | HASH     | HASH            | #               |
-| HOME     | HOME     | HOME            | home            |
-| INS      | INS      | INS             | ins             |
-| LALT     | LALT     | LALT            | alt             |
-| LBRC     | LBRC     | LBKT            | [               |
-| LCBR     | LCBR     | LBRC            | {               |
-| LCTL     | LCTL     | LCTRL           | ctl             |
-| LEFT     | LEFT     | LEFT            | left            |
-| LGUI     | LGUI     | LGUI            | met             |
-| LPRN     | LPRN     | LPAR            | U_LPRN          |
-| LSFT     | LSFT     | LSHFT           | sft             |
-| LT       | LT       | LT              | <               |
-| MINS     | MINS     | MINUS           | -               |
-| MNXT     | MNXT     | C_NEXT          | nextsong        |
-| MPLY     | MPLY     | C_PP            | playpause       |
-| MPRV     | MPRV     | C_PREV          | previoussong    |
-| MS_D     | MS_D     | U_MS_D          | kp2             |
-| MS_L     | MS_L     | U_MS_L          | kp4             |
-| MS_R     | MS_R     | U_MS_R          | kp6             |
-| MS_U     | MS_U     | U_MS_U          | kp8             |
-| MSTP     | MSTP     | C_STOP          | stopcd          |
-| MUTE     | MUTE     | C_MUTE          | mute            |
-| NO       | NO       | &none           | XX              |
-| OUT_AUTO | OUT_AUTO | &out OUT_TOG    | XX              |
-| OUT_BT   | OUT_BT   | &out OUT_BT     | XX              |
-| OUT_USB  | OUT_USB  | &out OUT_USB    | XX              |
-| PAUS     | PAUS     | PAUSE_BREAK     | pause           |
-| PERC     | PERC     | PRCT            | %               |
-| PGDN     | PGDN     | PG_DN           | pgdn            |
-| PGUP     | PGUP     | PG_UP           | pgup            |
-| PIPE     | PIPE     | PIPE            | U_PIPE          |
-| PLUS     | PLUS     | PLUS            | +               |
-| PSCR     | PSCR     | PSCRN           | sysrq           |
-| QUES     | QUES     | QMARK           | ?               |
-| QUOT     | QUOT     | SQT             | U_QUOT          |
-| RBRC     | RBRC     | RBKT            | ]               |
-| RCBR     | RCBR     | RBRC            | }               |
-| RESET    | RESET    | &bootloader     | XX              |
-| RGB_HUI  | RGB_HUI  | &rgb_ug RGB_HUI | XX              |
-| RGB_MOD  | RGB_MOD  | &rgb_ug RGB_EFF | XX              |
-| RGB_SAI  | RGB_SAI  | &rgb_ug RGB_SAI | XX              |
-| RGB_TOG  | RGB_TOG  | &rgb_ug RGB_TOG | XX              |
-| RGB_VAI  | RGB_VAI  | &rgb_ug RGB_BRI | XX              |
-| RGHT     | RGHT     | RIGHT           | right           |
-| RPRN     | RPRN     | RPAR            | U_RPRN          |
-| SCLN     | SCLN     | SEMI            | ;               |
-| SLCK     | SLCK     | SLCK            | slck            |
-| SLSH     | SLSH     | SLASH           | /               |
-| SPC      | SPC      | SPC             | spc             |
-| TAB      | TAB      | TAB             | tab             |
-| TILD     | TILD     | TILDE           | ~               |
-| TRNS     | TRNS     | &trans          | _               |
-| UNDS     | UNDS     | UNDER           | \_              |
-| UP       | UP       | UP              | up              |
-| VOLD     | VOLD     | C_VOL_DN        | vold            |
-| VOLU     | VOLU     | C_VOL_UP        | volu            |
-| WH_D     | WH_D     | U_WH_D          | XX              |
-| WH_L     | WH_L     | U_WH_L          | XX              |
-| WH_R     | WH_R     | U_WH_R          | XX              |
-| WH_U     | WH_U     | U_WH_U          | XX              |
-| U_MT     | U_MT     | LS(LNLCK)       | S-nlck          |
+| A        | A        | A                 | a            |
+| B        | B        | B                 | b            |
+| C        | C        | C                 | c            |
+| D        | D        | D                 | d            |
+| E        | E        | E                 | e            |
+| F        | F        | F                 | f            |
+| G        | G        | G                 | g            |
+| H        | H        | H                 | h            |
+| I        | I        | I                 | i            |
+| J        | J        | J                 | j            |
+| K        | K        | K                 | k            |
+| L        | L        | L                 | l            |
+| M        | M        | M                 | m            |
+| N        | N        | N                 | n            |
+| O        | O        | O                 | o            |
+| P        | P        | P                 | p            |
+| Q        | Q        | Q                 | q            |
+| R        | R        | R                 | r            |
+| S        | S        | S                 | s            |
+| T        | T        | T                 | t            |
+| U        | U        | U                 | u            |
+| V        | V        | V                 | v            |
+| W        | W        | W                 | w            |
+| X        | X        | X                 | x            |
+| Y        | Y        | Y                 | y            |
+| Z        | Z        | Z                 | z            |
+| 0        | 0        | NUM_0             | 0            |
+| 1        | 1        | NUM_1             | 1            |
+| 2        | 2        | NUM_2             | 2            |
+| 3        | 3        | NUM_3             | 3            |
+| 4        | 4        | NUM_4             | 4            |
+| 5        | 5        | NUM_5             | 5            |
+| 6        | 6        | NUM_6             | 6            |
+| 7        | 7        | NUM_7             | 7            |
+| 8        | 8        | NUM_8             | 8            |
+| 9        | 9        | NUM_9             | 9            |
+| ALGR     | ALGR     | RALT              | ralt         |
+| AMPR     | AMPR     | AMPS              | &            |
+| APP      | APP      | K_APP             | comp         |
+| ASTR     | ASTR     | ASTRK             | *            |
+| AT       | AT       | AT                | @            |
+| BSLS     | BSLS     | BSLH              | \\           |
+| BSPC     | BSPC     | BSPC              | bspc         |
+| BOOT     | RESET    | &bootloader       |              |
+| BT_CLR   |          | &bt BT_CLR        |              |
+| BT_SEL_0 |          | &bt BT_SEL 0      |              |
+| BT_SEL_1 |          | &bt BT_SEL 1      |              |
+| BT_SEL_2 |          | &bt BT_SEL 2      |              |
+| BT_SEL_3 |          | &bt BT_SEL 3      |              |
+| BT_SEL_4 |          | &bt BT_SEL 4      |              |
+| BTN1     | BTN1     | U_BTN1            | #(kp/ kp5)   |
+| BTN2     | BTN2     | U_BTN2            | #(kp- kp5)   |
+| BTN3     | BTN3     | U_BTN3            | #(kp* kp5)   |
+| CAPS     | CAPS     | CAPS              | caps         |
+| CIRC     | CIRC     | CRRT              | ^            |
+| COLN     | COLN     | COLON             | :            |
+| COMM     | COMM     | COMMA             | U_COMM       |
+| DEL      | DEL      | DEL               | del          |
+| DLR      | DLR      | DLLR              | $            |
+| DOT      | DOT      | DOT               | .            |
+| DOWN     | DOWN     | DOWN              | down         |
+| DQUO     | DQUO     | DQT               | U_DQUO       |
+| END      | END      | END               | end          |
+| ENT      | ENT      | RET               | ent          |
+| EP_TOG   |          | &ext_power EP_TOG |              |
+| EQL      | EQL      | EQL               | =            |
+| ESC      | ESC      | ESC               | esc          |
+| EXLM     | EXLM     | EXCL              | !            |
+| F1       | F1       | F1                | f1           |
+| F2       | F2       | F2                | f2           |
+| F3       | F3       | F3                | f3           |
+| F4       | F4       | F4                | f4           |
+| F5       | F5       | F5                | f5           |
+| F6       | F6       | F6                | f6           |
+| F7       | F7       | F7                | f7           |
+| F8       | F8       | F8                | f8           |
+| F9       | F9       | F9                | f9           |
+| F10      | F10      | F10               | f10          |
+| F11      | F11      | F11               | f11          |
+| F12      | F12      | F12               | f12          |
+| GRV      | GRV      | GRAVE             | `            |
+| GT       | GT       | GT                | >            |
+| HASH     | HASH     | HASH              | #            |
+| HOME     | HOME     | HOME              | home         |
+| INS      | INS      | INS               | ins          |
+| LALT     | LALT     | LALT              | alt          |
+| LBRC     | LBRC     | LBKT              | [            |
+| LCBR     | LCBR     | LBRC              | {            |
+| LCTL     | LCTL     | LCTRL             | ctl          |
+| LEFT     | LEFT     | LEFT              | left         |
+| LGUI     | LGUI     | LGUI              | met          |
+| LPRN     | LPRN     | LPAR              | U_LPRN       |
+| LSFT     | LSFT     | LSHFT             | sft          |
+| LT       | LT       | LT                | <            |
+| MINS     | MINS     | MINUS             | -            |
+| MNXT     | MNXT     | C_NEXT            | nextsong     |
+| MPLY     | MPLY     | C_PP              | playpause    |
+| MPRV     | MPRV     | C_PREV            | previoussong |
+| MS_D     | MS_D     | U_MS_D            | kp2          |
+| MS_L     | MS_L     | U_MS_L            | kp4          |
+| MS_R     | MS_R     | U_MS_R            | kp6          |
+| MS_U     | MS_U     | U_MS_U            | kp8          |
+| MSTP     | MSTP     | C_STOP            | stopcd       |
+| MUTE     | MUTE     | C_MUTE            | mute         |
+| NO       | NO       | &none             | XX           |
+| OUT_TOG  | OUT_AUTO | &out OUT_TOG      |              |
+| OUT_BT   | OUT_BT   | &out OUT_BT       |              |
+| OUT_USB  | OUT_USB  | &out OUT_USB      |              |
+| PAUS     | PAUS     | PAUSE_BREAK       | pause        |
+| PERC     | PERC     | PRCT              | %            |
+| PGDN     | PGDN     | PG_DN             | pgdn         |
+| PGUP     | PGUP     | PG_UP             | pgup         |
+| PIPE     | PIPE     | PIPE              | U_PIPE       |
+| PLUS     | PLUS     | PLUS              | +            |
+| PSCR     | PSCR     | PSCRN             | sysrq        |
+| QUES     | QUES     | QMARK             | ?            |
+| QUOT     | QUOT     | SQT               | U_QUOT       |
+| RBRC     | RBRC     | RBKT              | ]            |
+| RCBR     | RCBR     | RBRC              | }            |
+| RESET    |          | &reset            |              |
+| RGB_HUI  | RGB_HUI  | &rgb_ug RGB_HUI   |              |
+| RGB_MOD  | RGB_MOD  | &rgb_ug RGB_EFF   |              |
+| RGB_SAI  | RGB_SAI  | &rgb_ug RGB_SAI   |              |
+| RGB_TOG  | RGB_TOG  | &rgb_ug RGB_TOG   |              |
+| RGB_VAI  | RGB_VAI  | &rgb_ug RGB_BRI   |              |
+| RGHT     | RGHT     | RIGHT             | right        |
+| RPRN     | RPRN     | RPAR              | U_RPRN       |
+| SCLN     | SCLN     | SEMI              | ;            |
+| SLCK     | SLCK     | SLCK              | slck         |
+| SLSH     | SLSH     | SLASH             | /            |
+| SPC      | SPC      | SPC               | spc          |
+| TAB      | TAB      | TAB               | tab          |
+| TILD     | TILD     | TILDE             | ~            |
+| TRNS     | TRNS     | &trans            | _            |
+| UNDS     | UNDS     | UNDER             | \_           |
+| UP       | UP       | UP                | up           |
+| VOLD     | VOLD     | C_VOL_DN          | vold         |
+| VOLU     | VOLU     | C_VOL_UP          | volu         |
+| WH_D     | WH_D     | U_WH_D            |              |
+| WH_L     | WH_L     | U_WH_L            |              |
+| WH_R     | WH_R     | U_WH_R            |              |
+| WH_U     | WH_U     | U_WH_U            |              |
 
 
 **** table-layer-init
@@ -713,9 +714,6 @@ results = '// target: ' + target
 results
 #+END_SRC
 
-#+RESULTS: table-layer-init
-: // target: qmk
-
 
 **** table-layer-taphold
 
@@ -726,14 +724,13 @@ Produce base layer from separate alphas, thumbs, and hold tables.
 results = ''
 for tap_row, hold_row in zip(alphas_table + thumbs_table, hold_table):
   for tap, hold in zip(tap_row, hold_row):
-    if tap == '':
-      code = 'U_NU'
-    elif tap in symbol_names_dict:
-      code = symbol_names_dict[tap]
-    else:
-      code = tap
+    code = tap
+    if code in symbol_names_dict:
+      code = symbol_names_dict[code]
     if code in keycode_translation_dict:
       code = keycode_translation_dict[code]
+    if code == '':
+      code = 'U_NU'
     if hold in mods_dict:
       if hold in keycode_translation_dict:
         hold = keycode_translation_dict[hold]
@@ -760,13 +757,6 @@ results = results.rstrip(', \\\n')
 results
 #+END_SRC
 
-#+RESULTS: table-layer-taphold
-: KC_Q,              KC_W,              KC_F,              KC_P,              KC_B,              KC_J,              KC_L,              KC_U,              KC_Y,              KC_QUOT,           \
-: LGUI_T(KC_A),      LALT_T(KC_R),      LCTL_T(KC_S),      LSFT_T(KC_T),      KC_G,              KC_M,              LSFT_T(KC_N),      LCTL_T(KC_E),      LALT_T(KC_I),      LGUI_T(KC_O),      \
-: LT(BUTTON, KC_Z),  ALGR_T(KC_X),      KC_C,              KC_D,              KC_V,              KC_K,              KC_H,              KC_COMM,           ALGR_T(KC_DOT),    LT(BUTTON, KC_SLSH), \
-: U_NP,              U_NP,              LT(MEDIA, KC_ESC), LT(NAV, KC_SPC),   LT(MOUSE, KC_TAB), LT(SYM, KC_ENT),   LT(NUM, KC_BSPC),  LT(FUN, KC_DEL),   U_NP,              U_NP
-
-
 
 **** table-layer-half
 
@@ -781,9 +771,7 @@ for half_row, hold_row in zip(half_table, hold_table):
   for lr, hold_row_lr in ('l', hold_row_l), ('r', hold_row_r):
     if lr == mode:
       for half in half_row:
-        if half == '':
-          code = 'U_NU'
-        elif shift == "true" and half in shifted_symbol_names_dict:
+        if shift == "true" and half in shifted_symbol_names_dict:
           code = shifted_symbol_names_dict[half]
         elif half in symbol_names_dict:
           code = symbol_names_dict[half]
@@ -791,6 +779,8 @@ for half_row, hold_row in zip(half_table, hold_table):
           code = half
         if code in keycode_translation_dict:
           code = keycode_translation_dict[code]
+        if code == '':
+          code = 'U_NU'
         if not str(code).startswith(nonbasic_tuple):
           code = basic_prefix + str(code)
         results += (str(code) + ', ').ljust(width)
@@ -815,33 +805,26 @@ results = results.rstrip(', \\\n')
 results
 #+END_SRC
 
-#+RESULTS: table-layer-half
-: KC_RESET,          U_NA,              U_NA,              U_NA,              U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
-: KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MS_L,           KC_MS_D,           KC_MS_U,           KC_MS_R,           \
-: U_NA,              KC_ALGR,           U_NA,              U_NA,              U_NA,              U_NU,              KC_WH_L,           KC_WH_D,           KC_WH_U,           KC_WH_R,           \
-: U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_BTN1,           KC_BTN3,           KC_BTN2,           U_NP,              U_NP
-
-
-
-
 
 **** table-layer-full
 
 Produce full layer from single table.  Fill for unused keys is configurable.
 
 #+NAME: table-layer-full
-#+BEGIN_SRC python :session :var table=button :var fill="NO" :tangle no :results verbatim
+#+BEGIN_SRC python :session :var table=button :var fill="" :tangle no :results verbatim
 results = ''
 for row in table:
   for key in row:
-    if key == '':
-      code = fill
-    elif key in symbol_names_dict:
+    if key in symbol_names_dict:
       code = symbol_names_dict[key]
     else:
       code = key
+    if code == '':
+      code = fill
     if code in keycode_translation_dict:
       code = keycode_translation_dict[code]
+    if code == '':
+      code = 'U_NU'
     if not str(code).startswith(nonbasic_tuple):
         code = basic_prefix + str(code)
     results += (code + ', ').ljust(width)
@@ -849,12 +832,6 @@ for row in table:
 results = results.rstrip(', \\\n')
 results
 #+END_SRC
-
-#+RESULTS: table-layer-full
-: U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
-: &kp LGUI,          &kp LALT,          &kp LCTRL,         &kp LSHFT,         &none,             &none,             &kp LSHFT,         &kp LCTRL,         &kp LALT,          &kp LGUI,          \
-: U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
-: U_NP,              U_NP,              U_NU,              U_NU,              &kp KP_N5,         &kp KP_N5,         U_NU,              U_NU,              U_NP,              U_NP
 
 
 **** layer-body
@@ -1041,10 +1018,6 @@ results = ', '.join(layers_list)
 return results
 #+END_SRC
 
-#+RESULTS: layer-names-list
-: BASE, BUTTON, NAV, MOUSE, MEDIA, NUM, SYM, FUN
-
-
 
 *** Miryoku ZMK
 
@@ -1071,20 +1044,6 @@ for layer in layers_list:
   i += 1
 return results
 #+END_SRC
-
-#+RESULTS: layer-names-defines
-: #define BASE   0
-: #define BUTTON 1
-: #define NAV    2
-: #define MOUSE  3
-: #define MEDIA  4
-: #define NUM    5
-: #define SYM    6
-: #define FUN    7
-
-
-
-
 
 
 ** Tangled Files
