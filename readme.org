@@ -451,8 +451,8 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 ******** Media
 
 #+NAME: media-l-invertedt
-| RGB_SAI  | RGB_HUI  | VOLU     | RGB_MOD  | RGB_TOG |
-| RGB_VAI  | MPRV     | VOLD     | MNXT     | EP_TOG  |
+| RGB_HUI  | RGB_SAI  | VOLU     | RGB_VAI  | RGB_TOG |
+| RGB_MOD  | MPRV     | VOLD     | MNXT     | EP_TOG  |
 | BT_SEL_0 | BT_SEL_1 | BT_SEL_2 | BT_SEL_3 | OUT_TOG |
 | U_NP     | U_NP     | MUTE     | MPLY     | MSTP    |
 
