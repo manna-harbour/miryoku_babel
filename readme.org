@@ -592,7 +592,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | BTN1      | BTN1      | U_BTN1          | #(kp/ kp5)   |
 | BTN2      | BTN2      | U_BTN2          | #(kp- kp5)   |
 | BTN3      | BTN3      | U_BTN3          | #(kp* kp5)   |
-| CAPS      | CAPS      | CAPS            | caps         |
+| CAPS      | CAPS      | &u_caps_word    | caps         |
 | CIRC      | CIRC      | CRRT            | ^            |
 | COLN      | COLN      | COLON           | :            |
 | COMM      | COMM      | COMMA           | U_COMM       |
