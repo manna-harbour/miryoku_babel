@@ -13,7 +13,6 @@ This document describes Miryoku Babel only.  For Miryoku documentation, implemen
 ** Overview
 
 
-
 [[https://www.gnu.org/software/emacs/][Emacs]] is an extensible text editor.  [[https://orgmode.org/][Org]] is an emacs mode for structured text. [[https://orgmode.org/worg/org-contrib/babel/][Babel]] is org's ability to execute source code from within org documents.  This org document uses babel to generate the layer data source files for Miryoku implementations.
 
 [[#layer-tables][Layers]] and [[#alternative-layouts][alternative layouts]] are maintained in org tables.  The tables are [[#tangling][tangled]] into [[#tangled-files][source files]] via [[#scripts-and-data][python scripts and additional data tables]].
@@ -73,7 +72,6 @@ Visit the Actions tab, select the Build workflow, select Run workflow, select th
 
 
 
-
 ** Layer Tables
 
 The layers are maintained in tables.  ~U_NP~ indicates the key is not present and is used to fill in the table around the thumb keys.
@@ -106,10 +104,10 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 **** Hold
 
 #+NAME: hold
-| BOOT   | DF(TAP) | DF(EXTRA) | DF(BASE) |       |     | DF(BASE) | DF(EXTRA) | DF(TAP) | BOOT   |
-| LGUI   | LALT    | LCTL      | LSFT     |       |     | LSFT     | LCTL      | LALT    | LGUI   |
-| BUTTON | ALGR    | LOCK_OPP  | LOCK_CUR |       |     | LOCK_CUR | LOCK_OPP  | ALGR    | BUTTON |
-| U_NP   | U_NP    | MEDIA     | NAV      | MOUSE | SYM | NUM      | FUN       | U_NP    | U_NP   |
+| BOOT     | DF(U_TAP) | DF(U_EXTRA) | DF(U_BASE) |         |       | DF(U_BASE) | DF(U_EXTRA) | DF(U_TAP) | BOOT     |
+| LGUI     | LALT      | LCTL        | LSFT       |         |       | LSFT       | LCTL        | LALT      | LGUI     |
+| U_BUTTON | ALGR      | LOCK_OPP    | LOCK_CUR   |         |       | LOCK_CUR   | LOCK_OPP    | ALGR      | U_BUTTON |
+| U_NP     | U_NP      | U_MEDIA     | U_NAV      | U_MOUSE | U_SYM | U_NUM      | U_FUN       | U_NP      | U_NP     |
 
 
 *** Nav
@@ -359,10 +357,10 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 ****** Hold
 
 #+NAME: hold-flip
-| BOOT   | DF(TAP) | DF(EXTRA) | DF(BASE) |     |       | DF(BASE) | DF(EXTRA) | DF(TAP) | BOOT   |
-| LGUI   | LALT    | LCTL      | LSFT     |     |       | LSFT     | LCTL      | LALT    | LGUI   |
-| BUTTON | ALGR    | LOCK_OPP  | LOCK_CUR |     |       | LOCK_CUR | LOCK_OPP  | ALGR    | BUTTON |
-| U_NP   | U_NP    | FUN       | NUM      | SYM | MOUSE | NAV      | MEDIA     | U_NP    | U_NP   |
+| BOOT     | DF(U_TAP) | DF(U_EXTRA) | DF(U_BASE) |       |         | DF(U_BASE) | DF(U_EXTRA) | DF(U_TAP) | BOOT     |
+| LGUI     | LALT      | LCTL        | LSFT       |       |         | LSFT       | LCTL        | LALT      | LGUI     |
+| U_BUTTON | ALGR      | LOCK_OPP    | LOCK_CUR   |       |         | LOCK_CUR   | LOCK_OPP    | ALGR      | U_BUTTON |
+| U_NP     | U_NP      | U_FUN       | U_NUM      | U_SYM | U_MOUSE | U_NAV      | U_MEDIA     | U_NP      | U_NP     |
 
 
 ****** Num
@@ -457,7 +455,6 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 | U_NP     | U_NP     | MUTE     | MPLY     | MSTP    |
 
 
-
 *** COMMENT Templates
 
 #+NAME: tem
@@ -494,7 +491,16 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 **** layers
 
 #+NAME: layers
-| BASE | EXTRA | TAP | BUTTON | NAV | MOUSE | MEDIA | NUM | SYM | FUN |
+| U_BASE   | Base   |
+| U_EXTRA  | Extra  |
+| U_TAP    | Tap    |
+| U_BUTTON | Button |
+| U_NAV    | Nav    |
+| U_MOUSE  | Mouse  |
+| U_MEDIA  | Media  |
+| U_NUM    | Num    |
+| U_SYM    | Sym    |
+| U_FUN    | Fun    |
 
 
 **** symbol-names
@@ -539,151 +545,151 @@ versions.
 Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 
 #+NAME: keycode-translation
-| A         | A         | A               | a            |
-| B         | B         | B               | b            |
-| C         | C         | C               | c            |
-| D         | D         | D               | d            |
-| E         | E         | E               | e            |
-| F         | F         | F               | f            |
-| G         | G         | G               | g            |
-| H         | H         | H               | h            |
-| I         | I         | I               | i            |
-| J         | J         | J               | j            |
-| K         | K         | K               | k            |
-| L         | L         | L               | l            |
-| M         | M         | M               | m            |
-| N         | N         | N               | n            |
-| O         | O         | O               | o            |
-| P         | P         | P               | p            |
-| Q         | Q         | Q               | q            |
-| R         | R         | R               | r            |
-| S         | S         | S               | s            |
-| T         | T         | T               | t            |
-| U         | U         | U               | u            |
-| V         | V         | V               | v            |
-| W         | W         | W               | w            |
-| X         | X         | X               | x            |
-| Y         | Y         | Y               | y            |
-| Z         | Z         | Z               | z            |
-| 0         | 0         | NUM_0           | 0            |
-| 1         | 1         | NUM_1           | 1            |
-| 2         | 2         | NUM_2           | 2            |
-| 3         | 3         | NUM_3           | 3            |
-| 4         | 4         | NUM_4           | 4            |
-| 5         | 5         | NUM_5           | 5            |
-| 6         | 6         | NUM_6           | 6            |
-| 7         | 7         | NUM_7           | 7            |
-| 8         | 8         | NUM_8           | 8            |
-| 9         | 9         | NUM_9           | 9            |
-| ALGR      | ALGR      | RALT            | ralt         |
-| AMPR      | AMPR      | AMPS            | &            |
-| APP       | APP       | K_APP           | comp         |
-| ASTR      | ASTR      | ASTRK           | *            |
-| AT        | AT        | AT              | @            |
-| BSLS      | BSLS      | BSLH            | \\           |
-| BSPC      | BSPC      | BSPC            | bspc         |
-| BOOT      | RESET     | &bootloader     |              |
-| BT_CLR    |           | &bt BT_CLR      |              |
-| BT_SEL_0  |           | &u_bt_sel_0     |              |
-| BT_SEL_1  |           | &u_bt_sel_1     |              |
-| BT_SEL_2  |           | &u_bt_sel_2     |              |
-| BT_SEL_3  |           | &u_bt_sel_3     |              |
-| BT_SEL_4  |           | &u_bt_sel_4     |              |
-| BTN1      | BTN1      | U_BTN1          | #(kp/ kp5)   |
-| BTN2      | BTN2      | U_BTN2          | #(kp- kp5)   |
-| BTN3      | BTN3      | U_BTN3          | #(kp* kp5)   |
-| CAPS      | CAPS      | &u_caps_word    | caps         |
-| CIRC      | CIRC      | CRRT            | ^            |
-| COLN      | COLN      | COLON           | :            |
-| COMM      | COMM      | COMMA           | U_COMM       |
-| DEL       | DEL       | DEL             | del          |
-| DF(BASE)  | DF(BASE)  | &to BASE        | U_DF(BASE)   |
-| DF(EXTRA) | DF(EXTRA) | &to EXTRA       | U_DF(EXTRA)  |
-| DF(TAP)   | DF(TAP)   | &to TAP         | U_DF(TAP)    |
-| DLR       | DLR       | DLLR            | $            |
-| DOT       | DOT       | DOT             | .            |
-| DOWN      | DOWN      | DOWN            | down         |
-| DQUO      | DQUO      | DQT             | U_DQUO       |
-| END       | END       | END             | end          |
-| ENT       | ENT       | RET             | ent          |
-| EP_TOG    |           | &u_ep_tog       |              |
-| EQL       | EQL       | EQL             | =            |
-| ESC       | ESC       | ESC             | esc          |
-| EXLM      | EXLM      | EXCL            | !            |
-| F1        | F1        | F1              | f1           |
-| F2        | F2        | F2              | f2           |
-| F3        | F3        | F3              | f3           |
-| F4        | F4        | F4              | f4           |
-| F5        | F5        | F5              | f5           |
-| F6        | F6        | F6              | f6           |
-| F7        | F7        | F7              | f7           |
-| F8        | F8        | F8              | f8           |
-| F9        | F9        | F9              | f9           |
-| F10       | F10       | F10             | f10          |
-| F11       | F11       | F11             | f11          |
-| F12       | F12       | F12             | f12          |
-| GRV       | GRV       | GRAVE           | `            |
-| GT        | GT        | GT              | >            |
-| HASH      | HASH      | HASH            | #            |
-| HOME      | HOME      | HOME            | home         |
-| INS       | INS       | INS             | ins          |
-| LALT      | LALT      | LALT            | alt          |
-| LBRC      | LBRC      | LBKT            | [            |
-| LCBR      | LCBR      | LBRC            | {            |
-| LCTL      | LCTL      | LCTRL           | ctl          |
-| LEFT      | LEFT      | LEFT            | left         |
-| LGUI      | LGUI      | LGUI            | met          |
-| LPRN      | LPRN      | LPAR            | U_LPRN       |
-| LSFT      | LSFT      | LSHFT           | sft          |
-| LT        | LT        | LT              | <            |
-| MINS      | MINS      | MINUS           | -            |
-| MNXT      | MNXT      | C_NEXT          | nextsong     |
-| MPLY      | MPLY      | C_PP            | playpause    |
-| MPRV      | MPRV      | C_PREV          | previoussong |
-| MS_D      | MS_D      | U_MS_D          | kp2          |
-| MS_L      | MS_L      | U_MS_L          | kp4          |
-| MS_R      | MS_R      | U_MS_R          | kp6          |
-| MS_U      | MS_U      | U_MS_U          | kp8          |
-| MSTP      | MSTP      | C_STOP          | stopcd       |
-| MUTE      | MUTE      | C_MUTE          | mute         |
-| NO        | NO        | &none           | XX           |
-| OUT_TOG   | OUT_AUTO  | &u_out_tog      |              |
-| OUT_BT    | OUT_BT    | &out OUT_BT     |              |
-| OUT_USB   | OUT_USB   | &out OUT_USB    |              |
-| PAUS      | PAUS      | PAUSE_BREAK     | pause        |
-| PERC      | PERC      | PRCT            | %            |
-| PGDN      | PGDN      | PG_DN           | pgdn         |
-| PGUP      | PGUP      | PG_UP           | pgup         |
-| PIPE      | PIPE      | PIPE            | U_PIPE       |
-| PLUS      | PLUS      | PLUS            | +            |
-| PSCR      | PSCR      | PSCRN           | sysrq        |
-| QUES      | QUES      | QMARK           | ?            |
-| QUOT      | QUOT      | SQT             | U_QUOT       |
-| RBRC      | RBRC      | RBKT            | ]            |
-| RCBR      | RCBR      | RBRC            | }            |
-| RESET     |           | &reset          |              |
-| RGB_HUI   | RGB_HUI   | &u_rgb_hui      |              |
-| RGB_MOD   | RGB_MOD   | &u_rgb_eff      |              |
-| RGB_SAI   | RGB_SAI   | &u_rgb_sai      |              |
-| RGB_TOG   | RGB_TOG   | &rgb_ug RGB_TOG |              |
-| RGB_VAI   | RGB_VAI   | &u_rgb_bri      |              |
-| RGHT      | RGHT      | RIGHT           | right        |
-| RPRN      | RPRN      | RPAR            | U_RPRN       |
-| SCLN      | SCLN      | SEMI            | ;            |
-| SLCK      | SLCK      | SLCK            | slck         |
-| SLSH      | SLSH      | SLASH           | /            |
-| SPC       | SPC       | SPC             | spc          |
-| TAB       | TAB       | TAB             | tab          |
-| TILD      | TILD      | TILDE           | ~            |
-| TRNS      | TRNS      | &trans          | _            |
-| UNDS      | UNDS      | UNDER           | \_           |
-| UP        | UP        | UP              | up           |
-| VOLD      | VOLD      | C_VOL_DN        | vold         |
-| VOLU      | VOLU      | C_VOL_UP        | volu         |
-| WH_D      | WH_D      | U_WH_D          |              |
-| WH_L      | WH_L      | U_WH_L          |              |
-| WH_R      | WH_R      | U_WH_R          |              |
-| WH_U      | WH_U      | U_WH_U          |              |
+| A           | A           | A               | a             |
+| B           | B           | B               | b             |
+| C           | C           | C               | c             |
+| D           | D           | D               | d             |
+| E           | E           | E               | e             |
+| F           | F           | F               | f             |
+| G           | G           | G               | g             |
+| H           | H           | H               | h             |
+| I           | I           | I               | i             |
+| J           | J           | J               | j             |
+| K           | K           | K               | k             |
+| L           | L           | L               | l             |
+| M           | M           | M               | m             |
+| N           | N           | N               | n             |
+| O           | O           | O               | o             |
+| P           | P           | P               | p             |
+| Q           | Q           | Q               | q             |
+| R           | R           | R               | r             |
+| S           | S           | S               | s             |
+| T           | T           | T               | t             |
+| U           | U           | U               | u             |
+| V           | V           | V               | v             |
+| W           | W           | W               | w             |
+| X           | X           | X               | x             |
+| Y           | Y           | Y               | y             |
+| Z           | Z           | Z               | z             |
+| 0           | 0           | NUM_0           | 0             |
+| 1           | 1           | NUM_1           | 1             |
+| 2           | 2           | NUM_2           | 2             |
+| 3           | 3           | NUM_3           | 3             |
+| 4           | 4           | NUM_4           | 4             |
+| 5           | 5           | NUM_5           | 5             |
+| 6           | 6           | NUM_6           | 6             |
+| 7           | 7           | NUM_7           | 7             |
+| 8           | 8           | NUM_8           | 8             |
+| 9           | 9           | NUM_9           | 9             |
+| ALGR        | ALGR        | RALT            | ralt          |
+| AMPR        | AMPR        | AMPS            | &             |
+| APP         | APP         | K_APP           | comp          |
+| ASTR        | ASTR        | ASTRK           | *             |
+| AT          | AT          | AT              | @             |
+| BSLS        | BSLS        | BSLH            | \\            |
+| BSPC        | BSPC        | BSPC            | bspc          |
+| BOOT        | RESET       | &bootloader     |               |
+| BT_CLR      |             | &bt BT_CLR      |               |
+| BT_SEL_0    |             | &u_bt_sel_0     |               |
+| BT_SEL_1    |             | &u_bt_sel_1     |               |
+| BT_SEL_2    |             | &u_bt_sel_2     |               |
+| BT_SEL_3    |             | &u_bt_sel_3     |               |
+| BT_SEL_4    |             | &u_bt_sel_4     |               |
+| BTN1        | BTN1        | U_BTN1          | #(kp/ kp5)    |
+| BTN2        | BTN2        | U_BTN2          | #(kp- kp5)    |
+| BTN3        | BTN3        | U_BTN3          | #(kp* kp5)    |
+| CAPS        | CAPS        | &u_caps_word    | caps          |
+| CIRC        | CIRC        | CRRT            | ^             |
+| COLN        | COLN        | COLON           | :             |
+| COMM        | COMM        | COMMA           | U_COMM        |
+| DEL         | DEL         | DEL             | del           |
+| DF(U_BASE)  | DF(U_BASE)  | &to U_BASE      | U_DF(U_BASE)  |
+| DF(U_EXTRA) | DF(U_EXTRA) | &to U_EXTRA     | U_DF(U_EXTRA) |
+| DF(U_TAP)   | DF(U_TAP)   | &to U_TAP       | U_DF(U_TAP)   |
+| DLR         | DLR         | DLLR            | $             |
+| DOT         | DOT         | DOT             | .             |
+| DOWN        | DOWN        | DOWN            | down          |
+| DQUO        | DQUO        | DQT             | U_DQUO        |
+| END         | END         | END             | end           |
+| ENT         | ENT         | RET             | ent           |
+| EP_TOG      |             | &u_ep_tog       |               |
+| EQL         | EQL         | EQL             | =             |
+| ESC         | ESC         | ESC             | esc           |
+| EXLM        | EXLM        | EXCL            | !             |
+| F1          | F1          | F1              | f1            |
+| F2          | F2          | F2              | f2            |
+| F3          | F3          | F3              | f3            |
+| F4          | F4          | F4              | f4            |
+| F5          | F5          | F5              | f5            |
+| F6          | F6          | F6              | f6            |
+| F7          | F7          | F7              | f7            |
+| F8          | F8          | F8              | f8            |
+| F9          | F9          | F9              | f9            |
+| F10         | F10         | F10             | f10           |
+| F11         | F11         | F11             | f11           |
+| F12         | F12         | F12             | f12           |
+| GRV         | GRV         | GRAVE           | `             |
+| GT          | GT          | GT              | >             |
+| HASH        | HASH        | HASH            | #             |
+| HOME        | HOME        | HOME            | home          |
+| INS         | INS         | INS             | ins           |
+| LALT        | LALT        | LALT            | alt           |
+| LBRC        | LBRC        | LBKT            | [             |
+| LCBR        | LCBR        | LBRC            | {             |
+| LCTL        | LCTL        | LCTRL           | ctl           |
+| LEFT        | LEFT        | LEFT            | left          |
+| LGUI        | LGUI        | LGUI            | met           |
+| LPRN        | LPRN        | LPAR            | U_LPRN        |
+| LSFT        | LSFT        | LSHFT           | sft           |
+| LT          | LT          | LT              | <             |
+| MINS        | MINS        | MINUS           | -             |
+| MNXT        | MNXT        | C_NEXT          | nextsong      |
+| MPLY        | MPLY        | C_PP            | playpause     |
+| MPRV        | MPRV        | C_PREV          | previoussong  |
+| MS_D        | MS_D        | U_MS_D          | kp2           |
+| MS_L        | MS_L        | U_MS_L          | kp4           |
+| MS_R        | MS_R        | U_MS_R          | kp6           |
+| MS_U        | MS_U        | U_MS_U          | kp8           |
+| MSTP        | MSTP        | C_STOP          | stopcd        |
+| MUTE        | MUTE        | C_MUTE          | mute          |
+| NO          | NO          | &none           | XX            |
+| OUT_TOG     | OUT_AUTO    | &u_out_tog      |               |
+| OUT_BT      | OUT_BT      | &out OUT_BT     |               |
+| OUT_USB     | OUT_USB     | &out OUT_USB    |               |
+| PAUS        | PAUS        | PAUSE_BREAK     | pause         |
+| PERC        | PERC        | PRCT            | %             |
+| PGDN        | PGDN        | PG_DN           | pgdn          |
+| PGUP        | PGUP        | PG_UP           | pgup          |
+| PIPE        | PIPE        | PIPE            | U_PIPE        |
+| PLUS        | PLUS        | PLUS            | +             |
+| PSCR        | PSCR        | PSCRN           | sysrq         |
+| QUES        | QUES        | QMARK           | ?             |
+| QUOT        | QUOT        | SQT             | U_QUOT        |
+| RBRC        | RBRC        | RBKT            | ]             |
+| RCBR        | RCBR        | RBRC            | }             |
+| RESET       |             | &reset          |               |
+| RGB_HUI     | RGB_HUI     | &u_rgb_hui      |               |
+| RGB_MOD     | RGB_MOD     | &u_rgb_eff      |               |
+| RGB_SAI     | RGB_SAI     | &u_rgb_sai      |               |
+| RGB_TOG     | RGB_TOG     | &rgb_ug RGB_TOG |               |
+| RGB_VAI     | RGB_VAI     | &u_rgb_bri      |               |
+| RGHT        | RGHT        | RIGHT           | right         |
+| RPRN        | RPRN        | RPAR            | U_RPRN        |
+| SCLN        | SCLN        | SEMI            | ;             |
+| SLCK        | SLCK        | SLCK            | slck          |
+| SLSH        | SLSH        | SLASH           | /             |
+| SPC         | SPC         | SPC             | spc           |
+| TAB         | TAB         | TAB             | tab           |
+| TILD        | TILD        | TILDE           | ~             |
+| TRNS        | TRNS        | &trans          | _             |
+| UNDS        | UNDS        | UNDER           | \_            |
+| UP          | UP          | UP              | up            |
+| VOLD        | VOLD        | C_VOL_DN        | vold          |
+| VOLU        | VOLU        | C_VOL_UP        | volu          |
+| WH_D        | WH_D        | U_WH_D          |               |
+| WH_L        | WH_L        | U_WH_L          |               |
+| WH_R        | WH_R        | U_WH_R          |               |
+| WH_U        | WH_U        | U_WH_U          |               |
 
 
 **** table-layer-init
@@ -692,7 +698,9 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 #+BEGIN_SRC python :session :var symbol_names_table=symbol-names :var nonkc_table=nonkc :var nonkp_table=nonkp :var keycode_translation_table=keycode-translation :var layers_table=layers :var mods_table=mods :var target="qmk" :tangle no :results verbatim
 width = 19
 mods_dict = dict.fromkeys(mods_table[0])
-layers_dict = dict.fromkeys(layers_table[0])
+layers_dict = {}
+for layer, name in layers_table:
+  layers_dict[layer] = name
 symbol_names_dict = {}
 shifted_symbol_names_dict = {}
 for symbol, name, shifted_symbol, shifted_name in symbol_names_table:
@@ -749,14 +757,14 @@ for tap_row, hold_row in zip(alphas_table + thumbs_table, hold_table):
     elif hold in layers_dict:
       if target == 'qmk':
         code = basic_prefix + str(code)
-        code = 'LT(' + str(hold) + ', ' + code + ')'
+        code = 'LT(' + str(hold) + ',' + code + ')'
       elif target == 'zmk':
         code = '&lt ' + str(hold) + ' ' + code
       elif target == 'kmonad':
         code = 'U_LT(' + code + ', ' + str(hold) + ')'
     elif not str(code).startswith(nonbasic_tuple):
       code = basic_prefix + str(code)
-    results += (code + ', ').ljust(width)
+    results += (code + ',').ljust(width)
   results += '\\\n'
 results = results.rstrip(', \\\n')
 results
@@ -768,7 +776,7 @@ results
 Produce sub layers from single hand and hold tables.
 
 #+NAME: table-layer-half
-#+BEGIN_SRC python :session :var hold_table=hold :var mode="r" :var half_table=mouse-r :var current_layer_name="MOUSE" :var opposite_layer_name="SYM" :var shift="false" :tangle no :results verbatim
+#+BEGIN_SRC python :session :var hold_table=hold :var mode="r" :var half_table=mouse-r :var current_layer_name="U_MOUSE" :var opposite_layer_name="U_SYM" :var shift="false" :tangle no :results verbatim
 length = len(half_table[0])
 results = ''
 for half_row, hold_row in zip(half_table, hold_table):
@@ -788,7 +796,7 @@ for half_row, hold_row in zip(half_table, hold_table):
           code = 'U_NU'
         if not str(code).startswith(nonbasic_tuple):
           code = basic_prefix + str(code)
-        results += (str(code) + ', ').ljust(width)
+        results += (str(code) + ',').ljust(width)
     else:
       for hold in hold_row_lr:
         if hold in mods_dict:
@@ -815,7 +823,7 @@ for half_row, hold_row in zip(half_table, hold_table):
             code = hold
           else:
             code = basic_prefix + str(hold)
-        results += (str(code) + ', ').ljust(width)
+        results += (str(code) + ',').ljust(width)
   results += '\\\n'
 results = results.rstrip(', \\\n')
 results
@@ -843,7 +851,7 @@ for row in alphas_table + thumbs_table:
       code = 'U_NU'
     if not str(code).startswith(nonbasic_tuple):
         code = basic_prefix + str(code)
-    results += (code + ', ').ljust(width)
+    results += (code + ',').ljust(width)
   results += '\\\n'
 results = results.rstrip(', \\\n')
 results
@@ -852,13 +860,13 @@ results
 
 **** layer-body
 
-Body of miryoku_layer.h.
+Body of miryoku_layer_selection.h.
 
 #+NAME: layer-body
 #+BEGIN_SRC C :main no :tangle no
 #pragma once
 
-#include "miryoku_alternatives.h"
+#include "miryoku_layer_alternatives.h"
 
 #if !defined(MIRYOKU_LAYER_BASE)
   #if defined (MIRYOKU_LAYERS_FLIP)
@@ -1130,6 +1138,34 @@ Body of miryoku_layer.h.
 #+END_SRC
 
 
+**** layer-names-list
+
+#+NAME: layer-names-list
+#+BEGIN_SRC python :var layers_table=layers :tangle no
+width = 8
+results = '#define MIRYOKU_LAYER_LIST \\\n'
+for layer, name in layers_table:
+  stripped=layer.lstrip('U_')
+  results += 'MIRYOKU_X(' + ( stripped + ', ').ljust(width) + '"' + name + '") \\\n'
+results = results.rstrip('\\\n')
+return results
+#+END_SRC
+
+
+**** layer-names-defines
+
+#+NAME: layer-names-defines
+#+BEGIN_SRC python :var layers_table=layers :tangle no
+width = 9
+results = ''
+i = 0
+for layer, name in layers_table:
+  results += '#define ' + ( layer + ' ').ljust(width) + str(i) + '\n'
+  i += 1
+return results
+#+END_SRC
+
+
 **** COMMENT python-version
 
 C-c C-c in code block to update
@@ -1163,16 +1199,6 @@ License for tangled QMK C source files.
 #+END_SRC
 
 
-**** layer-names-list
-
-#+NAME: layer-names-list
-#+BEGIN_SRC python :var layers_table=layers :tangle no
-layers_list = layers_table[0]
-results = ', '.join(layers_list)
-return results
-#+END_SRC
-
-
 *** Miryoku ZMK
 
 
@@ -1185,47 +1211,16 @@ prepended.
 | U_ | & |
 
 
-**** layer-names-defines
-
-#+NAME: layer-names-defines
-#+BEGIN_SRC python :var layers_table=layers :tangle no
-width = 7
-layers_list = layers_table[0]
-results = ''
-i = 0
-for layer in layers_list:
-  results += '#define ' + ( layer + ' ').ljust(width) + str(i) + '\n'
-  i += 1
-return results
-#+END_SRC
-
-
 ** Tangled Files
 
 
 *** Miryoku QMK
 
 
-**** [[tangled/qmk/miryoku_layer_names.h]]
+**** [[tangled/qmk/miryoku_layer_alternatives.h]]
 
-#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/qmk/miryoku_layer_names.h
-// Copyright 2019 Manna Harbour
-// https://github.com/manna-harbour/miryoku
-// generated -*- buffer-read-only: t -*-
-
-<<license-qmk>>
-
-#if !defined (MIRYOKU_LAYER_NAMES)
-  #define MIRYOKU_LAYER_NAMES <<layer-names-list()>>
-#endif
-
-#+END_SRC
-
-
-**** [[tangled/qmk/miryoku_alternatives.h]]
-
-#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/qmk/miryoku_alternatives.h
-// Copyright 2019 Manna Harbour
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/qmk/miryoku_layer_alternatives.h
+// Copyright 2022 Manna Harbour
 // https://github.com/manna-harbour/miryoku
 // generated -*- buffer-read-only: t -*-
 <<table-layer-init(target="qmk")>>
@@ -1358,72 +1353,72 @@ return results
 
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_FLIP \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_FLIP \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-l, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-r-invertedt, mode="r")>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-invertedt, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-r-vi, mode="r")>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-vi, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-r, mode="r")>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r, mode="r")>>
 
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-l, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-r-invertedt, mode="r")>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-invertedt, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_VI \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-r-vi, mode="r")>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-vi, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-r, mode="r")>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r, mode="r")>>
 
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT_FLIP \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-l, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-r-invertedt, mode="r")>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-invertedt, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_VI \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-r-vi, mode="r")>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-vi, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-r, mode="r")>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r, mode="r")>>
 
 
 #define MIRYOKU_ALTERNATIVES_NUM_FLIP \
-<<table-layer-half(current_layer_name="NUM", opposite_layer_name="NAV", half_table=num-r, mode="r", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_NUM", opposite_layer_name="U_NAV", half_table=num-r, mode="r", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NUM \
-<<table-layer-half(current_layer_name="NUM", opposite_layer_name="NAV", half_table=num-l, mode="l")>>
+<<table-layer-half(current_layer_name="U_NUM", opposite_layer_name="U_NAV", half_table=num-l, mode="l")>>
 
 
 #define MIRYOKU_ALTERNATIVES_SYM_FLIP \
-<<table-layer-half(current_layer_name="SYM", opposite_layer_name="MOUSE", half_table=sym-r, mode="r", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_SYM", opposite_layer_name="U_MOUSE", half_table=sym-r, mode="r", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_SYM \
-<<table-layer-half(current_layer_name="SYM", opposite_layer_name="MOUSE", half_table=sym-l, mode="l")>>
+<<table-layer-half(current_layer_name="U_SYM", opposite_layer_name="U_MOUSE", half_table=sym-l, mode="l")>>
 
 
 #define MIRYOKU_ALTERNATIVES_FUN_FLIP \
-<<table-layer-half(current_layer_name="FUN", opposite_layer_name="MEDIA", half_table=fun-r, mode="r", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_FUN", opposite_layer_name="U_MEDIA", half_table=fun-r, mode="r", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_FUN \
-<<table-layer-half(current_layer_name="FUN", opposite_layer_name="MEDIA", half_table=fun-l, mode="l")>>
+<<table-layer-half(current_layer_name="U_FUN", opposite_layer_name="U_MEDIA", half_table=fun-l, mode="l")>>
 
 
 #define MIRYOKU_ALTERNATIVES_BUTTON \
@@ -1432,10 +1427,9 @@ return results
 #+END_SRC
 
 
+**** [[tangled/qmk/miryoku_layer_selection.h]]
 
-**** [[tangled/qmk/miryoku_layer.h]]
-
-#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/qmk/miryoku_layer.h
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/qmk/miryoku_layer_selection.h
 // Copyright 2019 Manna Harbour
 // https://github.com/manna-harbour/miryoku
 // generated -*- buffer-read-only: t -*-
@@ -1446,25 +1440,32 @@ return results
 #+END_SRC
 
 
-*** Miryoku ZMK
+**** [[tangled/qmk/miryoku_layer_list.h]]
 
-
-**** [[tangled/zmk/miryoku_layer_names.h]]
-
-#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/zmk/miryoku_layer_names.h
-// Copyright 2021 Manna Harbour
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/qmk/miryoku_layer_list.h
+// Copyright 2022 Manna Harbour
 // https://github.com/manna-harbour/miryoku
 // generated -*- buffer-read-only: t -*-
 
-<<layer-names-defines()>>
+<<license-qmk>>
 
+#pragma once
+
+#if !defined (MIRYOKU_LAYER_LIST)
+
+<<layer-names-list()>>
+
+#endif
 #+END_SRC
 
 
-**** [[tangled/zmk/miryoku_alternatives.h]]
+*** Miryoku ZMK
 
-#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/zmk/miryoku_alternatives.h
-// Copyright 2021 Manna Harbour
+
+**** [[tangled/zmk/miryoku_layer_alternatives.h]]
+
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/zmk/miryoku_layer_alternatives.h
+// Copyright 2022 Manna Harbour
 // https://github.com/manna-harbour/miryoku
 // generated -*- buffer-read-only: t -*-
 <<table-layer-init(target="zmk")>>
@@ -1595,72 +1596,72 @@ return results
 
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_FLIP \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_FLIP \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-l, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-r-invertedt, mode="r")>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-invertedt, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-r-vi, mode="r")>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-vi, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-r, mode="r")>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r, mode="r")>>
 
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-l, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-r-invertedt, mode="r")>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-invertedt, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_VI \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-r-vi, mode="r")>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-vi, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-r, mode="r")>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r, mode="r")>>
 
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT_FLIP \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-l, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-r-invertedt, mode="r")>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-invertedt, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_VI \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-r-vi, mode="r")>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-vi, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-r, mode="r")>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r, mode="r")>>
 
 
 #define MIRYOKU_ALTERNATIVES_NUM_FLIP \
-<<table-layer-half(current_layer_name="NUM", opposite_layer_name="NAV", half_table=num-r, mode="r", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_NUM", opposite_layer_name="U_NAV", half_table=num-r, mode="r", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NUM \
-<<table-layer-half(current_layer_name="NUM", opposite_layer_name="NAV", half_table=num-l, mode="l")>>
+<<table-layer-half(current_layer_name="U_NUM", opposite_layer_name="U_NAV", half_table=num-l, mode="l")>>
 
 
 #define MIRYOKU_ALTERNATIVES_SYM_FLIP \
-<<table-layer-half(current_layer_name="SYM", opposite_layer_name="MOUSE", half_table=sym-r, mode="r", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_SYM", opposite_layer_name="U_MOUSE", half_table=sym-r, mode="r", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_SYM \
-<<table-layer-half(current_layer_name="SYM", opposite_layer_name="MOUSE", half_table=sym-l, mode="l")>>
+<<table-layer-half(current_layer_name="U_SYM", opposite_layer_name="U_MOUSE", half_table=sym-l, mode="l")>>
 
 
 #define MIRYOKU_ALTERNATIVES_FUN_FLIP \
-<<table-layer-half(current_layer_name="FUN", opposite_layer_name="MEDIA", half_table=fun-r, mode="r", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_FUN", opposite_layer_name="U_MEDIA", half_table=fun-r, mode="r", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_FUN \
-<<table-layer-half(current_layer_name="FUN", opposite_layer_name="MEDIA", half_table=fun-l, mode="l")>>
+<<table-layer-half(current_layer_name="U_FUN", opposite_layer_name="U_MEDIA", half_table=fun-l, mode="l")>>
 
 
 #define MIRYOKU_ALTERNATIVES_BUTTON \
@@ -1669,10 +1670,10 @@ return results
 #+END_SRC
 
 
-**** [[tangled/zmk/miryoku_layer.h]]
+**** [[tangled/zmk/miryoku_layer_selection.h]]
 
-#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/zmk/miryoku_layer.h
-// Copyright 2021 Manna Harbour
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/zmk/miryoku_layer_selection.h
+// Copyright 2022 Manna Harbour
 // https://github.com/manna-harbour/miryoku
 // generated -*- buffer-read-only: t -*-
 
@@ -1680,13 +1681,32 @@ return results
 #+END_SRC
 
 
+**** [[tangled/zmk/miryoku_layer_list.h]]
+
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/zmk/miryoku_layer_list.h
+// Copyright 2022 Manna Harbour
+// https://github.com/manna-harbour/miryoku
+// generated -*- buffer-read-only: t -*-
+
+#pragma once
+
+#if !defined (MIRYOKU_LAYER_LIST)
+
+<<layer-names-list()>>
+
+<<layer-names-defines()>>
+
+#endif
+#+END_SRC
+
+
 *** Miryoku KMonad
 
 
-**** [[tangled/kmonad/miryoku_alternatives.h]]
+**** [[tangled/kmonad/miryoku_layer_alternatives.h]]
 
-#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/kmonad/miryoku_alternatives.h
-// Copyright 2021 Manna Harbour
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/kmonad/miryoku_layer_alternatives.h
+// Copyright 2022 Manna Harbour
 // https://github.com/manna-harbour/miryoku
 // generated -*- buffer-read-only: t -*-
 <<table-layer-init(target="kmonad")>>
@@ -1817,72 +1837,72 @@ return results
 
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_FLIP \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_FLIP \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-l, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-r-invertedt, mode="r")>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-invertedt, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-r-vi, mode="r")>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-vi, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV \
-<<table-layer-half(current_layer_name="NAV", opposite_layer_name="NUM", half_table=nav-r, mode="r")>>
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r, mode="r")>>
 
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-l, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-r-invertedt, mode="r")>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-invertedt, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_VI \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-r-vi, mode="r")>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-vi, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE \
-<<table-layer-half(current_layer_name="MOUSE", opposite_layer_name="SYM", half_table=mouse-r, mode="r")>>
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r, mode="r")>>
 
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT_FLIP \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-l, mode="l", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-r-invertedt, mode="r")>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-invertedt, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_VI \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-r-vi, mode="r")>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-vi, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA \
-<<table-layer-half(current_layer_name="MEDIA", opposite_layer_name="FUN", half_table=media-r, mode="r")>>
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r, mode="r")>>
 
 
 #define MIRYOKU_ALTERNATIVES_NUM_FLIP \
-<<table-layer-half(current_layer_name="NUM", opposite_layer_name="NAV", half_table=num-r, mode="r", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_NUM", opposite_layer_name="U_NAV", half_table=num-r, mode="r", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NUM \
-<<table-layer-half(current_layer_name="NUM", opposite_layer_name="NAV", half_table=num-l, mode="l")>>
+<<table-layer-half(current_layer_name="U_NUM", opposite_layer_name="U_NAV", half_table=num-l, mode="l")>>
 
 
 #define MIRYOKU_ALTERNATIVES_SYM_FLIP \
-<<table-layer-half(current_layer_name="SYM", opposite_layer_name="MOUSE", half_table=sym-r, mode="r", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_SYM", opposite_layer_name="U_MOUSE", half_table=sym-r, mode="r", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_SYM \
-<<table-layer-half(current_layer_name="SYM", opposite_layer_name="MOUSE", half_table=sym-l, mode="l")>>
+<<table-layer-half(current_layer_name="U_SYM", opposite_layer_name="U_MOUSE", half_table=sym-l, mode="l")>>
 
 
 #define MIRYOKU_ALTERNATIVES_FUN_FLIP \
-<<table-layer-half(current_layer_name="FUN", opposite_layer_name="MEDIA", half_table=fun-r, mode="r", hold_table=hold-flip)>>
+<<table-layer-half(current_layer_name="U_FUN", opposite_layer_name="U_MEDIA", half_table=fun-r, mode="r", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_FUN \
-<<table-layer-half(current_layer_name="FUN", opposite_layer_name="MEDIA", half_table=fun-l, mode="l")>>
+<<table-layer-half(current_layer_name="U_FUN", opposite_layer_name="U_MEDIA", half_table=fun-l, mode="l")>>
 
 
 #define MIRYOKU_ALTERNATIVES_BUTTON \
@@ -1891,14 +1911,31 @@ return results
 #+END_SRC
 
 
-**** [[tangled/kmonad/miryoku_layer.h]]
+**** [[tangled/kmonad/miryoku_layer_selection.h]]
 
-#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/kmonad/miryoku_layer.h
-// Copyright 2021 Manna Harbour
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/kmonad/miryoku_layer_selection.h
+// Copyright 2022 Manna Harbour
 // https://github.com/manna-harbour/miryoku
 // generated -*- buffer-read-only: t -*-
 
 <<layer-body>>
+#+END_SRC
+
+
+**** [[tangled/kmonad/miryoku_layer_list.h]]
+
+#+BEGIN_SRC C :main no :noweb yes :padline no :mkdirp yes :tangle tangled/kmonad/miryoku_layer_list.h
+// Copyright 2022 Manna Harbour
+// https://github.com/manna-harbour/miryoku
+// generated -*- buffer-read-only: t -*-
+
+#pragma once
+
+#if !defined (MIRYOKU_LAYER_LIST)
+
+<<layer-names-list()>>
+
+#endif
 #+END_SRC
 
 
