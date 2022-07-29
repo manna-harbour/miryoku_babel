@@ -671,7 +671,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | RGB_HUI     | RGB_HUI     | &u_rgb_hui      |               |
 | RGB_MOD     | RGB_MOD     | &u_rgb_eff      |               |
 | RGB_SAI     | RGB_SAI     | &u_rgb_sai      |               |
-| RGB_TOG     | RGB_TOG     | &rgb_ug RGB_TOG |               |
+| RGB_TOG     | RGB_TOG     | &u_rgb_tog      |               |
 | RGB_VAI     | RGB_VAI     | &u_rgb_bri      |               |
 | RGHT        | RGHT        | RIGHT           | right         |
 | RPRN        | RPRN        | RPAR            | U_RPRN        |
