@@ -261,6 +261,16 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 | Z    | X    | C    | V    | B    | N    | M    | ,    | DOT  | /    |
 
 
+***** QWERTY_NORMAL
+
+~MIRYOKU_ALPHAS=QWERTY_NORMAL~
+
+#+NAME: qwerty_normal
+| Q    | W    | E    | R    | T    | Y    | U    | I    | O    | P    |
+| A    | S    | D    | F    | G    | H    | J    | K    | L    | SCLN |
+| Z    | X    | C    | V    | B    | N    | M    | ,    | DOT  | /    |
+
+
 ***** QWERTZ
 
 ~MIRYOKU_ALPHAS=QWERTZ~
@@ -269,6 +279,23 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 | Q    | W    | E    | R    | T    | Z    | U    | I    | O    | P    |
 | A    | S    | D    | F    | G    | H    | J    | K    | L    | '    |
 | Y    | X    | C    | V    | B    | N    | M    | ,    | DOT  | /    |
+
+
+**** Padding
+
+***** 3x12 (crkbd)
+
+~MIRYOKU_PADDING=3x12~
+
+#+NAME: 3x12
+| TAB  | BSPC |
+| LCTL | QUOT |
+| LSFT | ESC  |
+
+# qmk_firmware/keyboards/crkbd/keymaps/default/keymap.c contains:
+# KC_TAB,  KC_Q, KC_W, KC_E, KC_R, KC_T,   KC_Y, KC_U, KC_I,    KC_O,   KC_P,    KC_BSPC,
+# KC_LCTL, KC_A, KC_S, KC_D, KC_F, KC_G,   KC_H, KC_J, KC_K,    KC_L,   KC_SCLN, KC_QUOT,
+# KC_LSFT, KC_Z, KC_X, KC_C, KC_V, KC_B,   KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, KC_ESC,
 
 
 **** Nav
@@ -1257,6 +1284,9 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTY_FLIP \
 <<table-layer-taphold(alphas_table=qwerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTY_NORMAL_FLIP \
+<<table-layer-taphold(alphas_table=qwerty_normal, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTZ_FLIP \
 <<table-layer-taphold(alphas_table=qwertz, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
@@ -1286,6 +1316,9 @@ prepended.
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTY \
 <<table-layer-taphold(alphas_table=qwerty)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTY_NORMAL \
+<<table-layer-taphold(alphas_table=qwerty_normal)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTZ \
 <<table-layer-taphold(alphas_table=qwertz)>>
@@ -1318,6 +1351,9 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTY_FLIP \
 <<table-layer-full(alphas_table=qwerty, thumbs_table=thumbs-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_TAP_QWERTY_NORMAL_FLIP \
+<<table-layer-full(alphas_table=qwerty_normal, thumbs_table=thumbs-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTZ_FLIP \
 <<table-layer-full(alphas_table=qwertz, thumbs_table=thumbs-flip)>>
 
@@ -1347,6 +1383,9 @@ prepended.
 
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTY \
 <<table-layer-full(alphas_table=qwerty, thumbs_table=thumbs)>>
+
+#define MIRYOKU_ALTERNATIVES_TAP_QWERTY_NORMAL \
+<<table-layer-full(alphas_table=qwerty_normal, thumbs_table=thumbs)>>
 
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTZ \
 <<table-layer-full(alphas_table=qwertz, thumbs_table=thumbs)>>
@@ -1500,6 +1539,9 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTY_FLIP \
 <<table-layer-taphold(alphas_table=qwerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTY_NORMAL_FLIP \
+<<table-layer-taphold(alphas_table=qwerty_normal, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTZ_FLIP \
 <<table-layer-taphold(alphas_table=qwertz, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
@@ -1529,6 +1571,9 @@ prepended.
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTY \
 <<table-layer-taphold(alphas_table=qwerty)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTY_NORMAL \
+<<table-layer-taphold(alphas_table=qwerty_normal)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTZ \
 <<table-layer-taphold(alphas_table=qwertz)>>
@@ -1561,6 +1606,9 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTY_FLIP \
 <<table-layer-full(alphas_table=qwerty, thumbs_table=thumbs-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_TAP_QWERTY_NORMAL_FLIP \
+<<table-layer-full(alphas_table=qwerty_normal, thumbs_table=thumbs-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTZ_FLIP \
 <<table-layer-full(alphas_table=qwertz, thumbs_table=thumbs-flip)>>
 
@@ -1590,6 +1638,9 @@ prepended.
 
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTY \
 <<table-layer-full(alphas_table=qwerty, thumbs_table=thumbs)>>
+
+#define MIRYOKU_ALTERNATIVES_TAP_QWERTY_NORMAL \
+<<table-layer-full(alphas_table=qwerty_normal, thumbs_table=thumbs)>>
 
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTZ \
 <<table-layer-full(alphas_table=qwertz, thumbs_table=thumbs)>>
@@ -1741,6 +1792,9 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTY_FLIP \
 <<table-layer-taphold(alphas_table=qwerty, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTY_NORMAL_FLIP \
+<<table-layer-taphold(alphas_table=qwerty_normal, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTZ_FLIP \
 <<table-layer-taphold(alphas_table=qwertz, thumbs_table=thumbs-flip, hold_table=hold-flip)>>
 
@@ -1770,6 +1824,9 @@ prepended.
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTY \
 <<table-layer-taphold(alphas_table=qwerty)>>
+
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTY_NORMAL \
+<<table-layer-taphold(alphas_table=qwerty_normal)>>
 
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTZ \
 <<table-layer-taphold(alphas_table=qwertz)>>
@@ -1802,6 +1859,9 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTY_FLIP \
 <<table-layer-full(alphas_table=qwerty, thumbs_table=thumbs-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_TAP_QWERTY_NORMAL_FLIP \
+<<table-layer-full(alphas_table=qwerty_normal, thumbs_table=thumbs-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTZ_FLIP \
 <<table-layer-full(alphas_table=qwertz, thumbs_table=thumbs-flip)>>
 
@@ -1831,6 +1891,9 @@ prepended.
 
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTY \
 <<table-layer-full(alphas_table=qwerty, thumbs_table=thumbs)>>
+
+#define MIRYOKU_ALTERNATIVES_TAP_QWERTY_NORMAL \
+<<table-layer-full(alphas_table=qwerty_normal, thumbs_table=thumbs)>>
 
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTZ \
 <<table-layer-full(alphas_table=qwertz, thumbs_table=thumbs)>>
