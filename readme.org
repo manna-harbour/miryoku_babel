@@ -157,15 +157,6 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 | U_NP | U_NP | DOT  | 0    | MINS |
 
 
-*** Sym
-
-#+NAME: sym-l
-| {    | &    | *    | (    | }    |
-| :    | $    | %    | ^    | +    |
-| ~    | !    | @    | #    | PIPE |
-| U_NP | U_NP | (    | )    | _    |
-
-
 *** Num Swedish
 
 #+NAME: num_sv-l
@@ -174,13 +165,29 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 | §    | 1    | 2    | 3    | '   |
 | U_NP | U_NP | DOT  | 0    | ?   |
 
+
 *** Num Swedish desired
 
 #+NAME: num_sv_desired-l
 | ALGR(KC_8) | 7    | 8    | 9    | ALGR(KC_9) |
-| < | 4    | 5    | 6    | )   |
-| +    | 1    | 2    | 3    | ALGR(-)   |
-| U_NP | U_NP | DOT  | 0    | /   |
+|  | 4    | 5    | 6    |  |
+|  | 1    | 2    | 3    | ALGR(-)    |
+| U_NP       | U_NP | DOT  | 0    |  |
+
+| SE_LBRC | 7    | 8    | 9    | SE_RBRC |
+| SE_LABK | 4    | 5    | 6    | SE_LABK |
+| SE_GRV  | 1    | 2    | 3    | SE_ASTR |
+| U_NP    | U_NP | COMM | 0    | SE_PLUS |
+
+
+*** Sym
+
+#+NAME: sym-l
+| {    | &    | *    | (    | }    |
+| :    | $    | %    | ^    | +    |
+| ~    | !    | @    | #    | PIPE |
+| U_NP | U_NP | (    | )    | _    |
+
 
 *** Sym Swedish
 
@@ -194,72 +201,109 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 *** Sym Swedish desired
 
 #+NAME: sym_sv_desired-l
-| algr(kc_7)    | /    | (    | )    | algr(kc_0) |
-| >    | ¤    | %    | &    | `   |
-| ALGR(KC_RBRC) | !    | @    | #    | ALGR(KC_NUBS) |
-| U_NP | U_NP | )    | =    | ?   |
+| ALGR(KC_7)    | /    | (    | )       | ALGR(KC_0)    |
+| S(KC_COMM)    | ¤    | %    | &       | KC_MINS       |
+| ALGR(KC_RBRC) | !    | @    | #       | ALGR(KC_NUBS) |
+| U_NP          | U_NP | DOT  | S(KC_0) | S(KC_SLSH)    |
+
+| SE_LCBR | /    | (    | )      | SE_RCBR |
+| SE_COLN | ¤    | %    | &      |  |
+| SE_TILD | !    | @    | #      | SE_PIPE |
+| U_NP    | U_NP | DOT  | SE_EQL | SE_QUES |
 
 # $ is moved to AltGr-4
 # ^ is moved to Shift-]
-# & is moved to Shift-6
 # / is moved from alphas to Shift-7
 # * is moved to Shift-'
 # ( is moved to shift-8
-
+# | is moved to ...
+# ? is move from shift-alpha to shift(-)
 
 # This is here to note how (e.g.) Swedish OS keymap change the /interpretation/ of keycodes.
 # From /home/cj/qmk_firmware/quantum/keymap_extras/keymap_swedish.h :
-# 
-# SE_SECT KC_GRV  // §
-# SE_PLUS KC_MINS // +
+
 # SE_ACUT KC_EQL  // ´ (dead)
-# // Row 2
+# SE_ADIA KC_QUOT // Ä
 # SE_ARNG KC_LBRC // Å
 # SE_DIAE KC_RBRC // ¨ (dead)
-# // Row 3
-# SE_ODIA KC_SCLN // Ö
-# SE_ADIA KC_QUOT // Ä
-# SE_QUOT KC_NUHS // '
-# // Row 4
 # SE_LABK KC_NUBS // <
-# SE_COMM KC_COMM // ,
-# SE_DOT  KC_DOT  // .
 # SE_MINS KC_SLSH // -
-# // Row 1
-# SE_HALF S(SE_SECT) // ½
-# SE_DQUO S(SE_2)    // "
-# SE_CURR S(SE_4)    // ¤
+# SE_ODIA KC_SCLN // Ö
+# SE_PLUS KC_MINS // +
+# SE_QUOT KC_NUHS // '
+# SE_SECT KC_GRV  // §
+
 # SE_AMPR S(SE_6)    // &
-# SE_SLSH S(SE_7)    // /
-# SE_LPRN S(SE_8)    // (
-# SE_RPRN S(SE_9)    // )
-# SE_EQL  S(SE_0)    // =
-# SE_QUES S(SE_PLUS) // ?
-# SE_GRV  S(SE_ACUT) // ` (dead)
-# // Row 2
-# SE_CIRC S(SE_DIAE) // ^ (dead)
-# // Row 3
 # SE_ASTR S(SE_QUOT) // *
-# // Row 4
-# SE_RABK S(SE_LABK) // >
-# SE_SCLN S(SE_COMM) // ;
+# SE_CIRC S(SE_DIAE) // ^ (dead)
 # SE_COLN S(SE_DOT)  // :
+# SE_CURR S(SE_4)    // ¤
+# SE_DQUO S(SE_2)    // "
+# SE_EQL  S(SE_0)    // =
+# SE_GRV  S(SE_ACUT) // ` (dead)
+# SE_HALF S(SE_SECT) // ½
+# SE_LPRN S(SE_8)    // (
+# SE_QUES S(SE_PLUS) // ?
+# SE_RABK S(SE_LABK) // >
+# SE_RPRN S(SE_9)    // )
+# SE_SCLN S(SE_COMM) // ;
+# SE_SLSH S(SE_7)    // /
 # SE_UNDS S(SE_MINS) // _
-# // Row 1
+
 # SE_AT   ALGR(SE_2)    // @
-# SE_PND  ALGR(SE_3)    // £
+# SE_BSLS ALGR(SE_PLUS) // (backslash)
 # SE_DLR  ALGR(SE_4)    // $
 # SE_EURO ALGR(SE_5)    // €
-# SE_LCBR ALGR(SE_7)    // {
 # SE_LBRC ALGR(SE_8)    // [
+# SE_LCBR ALGR(SE_7)    // {
+# SE_MICR ALGR(SE_M)    // µ
+# SE_PIPE ALGR(SE_LABK) // |
+# SE_PND  ALGR(SE_3)    // £
 # SE_RBRC ALGR(SE_9)    // ]
 # SE_RCBR ALGR(SE_0)    // }
-# SE_BSLS ALGR(SE_PLUS) // (backslash)
-# // Row 2
 # SE_TILD ALGR(SE_DIAE) // ~ (dead)
-# // Row 4
-# SE_PIPE ALGR(SE_LABK) // |
-# SE_MICR ALGR(SE_M)    // µ
+
+# KC_EQL SE_ACUT  // ´ (dead)
+# KC_GRV SE_SECT  // §
+# KC_LBRC SE_ARNG // Å
+# KC_MINS SE_PLUS // +
+# KC_NUBS SE_LABK // <
+# KC_NUHS SE_QUOT // '
+# KC_QUOT SE_ADIA // Ä
+# KC_RBRC SE_DIAE // ¨ (dead)
+# KC_SCLN SE_ODIA // Ö
+# KC_SLSH SE_MINS // -
+
+# S(SE_0) SE_EQL     // =
+# S(SE_2) SE_DQUO    // "
+# S(SE_4) SE_CURR    // ¤
+# S(SE_6) SE_AMPR    // &
+# S(SE_7) SE_SLSH    // /
+# S(SE_8) SE_LPRN    // (
+# S(SE_9) SE_RPRN    // )
+# S(SE_ACUT) SE_GRV  // ` (dead)
+# S(SE_COMM) SE_SCLN // ;
+# S(SE_DIAE) SE_CIRC // ^ (dead)
+# S(SE_DOT) SE_COLN  // :
+# S(SE_LABK) SE_RABK // >
+# S(SE_MINS) SE_UNDS // _
+# S(SE_PLUS) SE_QUES // ?
+# S(SE_QUOT) SE_ASTR // *
+# S(SE_SECT) SE_HALF // ½
+
+# ALGR(SE_2) SE_AT       // @
+# ALGR(SE_3) SE_PND      // £
+# ALGR(SE_4) SE_DLR      // $
+# ALGR(SE_5) SE_EURO     // €
+# ALGR(SE_7) SE_LCBR     // {
+# ALGR(SE_8) SE_LBRC     // [
+# ALGR(SE_9) SE_RBRC     // ]
+# ALGR(SE_0) SE_RCBR     // }
+# ALGR(SE_PLUS) SE_BSLS  // (backslash)
+# ALGR(SE_DIAE) SE_TILD  // ~ (dead)
+# ALGR(SE_LABK) SE_PIPE  // |
+# ALGR(SE_M) SE_MICR     // µ
+
 # ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
 # │ § │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │ + │ ´ │       │
 # ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤
