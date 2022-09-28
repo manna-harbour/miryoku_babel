@@ -166,6 +166,134 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 | U_NP | U_NP | (    | )    | _    |
 
 
+*** Num Swedish
+
+#+NAME: num_sv-l
+| å    | 7    | 8    | 9    | ¨   |
+| ä    | 4    | 5    | 6    | \   |
+| §    | 1    | 2    | 3    | '   |
+| U_NP | U_NP | DOT  | 0    | ?   |
+
+*** Num Swedish desired
+
+#+NAME: num_sv_desired-l
+| ALGR(KC_8) | 7    | 8    | 9    | ALGR(KC_9) |
+| < | 4    | 5    | 6    | )   |
+| +    | 1    | 2    | 3    | ALGR(-)   |
+| U_NP | U_NP | DOT  | 0    | /   |
+
+*** Sym Swedish
+
+#+NAME: sym_sv-l
+| Å    | /    | (    | )    | ~   |
+| Ä    | ¤    | %    | &    | `   |
+| ½    | !    | @    | #    | ^   |
+| U_NP | U_NP | )    | =    | ?   |
+
+
+*** Sym Swedish desired
+
+#+NAME: sym_sv_desired-l
+| algr(kc_7)    | /    | (    | )    | algr(kc_0) |
+| >    | ¤    | %    | &    | `   |
+| ALGR(KC_RBRC) | !    | @    | #    | ALGR(KC_NUBS) |
+| U_NP | U_NP | )    | =    | ?   |
+
+# $ is moved to AltGr-4
+# ^ is moved to Shift-]
+# & is moved to Shift-6
+# / is moved from alphas to Shift-7
+# * is moved to Shift-'
+# ( is moved to shift-8
+
+
+# This is here to note how (e.g.) Swedish OS keymap change the /interpretation/ of keycodes.
+# From /home/cj/qmk_firmware/quantum/keymap_extras/keymap_swedish.h :
+# 
+# SE_SECT KC_GRV  // §
+# SE_PLUS KC_MINS // +
+# SE_ACUT KC_EQL  // ´ (dead)
+# // Row 2
+# SE_ARNG KC_LBRC // Å
+# SE_DIAE KC_RBRC // ¨ (dead)
+# // Row 3
+# SE_ODIA KC_SCLN // Ö
+# SE_ADIA KC_QUOT // Ä
+# SE_QUOT KC_NUHS // '
+# // Row 4
+# SE_LABK KC_NUBS // <
+# SE_COMM KC_COMM // ,
+# SE_DOT  KC_DOT  // .
+# SE_MINS KC_SLSH // -
+# // Row 1
+# SE_HALF S(SE_SECT) // ½
+# SE_DQUO S(SE_2)    // "
+# SE_CURR S(SE_4)    // ¤
+# SE_AMPR S(SE_6)    // &
+# SE_SLSH S(SE_7)    // /
+# SE_LPRN S(SE_8)    // (
+# SE_RPRN S(SE_9)    // )
+# SE_EQL  S(SE_0)    // =
+# SE_QUES S(SE_PLUS) // ?
+# SE_GRV  S(SE_ACUT) // ` (dead)
+# // Row 2
+# SE_CIRC S(SE_DIAE) // ^ (dead)
+# // Row 3
+# SE_ASTR S(SE_QUOT) // *
+# // Row 4
+# SE_RABK S(SE_LABK) // >
+# SE_SCLN S(SE_COMM) // ;
+# SE_COLN S(SE_DOT)  // :
+# SE_UNDS S(SE_MINS) // _
+# // Row 1
+# SE_AT   ALGR(SE_2)    // @
+# SE_PND  ALGR(SE_3)    // £
+# SE_DLR  ALGR(SE_4)    // $
+# SE_EURO ALGR(SE_5)    // €
+# SE_LCBR ALGR(SE_7)    // {
+# SE_LBRC ALGR(SE_8)    // [
+# SE_RBRC ALGR(SE_9)    // ]
+# SE_RCBR ALGR(SE_0)    // }
+# SE_BSLS ALGR(SE_PLUS) // (backslash)
+# // Row 2
+# SE_TILD ALGR(SE_DIAE) // ~ (dead)
+# // Row 4
+# SE_PIPE ALGR(SE_LABK) // |
+# SE_MICR ALGR(SE_M)    // µ
+# ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
+# │ § │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ 9 │ 0 │ + │ ´ │       │
+# ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤
+# │     │ Q │ W │ E │ R │ T │ Y │ U │ I │ O │ P │ Å │ ¨ │     │
+# ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┐    │
+# │      │ A │ S │ D │ F │ G │ H │ J │ K │ L │ Ö │ Ä │ ' │    │
+# ├────┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴───┴────┤
+# │    │ < │ Z │ X │ C │ V │ B │ N │ M │ , │ . │ - │          │
+# ├────┼───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤
+# │    │    │    │                        │    │    │    │    │
+# └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
+# ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
+# │ ½ │ ! │ " │ # │ ¤ │ % │ & │ / │ ( │ ) │ = │ ? │ ` │       │
+# ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤
+# │     │   │   │   │   │   │   │   │   │   │   │   │ ^ │     │
+# ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┐    │
+# │      │   │   │   │   │   │   │   │   │   │   │   │ * │    │
+# ├────┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴───┴────┤
+# │    │ > │   │   │   │   │   │   │   │ ; │ : │ _ │          │
+# ├────┼───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤
+# │    │    │    │                        │    │    │    │    │
+# └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
+# ┌───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───┬───────┐
+# │   │   │ @ │ £ │ $ │ € │   │ { │ [ │ ] │ } │ \ │   │       │
+# ├───┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─────┤
+# │     │   │   │   │   │   │   │   │   │   │   │   │ ~ │     │
+# ├─────┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┬──┴┐    │
+# │      │   │   │   │   │   │   │   │   │   │   │   │   │    │
+# ├────┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴─┬─┴───┴────┤
+# │    │ | │   │   │   │   │   │   │ µ │   │   │   │          │
+# ├────┼───┴┬──┴─┬─┴───┴───┴───┴───┴───┴──┬┴───┼───┴┬────┬────┤
+# │    │    │    │                        │    │    │    │    │
+# └────┴────┴────┴────────────────────────┴────┴────┴────┴────┘
+
 *** Fun
 
 #+NAME: fun-l
@@ -269,6 +397,16 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 | Q    | W    | E    | R    | T    | Y    | U    | I    | O    | P    |
 | A    | S    | D    | F    | G    | H    | J    | K    | L    | SCLN |
 | Z    | X    | C    | V    | B    | N    | M    | ,    | DOT  | /    |
+
+
+***** QWERTY_SV
+
+~MIRYOKU_ALPHAS=QWERTY_SV~
+
+#+NAME: qwerty_sv
+| Q    | W    | E    | R    | T    | Y    | U    | I    | O    | P    |
+| A    | S    | D    | F    | G    | H    | J    | K    | L    | Ö    |
+| Z    | X    | C    | V    | B    | N    | M    | ,    | DOT  | MINS |
 
 
 ***** QWERTZ
