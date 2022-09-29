@@ -175,9 +175,10 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 | U_NP       | U_NP | DOT  | 0    |  |
 
 | SE_LBRC | 7    | 8    | 9    | SE_RBRC |
-| SE_LABK | 4    | 5    | 6    | SE_LABK |
-| SE_GRV  | 1    | 2    | 3    | SE_ASTR |
+| SE_PIPE | 4    | 5    | 6    | SE_TILD |
+| `       | 1    | 2    | 3    | SE_ASTR |
 | U_NP    | U_NP | COMM | 0    | SE_PLUS |
+
 
 
 *** Sym
@@ -194,7 +195,7 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 #+NAME: sym_sv-l
 | Å    | /    | (    | )    | ~   |
 | Ä    | ¤    | %    | &    | `   |
-| ½    | !    | @    | #    | ^   |
+| ½    | !    | "    | #    | ^   |
 | U_NP | U_NP | )    | =    | ?   |
 
 
@@ -202,14 +203,16 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 
 #+NAME: sym_sv_desired-l
 | ALGR(KC_7)    | /    | (    | )       | ALGR(KC_0)    |
-| S(KC_COMM)    | ¤    | %    | &       | KC_MINS       |
+|  | ¤    | %    | &       |  |
 | ALGR(KC_RBRC) | !    | @    | #       | ALGR(KC_NUBS) |
 | U_NP          | U_NP | DOT  | S(KC_0) | S(KC_SLSH)    |
 
 | SE_LCBR | /    | (    | )      | SE_RCBR |
-| SE_COLN | ¤    | %    | &      |  |
-| SE_TILD | !    | @    | #      | SE_PIPE |
-| U_NP    | U_NP | DOT  | SE_EQL | SE_QUES |
+| SE_RABK | $    | %    | &      | \       |
+| SE_LABK | !    | "    | #      | '       |
+| U_NP    | U_NP | @    | SE_EQL | SE_QUES |
+
+^
 
 # $ is moved to AltGr-4
 # ^ is moved to Shift-]
