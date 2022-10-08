@@ -256,6 +256,12 @@ KC_PGDN,           KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_C
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_NA,              DF(U_NAV),         DF(U_NUM),         KC_ALGR,           U_NA,              \
 U_NP,              U_NP,              KC_DEL,            KC_BSPC,           KC_ENT,            U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
+#define MIRYOKU_ALTERNATIVES_NAV_T_FLIP \
+U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_NA,              DF(U_BASE),        DF(U_EXTRA),       DF(U_TAP),         QK_BOOT,           \
+KC_PGUP,           KC_LEFT,           KC_UP,             KC_RGHT,           KC_CAPS,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
+KC_PGDN,           KC_HOME,           KC_DOWN,           KC_END,            KC_INS,            U_NA,              DF(U_NAV),         DF(U_NUM),         KC_ALGR,           U_NA,              \
+U_NP,              U_NP,              KC_DEL,            KC_BSPC,           KC_ENT,            U_NA,              U_NA,              U_NA,              U_NP,              U_NP
+
 #define MIRYOKU_ALTERNATIVES_NAV_FLIP \
 KC_HOME,           KC_PGDN,           KC_PGUP,           KC_END,            KC_INS,            U_NA,              DF(U_BASE),        DF(U_EXTRA),       DF(U_TAP),         QK_BOOT,           \
 KC_LEFT,           KC_DOWN,           KC_UP,             KC_RGHT,           KC_CAPS,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
@@ -266,6 +272,12 @@ U_NP,              U_NP,              KC_DEL,            KC_BSPC,           KC_E
 QK_BOOT,           DF(U_TAP),         DF(U_EXTRA),       DF(U_BASE),        U_NA,              KC_INS,            KC_HOME,           KC_UP,             KC_END,            KC_PGUP,           \
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              KC_CAPS,           KC_LEFT,           KC_DOWN,           KC_RGHT,           KC_PGDN,           \
 U_NA,              KC_ALGR,           DF(U_NUM),         DF(U_NAV),         U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            U_NP,              U_NP
+
+#define MIRYOKU_ALTERNATIVES_NAV_T \
+QK_BOOT,           DF(U_TAP),         DF(U_EXTRA),       DF(U_BASE),        U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              KC_CAPS,           KC_LEFT,           KC_UP,             KC_RGHT,           KC_PGUP,           \
+U_NA,              KC_ALGR,           DF(U_NUM),         DF(U_NAV),         U_NA,              KC_INS,            KC_HOME,           KC_DOWN,           KC_END,            KC_PGDN,           \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_ENT,            KC_BSPC,           KC_DEL,            U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
@@ -287,6 +299,12 @@ KC_WH_D,           KC_MS_L,           KC_MS_D,           KC_MS_R,           U_NU
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_NA,              DF(U_MOUSE),       DF(U_SYM),         KC_ALGR,           U_NA,              \
 U_NP,              U_NP,              KC_BTN3,           KC_BTN1,           KC_BTN2,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
+#define MIRYOKU_ALTERNATIVES_MOUSE_T_FLIP \
+U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_NA,              DF(U_BASE),        DF(U_EXTRA),       DF(U_TAP),         QK_BOOT,           \
+KC_WH_U,           KC_MS_L,           KC_MS_U,           KC_MS_R,           U_NU,              U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
+KC_WH_D,           KC_WH_L,           KC_MS_D,           KC_WH_R,           U_NU,              U_NA,              DF(U_MOUSE),       DF(U_SYM),         KC_ALGR,           U_NA,              \
+U_NP,              U_NP,              KC_BTN3,           KC_BTN1,           KC_BTN2,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
+
 #define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
 KC_WH_L,           KC_WH_D,           KC_WH_U,           KC_WH_R,           U_NU,              U_NA,              DF(U_BASE),        DF(U_EXTRA),       DF(U_TAP),         QK_BOOT,           \
 KC_MS_L,           KC_MS_D,           KC_MS_U,           KC_MS_R,           U_NU,              U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
@@ -297,6 +315,12 @@ U_NP,              U_NP,              KC_BTN3,           KC_BTN1,           KC_B
 QK_BOOT,           DF(U_TAP),         DF(U_EXTRA),       DF(U_BASE),        U_NA,              U_NU,              KC_WH_L,           KC_MS_U,           KC_WH_R,           KC_WH_U,           \
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MS_L,           KC_MS_D,           KC_MS_R,           KC_WH_D,           \
 U_NA,              KC_ALGR,           DF(U_SYM),         DF(U_MOUSE),       U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_BTN2,           KC_BTN1,           KC_BTN3,           U_NP,              U_NP
+
+#define MIRYOKU_ALTERNATIVES_MOUSE_T \
+QK_BOOT,           DF(U_TAP),         DF(U_EXTRA),       DF(U_BASE),        U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
+KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MS_L,           KC_MS_U,           KC_MS_R,           KC_WH_U,           \
+U_NA,              KC_ALGR,           DF(U_SYM),         DF(U_MOUSE),       U_NA,              U_NU,              KC_WH_L,           KC_MS_D,           KC_WH_R,           KC_WH_D,           \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_BTN2,           KC_BTN1,           KC_BTN3,           U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_VI \
@@ -318,6 +342,12 @@ RGB_MOD,           KC_MPRV,           KC_VOLD,           KC_MNXT,           U_NU
 U_NU,              U_NU,              U_NU,              U_NU,              OUT_AUTO,          U_NA,              DF(U_MEDIA),       DF(U_FUN),         KC_ALGR,           U_NA,              \
 U_NP,              U_NP,              KC_MUTE,           KC_MPLY,           KC_MSTP,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
+#define MIRYOKU_ALTERNATIVES_MEDIA_T_FLIP \
+U_NU,              U_NU,              U_NU,              U_NU,              OUT_AUTO,          U_NA,              DF(U_BASE),        DF(U_EXTRA),       DF(U_TAP),         QK_BOOT,           \
+RGB_MOD,           KC_MPRV,           KC_VOLU,           KC_MNXT,           U_NU,              U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
+RGB_HUI,           RGB_SAI,           KC_VOLD,           RGB_VAI,           RGB_TOG,           U_NA,              DF(U_MEDIA),       DF(U_FUN),         KC_ALGR,           U_NA,              \
+U_NP,              U_NP,              KC_MUTE,           KC_MPLY,           KC_MSTP,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
+
 #define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
 RGB_MOD,           RGB_HUI,           RGB_SAI,           RGB_VAI,           RGB_TOG,           U_NA,              DF(U_BASE),        DF(U_EXTRA),       DF(U_TAP),         QK_BOOT,           \
 KC_MPRV,           KC_VOLD,           KC_VOLU,           KC_MNXT,           U_NU,              U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
@@ -328,6 +358,12 @@ U_NP,              U_NP,              KC_MUTE,           KC_MPLY,           KC_M
 QK_BOOT,           DF(U_TAP),         DF(U_EXTRA),       DF(U_BASE),        U_NA,              RGB_TOG,           RGB_MOD,           KC_VOLU,           RGB_HUI,           RGB_SAI,           \
 KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MPRV,           KC_VOLD,           KC_MNXT,           RGB_VAI,           \
 U_NA,              KC_ALGR,           DF(U_FUN),         DF(U_MEDIA),       U_NA,              OUT_AUTO,          U_NU,              U_NU,              U_NU,              U_NU,              \
+U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_MSTP,           KC_MPLY,           KC_MUTE,           U_NP,              U_NP
+
+#define MIRYOKU_ALTERNATIVES_MEDIA_T \
+QK_BOOT,           DF(U_TAP),         DF(U_EXTRA),       DF(U_BASE),        U_NA,              OUT_AUTO,          U_NU,              U_NU,              U_NU,              U_NU,              \
+KC_LGUI,           KC_LALT,           KC_LCTL,           KC_LSFT,           U_NA,              U_NU,              KC_MPRV,           KC_VOLU,           KC_MNXT,           RGB_VAI,           \
+U_NA,              KC_ALGR,           DF(U_FUN),         DF(U_MEDIA),       U_NA,              RGB_TOG,           RGB_MOD,           KC_VOLD,           RGB_HUI,           RGB_SAI,           \
 U_NP,              U_NP,              U_NA,              U_NA,              U_NA,              KC_MSTP,           KC_MPLY,           KC_MUTE,           U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_VI \

@@ -340,6 +340,38 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 | MSTP    | MPLY     | MUTE     | U_NP     | U_NP     |
 
 
+***** T
+
+~MIRYOKU_NAV=T~
+
+
+****** Nav
+
+#+NAME: nav-r-t
+| U_RDO | U_PST | U_CPY | U_CUT | U_UND |
+| CAPS  | LEFT  | UP    | RGHT  | PGUP  |
+| INS   | HOME  | DOWN  | END   | PGDN  |
+| ENT   | BSPC  | DEL   | U_NP  | U_NP  |
+
+
+****** Mouse
+
+#+NAME: mouse-r-t
+| U_RDO | U_PST | U_CPY | U_CUT | U_UND |
+|       | MS_L  | MS_U  | MS_R  | WH_U  |
+|       | WH_L  | MS_D  | WH_R  | WH_D  |
+| BTN2  | BTN1  | BTN3  | U_NP  | U_NP  |
+
+
+****** Media
+
+#+NAME: media-r-t
+| OUT_TOG | BT_SEL_0 | BT_SEL_1 | BT_SEL_2 | BT_SEL_3 |
+| EP_TOG  | MPRV     | VOLU     | MNXT     | RGB_VAI  |
+| RGB_TOG | RGB_MOD  | VOLD     | RGB_HUI  | RGB_SAI  |
+| MSTP    | MPLY     | MUTE     | U_NP     | U_NP     |
+
+
 **** Layers
 
 
@@ -452,6 +484,38 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 | RGB_HUI  | RGB_SAI  | VOLU     | RGB_VAI  | RGB_TOG |
 | RGB_MOD  | MPRV     | VOLD     | MNXT     | EP_TOG  |
 | BT_SEL_0 | BT_SEL_1 | BT_SEL_2 | BT_SEL_3 | OUT_TOG |
+| U_NP     | U_NP     | MUTE     | MPLY     | MSTP    |
+
+
+******* T
+
+~MIRYOKU_NAV=T~
+
+
+******** Nav
+
+#+NAME: nav-l-t
+| U_UND | U_CUT | U_CPY | U_PST | U_RDO |
+| PGUP  | LEFT  | UP    | RGHT  | CAPS  |
+| PGDN  | HOME  | DOWN  | END   | INS   |
+| U_NP  | U_NP  | DEL   | BSPC  | ENT   |
+
+
+******** Mouse
+
+#+NAME: mouse-l-t
+| U_UND | U_CUT | U_CPY | U_PST | U_RDO |
+| WH_U  | MS_L  | MS_U  | MS_R  |       |
+| WH_D  | WH_L  | MS_D  | WH_R  |       |
+| U_NP  | U_NP  | BTN3  | BTN1  | BTN2  |
+
+
+******** Media
+
+#+NAME: media-l-t
+| BT_SEL_0 | BT_SEL_1 | BT_SEL_2 | BT_SEL_3 | OUT_TOG |
+| RGB_MOD  | MPRV     | VOLU     | MNXT     | EP_TOG  |
+| RGB_HUI  | RGB_SAI  | VOLD     | RGB_VAI  | RGB_TOG |
 | U_NP     | U_NP     | MUTE     | MPLY     | MSTP    |
 
 
@@ -1044,6 +1108,8 @@ Body of miryoku_layer_selection.h.
   #if defined (MIRYOKU_LAYERS_FLIP)
     #if defined (MIRYOKU_NAV_INVERTEDT)
       #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_FLIP
+    #elif defined (MIRYOKU_NAV_T)
+      #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_T_FLIP
     #else
       #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_FLIP
     #endif
@@ -1052,6 +1118,8 @@ Body of miryoku_layer_selection.h.
       #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_INVERTEDT
     #elif defined (MIRYOKU_NAV_VI)
       #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_VI
+    #elif defined (MIRYOKU_NAV_T)
+      #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV_T
     #else
       #define MIRYOKU_LAYER_NAV MIRYOKU_ALTERNATIVES_NAV
     #endif
@@ -1065,6 +1133,8 @@ Body of miryoku_layer_selection.h.
   #if defined (MIRYOKU_LAYERS_FLIP)
     #if defined (MIRYOKU_NAV_INVERTEDT)
       #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP
+    #elif defined (MIRYOKU_NAV_T)
+      #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE_T_FLIP
     #else
       #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE_FLIP
     #endif
@@ -1073,6 +1143,8 @@ Body of miryoku_layer_selection.h.
       #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT
     #elif defined (MIRYOKU_NAV_VI)
       #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE_VI
+    #elif defined (MIRYOKU_NAV_T)
+      #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE_T
     #else
       #define MIRYOKU_LAYER_MOUSE MIRYOKU_ALTERNATIVES_MOUSE
     #endif
@@ -1086,6 +1158,8 @@ Body of miryoku_layer_selection.h.
   #if defined (MIRYOKU_LAYERS_FLIP)
     #if defined (MIRYOKU_NAV_INVERTEDT)
       #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT_FLIP
+    #elif defined (MIRYOKU_NAV_T)
+      #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA_T_FLIP
     #else
       #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA_FLIP
     #endif
@@ -1094,6 +1168,8 @@ Body of miryoku_layer_selection.h.
       #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT
     #elif defined (MIRYOKU_NAV_VI)
       #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA_VI
+    #elif defined (MIRYOKU_NAV_T)
+      #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA_T
     #else
       #define MIRYOKU_LAYER_MEDIA MIRYOKU_ALTERNATIVES_MEDIA
     #endif
@@ -1355,11 +1431,17 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_FLIP \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_NAV_T_FLIP \
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l-t, mode="l", hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_NAV_FLIP \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-invertedt, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_NAV_T \
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-t, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-vi, mode="r")>>
@@ -1371,11 +1453,17 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP \
 <<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_MOUSE_T_FLIP \
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l-t, mode="l", hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
 <<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT \
 <<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-invertedt, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_MOUSE_T \
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-t, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_VI \
 <<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-vi, mode="r")>>
@@ -1387,11 +1475,17 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT_FLIP \
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_MEDIA_T_FLIP \
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l-t, mode="l", hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT \
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-invertedt, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_MEDIA_T \
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-t, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_VI \
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-vi, mode="r")>>
@@ -1598,11 +1692,17 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_FLIP \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_NAV_T_FLIP \
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l-t, mode="l", hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_NAV_FLIP \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-invertedt, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_NAV_T \
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-t, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-vi, mode="r")>>
@@ -1614,11 +1714,17 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP \
 <<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_MOUSE_T_FLIP \
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l-t, mode="l", hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
 <<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT \
 <<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-invertedt, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_MOUSE_T \
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-t, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_VI \
 <<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-vi, mode="r")>>
@@ -1630,11 +1736,17 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT_FLIP \
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_MEDIA_T_FLIP \
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l-t, mode="l", hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT \
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-invertedt, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_MEDIA_T \
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-t, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_VI \
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-vi, mode="r")>>
@@ -1839,11 +1951,17 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT_FLIP \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l-invertedt, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_NAV_T_FLIP \
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l-t, mode="l", hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_NAV_FLIP \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-invertedt, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_NAV_T \
+<<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-t, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
 <<table-layer-half(current_layer_name="U_NAV", opposite_layer_name="U_NUM", half_table=nav-r-vi, mode="r")>>
@@ -1855,11 +1973,17 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP \
 <<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l-invertedt, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_MOUSE_T_FLIP \
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l-t, mode="l", hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
 <<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT \
 <<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-invertedt, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_MOUSE_T \
+<<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-t, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_VI \
 <<table-layer-half(current_layer_name="U_MOUSE", opposite_layer_name="U_SYM", half_table=mouse-r-vi, mode="r")>>
@@ -1871,11 +1995,17 @@ prepended.
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT_FLIP \
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l-invertedt, mode="l", hold_table=hold-flip)>>
 
+#define MIRYOKU_ALTERNATIVES_MEDIA_T_FLIP \
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l-t, mode="l", hold_table=hold-flip)>>
+
 #define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-l, mode="l", hold_table=hold-flip)>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT \
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-invertedt, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_MEDIA_T \
+<<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-t, mode="r")>>
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_VI \
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r-vi, mode="r")>>
