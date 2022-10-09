@@ -588,7 +588,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | AT          | AT          | AT              | @             |
 | BSLS        | BSLS        | BSLH            | \\            |
 | BSPC        | BSPC        | BSPC            | bspc          |
-| BOOT        | RESET       | &bootloader     |               |
+| BOOT        | RESET       | &u_bootloader   |               |
 | BT_CLR      |             | &bt BT_CLR      |               |
 | BT_SEL_0    |             | &u_bt_sel_0     |               |
 | BT_SEL_1    |             | &u_bt_sel_1     |               |
