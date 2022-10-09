@@ -588,7 +588,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | AT          | AT          | AT              | @             |
 | BSLS        | BSLS        | BSLH            | \\            |
 | BSPC        | BSPC        | BSPC            | bspc          |
-| BOOT        | RESET       | &u_bootloader   |               |
+| BOOT        | QK_BOOT     | &u_bootloader   |               |
 | BT_CLR      |             | &bt BT_CLR      |               |
 | BT_SEL_0    |             | &u_bt_sel_0     |               |
 | BT_SEL_1    |             | &u_bt_sel_1     |               |
@@ -1186,7 +1186,7 @@ Keycodes that match any of these prefixes will not have ~KC_~ automatically
 prepended.
 
 #+NAME: nonkc
-| U_ | RGB_ | OUT_ | RESET | S( | C( | SCMD( | LCMD( | DF( |
+| U_ | RGB_ | OUT_ | QK_ | S( | C( | SCMD( | LCMD( | DF( |
 
 
 **** license-qmk
