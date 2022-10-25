@@ -751,7 +751,7 @@ for tap_row, hold_row in zip(alphas_table + thumbs_table, hold_table):
         code = basic_prefix + str(code)
         code = str(hold) + '_T(' + code + ')'
       elif target == 'zmk':
-        code = '&hm ' + str(hold) + ' ' + code
+        code = 'U_MT(' + str(hold) + ', ' + code + ')'
       elif target == 'kmonad':
         code = 'U_MT(' + code + ', ' + str(hold) + ')'
     elif hold in layers_dict:
@@ -759,7 +759,7 @@ for tap_row, hold_row in zip(alphas_table + thumbs_table, hold_table):
         code = basic_prefix + str(code)
         code = 'LT(' + str(hold) + ',' + code + ')'
       elif target == 'zmk':
-        code = '&lt ' + str(hold) + ' ' + code
+        code = 'U_LT(' + str(hold) + ', ' + code + ')'
       elif target == 'kmonad':
         code = 'U_LT(' + code + ', ' + str(hold) + ')'
     elif not str(code).startswith(nonbasic_tuple):
