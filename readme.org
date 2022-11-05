@@ -598,7 +598,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | BTN1        | BTN1             | U_BTN1        | #(kp/ kp5)    |
 | BTN2        | BTN2             | U_BTN2        | #(kp- kp5)    |
 | BTN3        | BTN3             | U_BTN3        | #(kp* kp5)    |
-| CAPS        | CAPS             | &u_caps_word  | caps          |
+| CAPS        | CAPSWRD          | &u_caps_word  | caps          |
 | CIRC        | CIRC             | CRRT          | ^             |
 | COLN        | COLN             | COLON         | :             |
 | COMM        | COMM             | COMMA         | U_COMM        |
@@ -1186,7 +1186,7 @@ Keycodes that match any of these prefixes will not have ~KC_~ automatically
 prepended.
 
 #+NAME: nonkc
-| U_ | RGB_ | OUT_ | QK_ | S( | C( | SCMD( | LCMD( | TD( |
+| U_ | RGB_ | OUT_ | QK_ | S( | C( | SCMD( | LCMD( | TD( | CAPSWRD |
 
 
 **** license-qmk
