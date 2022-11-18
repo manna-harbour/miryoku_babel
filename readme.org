@@ -612,7 +612,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | DQUO        | DQUO             | DQT           | U_DQUO        |
 | END         | END              | END           | end           |
 | ENT         | ENT              | RET           | ent           |
-| EP_TOG      |                  | &u_ep_tog     |               |
+| EP_TOG      |                  | U_EP_TOG      |               |
 | EQL         | EQL              | EQL           | =             |
 | ESC         | ESC              | ESC           | esc           |
 | EXLM        | EXLM             | EXCL          | !             |
@@ -668,11 +668,11 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | RBRC        | RBRC             | RBKT          | ]             |
 | RCBR        | RCBR             | RBRC          | }             |
 | RESET       |                  | &reset        |               |
-| RGB_HUI     | RGB_HUI          | &u_rgb_hui    |               |
-| RGB_MOD     | RGB_MOD          | &u_rgb_eff    |               |
-| RGB_SAI     | RGB_SAI          | &u_rgb_sai    |               |
-| RGB_TOG     | RGB_TOG          | &u_rgb_tog    |               |
-| RGB_VAI     | RGB_VAI          | &u_rgb_bri    |               |
+| RGB_HUI     | RGB_HUI          | U_RGB_HUI     |               |
+| RGB_MOD     | RGB_MOD          | U_RGB_EFF     |               |
+| RGB_SAI     | RGB_SAI          | U_RGB_SAI     |               |
+| RGB_TOG     | RGB_TOG          | U_RGB_TOG     |               |
+| RGB_VAI     | RGB_VAI          | U_RGB_BRI     |               |
 | RGHT        | RGHT             | RIGHT         | right         |
 | RPRN        | RPRN             | RPAR          | U_RPRN        |
 | SCLN        | SCLN             | SEMI          | ;             |
