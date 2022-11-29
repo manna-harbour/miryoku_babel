@@ -598,7 +598,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | BTN1        | BTN1             | U_BTN1        | #(kp/ kp5)    |
 | BTN2        | BTN2             | U_BTN2        | #(kp- kp5)    |
 | BTN3        | BTN3             | U_BTN3        | #(kp* kp5)    |
-| CAPS        | CAPSWRD          | &u_caps_word  | caps          |
+| CAPS        | CW_TOGG          | &u_caps_word  | caps          |
 | CIRC        | CIRC             | CRRT          | ^             |
 | COLN        | COLN             | COLON         | :             |
 | COMM        | COMM             | COMMA         | U_COMM        |
@@ -653,9 +653,9 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | MSTP        | MSTP             | C_STOP        | stopcd        |
 | MUTE        | MUTE             | C_MUTE        | mute          |
 | NO          | NO               | &none         | XX            |
-| OUT_TOG     | OUT_AUTO         | &u_out_tog    |               |
-| OUT_BT      | OUT_BT           | &out OUT_BT   |               |
-| OUT_USB     | OUT_USB          | &out OUT_USB  |               |
+| OUT_TOG     | OU_AUTO          | &u_out_tog    |               |
+| OUT_BT      | OU_BT            | &out OUT_BT   |               |
+| OUT_USB     | OU_USB           | &out OUT_USB  |               |
 | PAUS        | PAUS             | PAUSE_BREAK   | pause         |
 | PERC        | PERC             | PRCT          | %             |
 | PGDN        | PGDN             | PG_DN         | pgdn          |
@@ -676,7 +676,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | RGHT        | RGHT             | RIGHT         | right         |
 | RPRN        | RPRN             | RPAR          | U_RPRN        |
 | SCLN        | SCLN             | SEMI          | ;             |
-| SLCK        | SLCK             | SLCK          | slck          |
+| SLCK        | SCRL             | SLCK          | slck          |
 | SLSH        | SLSH             | SLASH         | /             |
 | SPC         | SPC              | SPC           | spc           |
 | TAB         | TAB              | TAB           | tab           |
@@ -1186,7 +1186,7 @@ Keycodes that match any of these prefixes will not have ~KC_~ automatically
 prepended.
 
 #+NAME: nonkc
-| U_ | RGB_ | OUT_ | QK_ | S( | C( | SCMD( | LCMD( | TD( | CAPSWRD |
+| U_ | RGB_ | OU_  | QK_ | S( | C( | SCMD( | LCMD( | TD( | CW_TOGG |
 
 
 **** license-qmk
