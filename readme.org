@@ -595,9 +595,9 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | BT_SEL_2    |                  | &u_bt_sel_2   |               |
 | BT_SEL_3    |                  | &u_bt_sel_3   |               |
 | BT_SEL_4    |                  | &u_bt_sel_4   |               |
-| BTN1        | BTN1             | U_BTN1        | #(kp/ kp5)    |
-| BTN2        | BTN2             | U_BTN2        | #(kp- kp5)    |
-| BTN3        | BTN3             | U_BTN3        | #(kp* kp5)    |
+| BTN1        | U_BTN1           | U_BTN1        | U_BTN1        |
+| BTN2        | U_BTN2           | U_BTN2        | U_BTN2        |
+| BTN3        | U_BTN3           | U_BTN3        | U_BTN3        |
 | CAPS        | CW_TOGG          | &u_caps_word  | caps          |
 | CIRC        | CIRC             | CRRT          | ^             |
 | COLN        | COLN             | COLON         | :             |
