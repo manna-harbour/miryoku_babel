@@ -619,16 +619,16 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | X           | X                | X             | x             | X             | X             |
 | Y           | Y                | Y             | y             | Y             | Y             |
 | Z           | Z                | Z             | z             | Z             | Z             |
-| 0           | 0                | NUM_0         | 0             | 0             | N0            |
-| 1           | 1                | NUM_1         | 1             | 1             | N1            |
-| 2           | 2                | NUM_2         | 2             | 2             | N2            |
-| 3           | 3                | NUM_3         | 3             | 3             | N3            |
-| 4           | 4                | NUM_4         | 4             | 4             | N4            |
-| 5           | 5                | NUM_5         | 5             | 5             | N5            |
-| 6           | 6                | NUM_6         | 6             | 6             | N6            |
-| 7           | 7                | NUM_7         | 7             | 7             | N7            |
-| 8           | 8                | NUM_8         | 8             | 8             | N8            |
-| 9           | 9                | NUM_9         | 9             | 9             | N9            |
+| 0           | 0                | N0            | 0             | 0             | N0            |
+| 1           | 1                | N1            | 1             | 1             | N1            |
+| 2           | 2                | N2            | 2             | 2             | N2            |
+| 3           | 3                | N3            | 3             | 3             | N3            |
+| 4           | 4                | N4            | 4             | 4             | N4            |
+| 5           | 5                | N5            | 5             | 5             | N5            |
+| 6           | 6                | N6            | 6             | 6             | N6            |
+| 7           | 7                | N7            | 7             | 7             | N7            |
+| 8           | 8                | N8            | 8             | 8             | N8            |
+| 9           | 9                | N9            | 9             | 9             | N9            |
 | ALGR        | ALGR             | RALT          | ralt          | AltGr         | RALT          |
 | AMPR        | AMPR             | AMPS          | &             | &amp;         | AMPR          |
 | APP         | APP              | K_APP         | comp          | App           | APP           |
@@ -652,7 +652,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | BTN2        | U_BTN2           | U_BTN2        | U_BTN2        | Right Button  | MB_RMB        |
 | BTN3        | U_BTN3           | U_BTN3        | U_BTN3        | Middle Button | MB_MMB        |
 | CAPS        | CAPS             | CAPS          | caps          | Cps Lck       | CAPS          |
-| CIRC        | CIRC             | CRRT          | ^             | ^             | CIRC          |
+| CIRC        | CIRC             | CARET         | ^             | ^             | CIRC          |
 | COLN        | COLN             | COLON         | :             | :             | COLN          |
 | COMM        | COMM             | COMMA         | U_COMM        | S_COMM        | COMM          |
 | CPSWRD      | CW_TOGG          | &u_caps_word  | caps          | Cps Wrd       | U_CW          |
@@ -668,7 +668,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | ENT         | ENT              | RET           | ent           | Enter         | ENT           |
 | EP_OFF      |                  |               |               | EP Off        | PS_OFF        |
 | EP_TOG      |                  | U_EP_TOG      |               | EP Tog        | PS_TOG        |
-| EQL         | EQL              | EQL           | =             | =             | EQL           |
+| EQL         | EQL              | EQUAL         | =             | =             | EQL           |
 | ESC         | ESC              | ESC           | esc           | Esc           | ESC           |
 | EXLM        | EXLM             | EXCL          | !             | !             | EXLM          |
 | F1          | F1               | F1            | f1            | F1            | F1            |
@@ -712,7 +712,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | OUT_BT      | OU_BT            | &out OUT_BT   |               | Out BT        |               |
 | OUT_USB     | OU_USB           | &out OUT_USB  |               | Out USB       |               |
 | PAUS        | PAUS             | PAUSE_BREAK   | pause         | Pause Break   | PAUS          |
-| PERC        | PERC             | PRCT          | %             | %             | PERC          |
+| PERC        | PERC             | PRCNT         | %             | %             | PERC          |
 | PGDN        | PGDN             | PG_DN         | pgdn          | Page Down     | PGDN          |
 | PGUP        | PGUP             | PG_UP         | pgup          | Page Up       | PGUP          |
 | PIPE        | PIPE             | PIPE          | U_PIPE        | S_PIPE        | PIPE          |
@@ -738,7 +738,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | SCLN        | SCLN             | SEMI          | ;             | ;             | SCLN          |
 | SLCK        | SCRL             | SLCK          | slck          | Scroll Lock   | SLCK          |
 | SLSH        | SLSH             | SLASH         | /             | /             | SLSH          |
-| SPC         | SPC              | SPC           | spc           | Space         | SPC           |
+| SPC         | SPC              | SPACE         | spc           | Space         | SPC           |
 | TAB         | TAB              | TAB           | tab           | Tab           | TAB           |
 | TILD        | TILD             | TILDE         | ~             | ~             | TILD          |
 | TRNS        | TRNS             | &trans        | _             | Trans         | TRNS          |
