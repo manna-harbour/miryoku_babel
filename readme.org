@@ -630,32 +630,32 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | 8           | 8                | N8            | 8             | 8             | N8            |
 | 9           | 9                | N9            | 9             | 9             | N9            |
 | ALGR        | ALGR             | RALT          | ralt          | AltGr         | RALT          |
-| AMPR        | AMPR             | AMPS          | &             | &amp;         | AMPR          |
+| AMPR        | AMPR             | AMPS          | &             | &             | AMPR          |
 | APP         | APP              | K_APP         | comp          | App           | APP           |
 | ASTR        | ASTR             | ASTRK         | *             | *             | ASTR          |
 | AT          | AT               | AT            | @             | @             | AT            |
 | BSLS        | BSLS             | BSLH          | \\            | \\            | BSLS          |
-| BSPC        | BSPC             | BSPC          | bspc          | Bckspc        | BSPC          |
-| BOOT        | TD(U_TD_BOOT)    | U_BOOT        |               | Boot          | U_BOOT        |
-| BT_CLR      |                  | &bt BT_CLR    |               | Clear         |               |
-| BT_CLR_0    |                  |               |               | BT Clr 0      |               |
-| BT_CLR_1    |                  |               |               | BT Clr 1      |               |
-| BT_CLR_2    |                  |               |               | BT Clr 2      |               |
-| BT_CLR_3    |                  |               |               | BT Clr 3      |               |
-| BT_CLR_4    |                  |               |               | BT Clr 4      |               |
-| BT_SEL_0    |                  | &u_bt_sel_0   |               | BT Sel 0      |               |
-| BT_SEL_1    |                  | &u_bt_sel_1   |               | BT Sel 1      |               |
-| BT_SEL_2    |                  | &u_bt_sel_2   |               | BT Sel 2      |               |
-| BT_SEL_3    |                  | &u_bt_sel_3   |               | BT Sel 3      |               |
-| BT_SEL_4    |                  | &u_bt_sel_4   |               | BT Sel 4      |               |
+| BSPC        | BSPC             | BSPC          | bspc          | Back Space    | BSPC          |
+| BOOT        | TD(U_TD_BOOT)    | U_BOOT        |               | U_BOOT        | U_BOOT        |
+| BT_CLR      |                  | &bt BT_CLR    |               | BT Clear      |               |
+| BT_CLR_0    |                  |               |               | BT  0 Clear   |               |
+| BT_CLR_1    |                  |               |               | BT  1 Clear   |               |
+| BT_CLR_2    |                  |               |               | BT  2 Clear   |               |
+| BT_CLR_3    |                  |               |               | BT  3 Clear   |               |
+| BT_CLR_4    |                  |               |               | BT  4 Clear   |               |
+| BT_SEL_0    |                  | &u_bt_sel_0   |               | BT  0 Select  |               |
+| BT_SEL_1    |                  | &u_bt_sel_1   |               | BT  1 Select  |               |
+| BT_SEL_2    |                  | &u_bt_sel_2   |               | BT  2 Select  |               |
+| BT_SEL_3    |                  | &u_bt_sel_3   |               | BT  3 Select  |               |
+| BT_SEL_4    |                  | &u_bt_sel_4   |               | BT  4 Select  |               |
 | BTN1        | U_BTN1           | U_BTN1        | U_BTN1        | Left Button   | MB_LMB        |
 | BTN2        | U_BTN2           | U_BTN2        | U_BTN2        | Right Button  | MB_RMB        |
 | BTN3        | U_BTN3           | U_BTN3        | U_BTN3        | Middle Button | MB_MMB        |
-| CAPS        | CAPS             | CAPS          | caps          | Cps Lck       | CAPS          |
+| CAPS        | CAPS             | CAPS          | caps          | Caps Lock     | CAPS          |
 | CIRC        | CIRC             | CARET         | ^             | ^             | CIRC          |
 | COLN        | COLN             | COLON         | :             | :             | COLN          |
 | COMM        | COMM             | COMMA         | U_COMM        | S_COMM        | COMM          |
-| CPSWRD      | CW_TOGG          | &u_caps_word  | caps          | Cps Wrd       | U_CW          |
+| CPSWRD      | CW_TOGG          | &u_caps_word  | caps          | Caps Word     | U_CW          |
 | DEL         | DEL              | DEL           | del           | Delete        | DEL           |
 | DF(U_BASE)  | TD(U_TD_U_BASE)  | &u_to_U_BASE  | U_DF(U_BASE)  | U_DF(U_BASE)  | U_DF(U_BASE)  |
 | DF(U_EXTRA) | TD(U_TD_U_EXTRA) | &u_to_U_EXTRA | U_DF(U_EXTRA) | U_DF(U_EXTRA) | U_DF(U_EXTRA) |
@@ -663,11 +663,11 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | DLR         | DLR              | DLLR          | $             | $             | DLR           |
 | DOT         | DOT              | DOT           | .             | .             | DOT           |
 | DOWN        | DOWN             | DOWN          | down          | Down          | DOWN          |
-| DQUO        | DQUO             | DQT           | U_DQUO        | &quot;        | DQUO          |
+| DQUO        | DQUO             | DQT           | U_DQUO        | \"            | DQUO          |
 | END         | END              | END           | end           | End           | END           |
 | ENT         | ENT              | RET           | ent           | Enter         | ENT           |
 | EP_OFF      |                  |               |               | EP Off        | PS_OFF        |
-| EP_TOG      |                  | U_EP_TOG      |               | EP Tog        | PS_TOG        |
+| EP_TOG      |                  | U_EP_TOG      |               | EP Toggle     | PS_TOG        |
 | EQL         | EQL              | EQUAL         | =             | =             | EQL           |
 | ESC         | ESC              | ESC           | esc           | Esc           | ESC           |
 | EXLM        | EXLM             | EXCL          | !             | !             | EXLM          |
@@ -684,7 +684,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | F11         | F11              | F11           | f11           | F11           | F11           |
 | F12         | F12              | F12           | f12           | F12           | F12           |
 | GRV         | GRV              | GRAVE         | `             | `             | GRV           |
-| GT          | GT               | GT            | >             | &gt;          | RABK          |
+| GT          | GT               | GT            | >             | >             | RABK          |
 | HASH        | HASH             | HASH          | #             | #             | HASH          |
 | HOME        | HOME             | HOME          | home          | Home          | HOME          |
 | INS         | INS              | INS           | ins           | Insert        | INS           |
@@ -696,7 +696,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | LGUI        | LGUI             | LGUI          | met           | Meta          | LGUI          |
 | LPRN        | LPRN             | LPAR          | U_LPRN        | S_LPRN        | LPRN          |
 | LSFT        | LSFT             | LSHFT         | sft           | Shift         | LSFT          |
-| LT          | LT               | LT            | <             | &lt;          | LABK          |
+| LT          | LT               | LT            | <             | <             | LABK          |
 | MINS        | MINS             | MINUS         | -             | -             | MINS          |
 | MNXT        | MNXT             | C_NEXT        | nextsong      | Next          | MNXT          |
 | MPLY        | MPLY             | C_PP          | playpause     | Play Pause    | MPLY          |
@@ -708,7 +708,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | MSTP        | MSTP             | C_STOP        | stopcd        | Stop          | MSTP          |
 | MUTE        | MUTE             | C_MUTE        | mute          | Mute          | MUTE          |
 | NO          | NO               | &none         | XX            |               | NO            |
-| OUT_TOG     | OU_AUTO          | &u_out_tog    |               | Out Tog       | HID           |
+| OUT_TOG     | OU_AUTO          | &u_out_tog    |               | Out Toggle    | HID           |
 | OUT_BT      | OU_BT            | &out OUT_BT   |               | Out BT        |               |
 | OUT_USB     | OU_USB           | &out OUT_USB  |               | Out USB       |               |
 | PAUS        | PAUS             | PAUSE_BREAK   | pause         | Pause Break   | PAUS          |
@@ -719,20 +719,20 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | PLUS        | PLUS             | PLUS          | +             | +             | PLUS          |
 | PSCR        | PSCR             | PSCRN         | sysrq         | PrtScn SysRq  | PSCR          |
 | QUES        | QUES             | QMARK         | ?             | ?             | QUES          |
-| QUOT        | QUOT             | SQT           | U_QUOT        | &apos;        | QUOT          |
+| QUOT        | QUOT             | SQT           | U_QUOT        | '             | QUOT          |
 | RBRC        | RBRC             | RBKT          | ]             | ]             | RBRC          |
 | RCBR        | RCBR             | RBRC          | }             | }             | RCBR          |
 | RESET       | QK_RBT           | &reset        |               | Reset         | RESET         |
-| RGB_HUD     | RGB_HUD          |               |               | RGB H-        | U_RGB_HUD     |
-| RGB_HUI     | RGB_HUI          | U_RGB_HUI     |               | RGB H+        | U_RGB_HUI     |
-| RGB_MOD     | RGB_MOD          | U_RGB_EFF     |               | RGB M+        | U_RGB_MOD     |
-| RGB_RMOD    | RGB_RMOD         |               |               | RGB M-        | U_RGB_RMOD    |
+| RGB_HUD     | RGB_HUD          |               |               | RGB Hue  -    | U_RGB_HUD     |
+| RGB_HUI     | RGB_HUI          | U_RGB_HUI     |               | RGB Hue  +    | U_RGB_HUI     |
+| RGB_MOD     | RGB_MOD          | U_RGB_EFF     |               | RGB Mode  +   | U_RGB_MOD     |
+| RGB_RMOD    | RGB_RMOD         |               |               | RGB Mode  -   | U_RGB_RMOD    |
 | RGB_OFF     |                  |               |               | RGB Off       | U_RGB_OFF     |
-| RGB_SAD     | RGB_SAD          |               |               | RGB S-        | U_RGB_SAD     |
-| RGB_SAI     | RGB_SAI          | U_RGB_SAI     |               | RGB S+        | U_RGB_SAI     |
-| RGB_TOG     | RGB_TOG          | U_RGB_TOG     |               | RGB Tog       | U_RGB_TOG     |
-| RGB_VAD     | RGB_VAD          |               |               | RGB V-        | U_RGB_VAD     |
-| RGB_VAI     | RGB_VAI          | U_RGB_BRI     |               | RGB V+        | U_RGB_VAI     |
+| RGB_SAD     | RGB_SAD          |               |               | RGB Sat  -    | U_RGB_SAD     |
+| RGB_SAI     | RGB_SAI          | U_RGB_SAI     |               | RGB Sat  +    | U_RGB_SAI     |
+| RGB_TOG     | RGB_TOG          | U_RGB_TOG     |               | RGB Toggle    | U_RGB_TOG     |
+| RGB_VAD     | RGB_VAD          |               |               | RGB Value  -  | U_RGB_VAD     |
+| RGB_VAI     | RGB_VAI          | U_RGB_BRI     |               | RGB Value  +  | U_RGB_VAI     |
 | RGHT        | RGHT             | RIGHT         | right         | Right         | RGHT          |
 | RPRN        | RPRN             | RPAR          | U_RPRN        | S_RPRN        | RPRN          |
 | SCLN        | SCLN             | SEMI          | ;             | ;             | SCLN          |
@@ -756,6 +756,8 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 
 #+NAME: table-layer-init
 #+BEGIN_SRC python :session :var symbol_names_table=symbol-names :var shifted_names_table=shifted-names :var nonkc_table=nonkc :var nonkp_table=nonkp :var nonquote_table=nonquote :var nonkcdot_table=nonkcdot :var keycode_translation_table=keycode-translation :var layers_table=layers :var mods_table=mods :var target="svg" :tangle no :results verbatim
+import os
+
 def wrap_basic(code):
   if not str(code).startswith(nonbasic_tuple):
     code = basic_prefix + str(code) + basic_suffix
@@ -778,6 +780,19 @@ def get_shifted(code):
   else:
     code = None
   return code
+
+def trim_shifted(code, shifted_code):
+  code = str(code)
+  shifted_code = str(shifted_code)
+  prefix = os.path.commonprefix([code, shifted_code])
+  space_index = prefix.find(" ")
+  doublespace_index = prefix.find("  ")
+  if space_index != -1 and space_index != doublespace_index:
+    index = space_index + 1
+  else:
+    index = len(prefix)
+  shifted_code = shifted_code[index:]
+  return shifted_code
 
 width = 19
 mods_dict = dict.fromkeys(mods_table[0])
@@ -884,10 +899,13 @@ for tap_row, hold_row in zip(alphas_table + thumbs_table, hold_table):
         code = wrap_basic(code)
         code = 'U_LT(' + str(hold) + ',' + code + ')'
     else:
-      code = wrap_basic(code)
       if target == 'svg' and shifted_code != None:
+        shifted_code = trim_shifted(code, shifted_code)
         shifted_code = wrap_basic(shifted_code)
+        code = wrap_basic(code)
         code = 'U_S(' + shifted_code + ', ' + code + ')'
+      else:
+        code = wrap_basic(code)
     results += (code + ',').ljust(width)
   results += '\\\n'
 results = results.rstrip(', \\\n')
@@ -920,7 +938,9 @@ for half_row, hold_row in zip(half_table, hold_table):
 	  if shift == "true" and shifted_code != None:
 	    code = shifted_code
 	  elif target == 'svg' and shifted_code != None:
-	    code = 'U_S(' + str(wrap_basic(shifted_code)) + ', ' + str(wrap_basic(get_translated(code))) +')'
+            code = get_translated(code)
+            shifted_code = trim_shifted(code, shifted_code)
+	    code = 'U_S(' + str(wrap_basic(shifted_code)) + ', ' + str(wrap_basic(code)) +')'
 	  code = get_translated(code)
 	  if code == '':
 	    code = 'U_NU'
