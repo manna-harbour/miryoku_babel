@@ -571,16 +571,16 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | X           | X                | X             | x             |
 | Y           | Y                | Y             | y             |
 | Z           | Z                | Z             | z             |
-| 0           | 0                | NUM_0         | 0             |
-| 1           | 1                | NUM_1         | 1             |
-| 2           | 2                | NUM_2         | 2             |
-| 3           | 3                | NUM_3         | 3             |
-| 4           | 4                | NUM_4         | 4             |
-| 5           | 5                | NUM_5         | 5             |
-| 6           | 6                | NUM_6         | 6             |
-| 7           | 7                | NUM_7         | 7             |
-| 8           | 8                | NUM_8         | 8             |
-| 9           | 9                | NUM_9         | 9             |
+| 0           | 0                | N0            | 0             |
+| 1           | 1                | N1            | 1             |
+| 2           | 2                | N2            | 2             |
+| 3           | 3                | N3            | 3             |
+| 4           | 4                | N4            | 4             |
+| 5           | 5                | N5            | 5             |
+| 6           | 6                | N6            | 6             |
+| 7           | 7                | N7            | 7             |
+| 8           | 8                | N8            | 8             |
+| 9           | 9                | N9            | 9             |
 | ALGR        | ALGR             | RALT          | ralt          |
 | AMPR        | AMPR             | AMPS          | &             |
 | APP         | APP              | K_APP         | comp          |
@@ -599,7 +599,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | BTN2        | BTN2             | U_BTN2        | #(kp- kp5)    |
 | BTN3        | BTN3             | U_BTN3        | #(kp* kp5)    |
 | CAPS        | CW_TOGG          | &u_caps_word  | caps          |
-| CIRC        | CIRC             | CRRT          | ^             |
+| CIRC        | CIRC             | CARET         | ^             |
 | COLN        | COLN             | COLON         | :             |
 | COMM        | COMM             | COMMA         | U_COMM        |
 | DEL         | DEL              | DEL           | del           |
@@ -613,7 +613,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | END         | END              | END           | end           |
 | ENT         | ENT              | RET           | ent           |
 | EP_TOG      |                  | U_EP_TOG      |               |
-| EQL         | EQL              | EQL           | =             |
+| EQL         | EQL              | EQUAL         | =             |
 | ESC         | ESC              | ESC           | esc           |
 | EXLM        | EXLM             | EXCL          | !             |
 | F1          | F1               | F1            | f1            |
@@ -657,7 +657,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | OUT_BT      | OU_BT            | &out OUT_BT   |               |
 | OUT_USB     | OU_USB           | &out OUT_USB  |               |
 | PAUS        | PAUS             | PAUSE_BREAK   | pause         |
-| PERC        | PERC             | PRCT          | %             |
+| PERC        | PERC             | PRCNT         | %             |
 | PGDN        | PGDN             | PG_DN         | pgdn          |
 | PGUP        | PGUP             | PG_UP         | pgup          |
 | PIPE        | PIPE             | PIPE          | U_PIPE        |
@@ -678,7 +678,7 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad).
 | SCLN        | SCLN             | SEMI          | ;             |
 | SLCK        | SCRL             | SLCK          | slck          |
 | SLSH        | SLSH             | SLASH         | /             |
-| SPC         | SPC              | SPC           | spc           |
+| SPC         | SPC              | SPACE         | spc           |
 | TAB         | TAB              | TAB           | tab           |
 | TILD        | TILD             | TILDE         | ~             |
 | TRNS        | TRNS             | &trans        | _             |
