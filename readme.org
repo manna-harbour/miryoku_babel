@@ -1147,7 +1147,7 @@ results = '#define MIRYOKU_LAYER_LIST \\\n'
 for layer, name in layers_table:
   stripped=layer.lstrip('U_')
   results += 'MIRYOKU_X(' + ( stripped + ', ').ljust(width) + '"' + name + '") \\\n'
-results = results.rstrip('\\\n')
+results = results.rstrip(' \\\n')
 return results
 #+END_SRC
 
@@ -1162,6 +1162,7 @@ i = 0
 for layer, name in layers_table:
   results += '#define ' + ( layer + ' ').ljust(width) + str(i) + '\n'
   i += 1
+results = results.rstrip('\n')
 return results
 #+END_SRC
 
