@@ -1313,7 +1313,7 @@ for layer, name in layers_table:
   results += 'MIRYOKU_X(' + ( stripped + ', ').ljust(width)
   results += '"' + name + '"'
   results += ') \\\n'
-results = results.rstrip('\\\n')
+results = results.rstrip(' \\\n')
 return results
 #+END_SRC
 
@@ -1347,6 +1347,7 @@ for layer, name in layers_table:
   elif target == 'svg':
     results += '"' + name + '"' + '\n'
   i += 1
+results = results.rstrip('\n')
 return results
 #+END_SRC
 
