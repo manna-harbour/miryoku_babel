@@ -648,9 +648,9 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | BT_SEL_2    |                  | &u_bt_sel_2   |               | BT  2 Select  |               |
 | BT_SEL_3    |                  | &u_bt_sel_3   |               | BT  3 Select  |               |
 | BT_SEL_4    |                  | &u_bt_sel_4   |               | BT  4 Select  |               |
-| BTN1        | U_BTN1           | U_BTN1        | U_BTN1        | Left Button   | MB_LMB        |
-| BTN2        | U_BTN2           | U_BTN2        | U_BTN2        | Right Button  | MB_RMB        |
-| BTN3        | U_BTN3           | U_BTN3        | U_BTN3        | Middle Button | MB_MMB        |
+| BTN1        | BTN1             | U_BTN1        | #(kp/ kp5)    | Left Button   | MB_LMB        |
+| BTN2        | BTN2             | U_BTN2        | #(kp- kp5)    | Right Button  | MB_RMB        |
+| BTN3        | BTN3             | U_BTN3        | #(kp* kp5)    | Middle Button | MB_MMB        |
 | CAPS        | CAPS             | CAPS          | caps          | Caps Lock     | CAPS          |
 | CIRC        | CIRC             | CARET         | ^             | ^             | CIRC          |
 | COLN        | COLN             | COLON         | :             | :             | COLN          |
