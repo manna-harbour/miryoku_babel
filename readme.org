@@ -931,49 +931,49 @@ for half_row, hold_row in zip(half_table, hold_table):
   hold_row_l, hold_row_r = hold_row[:length], hold_row[length:]
   for lr, hold_row_lr in ('l', hold_row_l), ('r', hold_row_r):
     if lr == mode:
-	for half in half_row:
-	  code = half
-	  code = convert_symbol(code)
-          shifted_code = get_shifted(code)
-	  if shift == "true" and shifted_code != None:
-	    code = shifted_code
-	  elif target == 'svg' and shifted_code != None:
-            code = get_translated(code)
-            shifted_code = trim_shifted(code, shifted_code)
-	    code = 'U_S(' + str(wrap_basic(shifted_code)) + ', ' + str(wrap_basic(code)) +')'
-	  code = get_translated(code)
-	  if code == '':
-	    code = 'U_NU'
-	  code = wrap_basic(code)
-	  results += (str(code) + ',').ljust(width)
+      for half in half_row:
+        code = half
+        code = convert_symbol(code)
+        shifted_code = get_shifted(code)
+        if shift == "true" and shifted_code != None:
+          code = shifted_code
+        elif target == 'svg' and shifted_code != None:
+          code = get_translated(code)
+          shifted_code = trim_shifted(code, shifted_code)
+          code = 'U_S(' + str(wrap_basic(shifted_code)) + ', ' + str(wrap_basic(code)) +')'
+        code = get_translated(code)
+        if code == '':
+          code = 'U_NU'
+        code = wrap_basic(code)
+        results += (str(code) + ',').ljust(width)
     else:
-	for hold in hold_row_lr:
-	  if hold in mods_dict:
-	    code = wrap_basic(get_translated(hold))
-	  else:
-	    hold = get_translated(hold)
-	    if hold == '' or hold in layers_dict:
-	      code = 'U_NA'
-	      if target == 'svg' and hold == current_layer_name:
-		code = 'U_HELD(' + code + ')'
-	    elif hold == 'LOCK_CUR' or hold == 'LOCK_OPP':
-	      if hold == 'LOCK_CUR':
-		layer_name = current_layer_name
-	      else:
-		layer_name = opposite_layer_name
-	      if target == 'qmk':
-		code = 'TD(U_TD_' + layer_name + ')'
-	      elif target == 'zmk':
-		code = '&u_to_' + layer_name
-	      elif target == 'kmonad':
-		code = 'U_DF(' + layer_name + ')'
-	      elif target == 'svg':
-		code = 'U_DF(' + layer_name + ')'
-	      elif target == 'kmk':
-		code = 'U_DF(' + layer_name + ')'
-	    else:
-               code = wrap_basic(hold)
-	  results += (str(code) + ',').ljust(width)
+      for hold in hold_row_lr:
+        if hold in mods_dict:
+          code = wrap_basic(get_translated(hold))
+        else:
+          hold = get_translated(hold)
+          if hold == '' or hold in layers_dict:
+            code = 'U_NA'
+            if target == 'svg' and hold == current_layer_name:
+              code = 'U_HELD(' + code + ')'
+          elif hold == 'LOCK_CUR' or hold == 'LOCK_OPP':
+            if hold == 'LOCK_CUR':
+              layer_name = current_layer_name
+            else:
+              layer_name = opposite_layer_name
+            if target == 'qmk':
+              code = 'TD(U_TD_' + layer_name + ')'
+            elif target == 'zmk':
+              code = '&u_to_' + layer_name
+            elif target == 'kmonad':
+              code = 'U_DF(' + layer_name + ')'
+            elif target == 'svg':
+              code = 'U_DF(' + layer_name + ')'
+            elif target == 'kmk':
+              code = 'U_DF(' + layer_name + ')'
+          else:
+            code = wrap_basic(hold)
+        results += (str(code) + ',').ljust(width)
   results += '\\\n'
 results = results.rstrip(', \\\n')
 results
