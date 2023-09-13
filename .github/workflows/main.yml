@@ -24,7 +24,7 @@ jobs:
         python-version: ${{ fromJSON(inputs.python-version) }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       - name: Install Emacs (${{ matrix.emacs-package }})
         run: |
           sudo apt-get update
@@ -35,7 +35,7 @@ jobs:
           cd org-mode
           make autoloads
       - name: Setup Python (${{ matrix.python-version }})
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - name: Show Versions
@@ -59,7 +59,7 @@ jobs:
           git diff --exit-code
       - name: Archive Artifacts
         if: ${{ matrix.mode == 'build' }}
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: 'miryoku_babel'
           path: tangled
