@@ -12,6 +12,8 @@ This document describes Miryoku Babel only.  For Miryoku documentation, implemen
 
 ** Overview
 
+This file can be edited and used to generate Miryoku layouts.
+
 [[https://www.gnu.org/software/emacs/][Emacs]] is an extensible text editor.  [[https://orgmode.org/][Org]] is an emacs mode for structured text. [[https://orgmode.org/worg/org-contrib/babel/][Babel]] is org's ability to execute source code from within org documents.  This org document uses babel to generate the layer data source files for Miryoku implementations.
 
 [[#layer-tables][Layers]] and [[#alternative-layouts][alternative layouts]] are maintained in org tables.  The tables are [[#tangling][tangled]] into [[#tangled-files][source files]] via [[#scripts-and-data][python scripts and additional data tables]].
@@ -67,16 +69,21 @@ The Test workflow is not applicable when using the Build workflow and should be 
 
 ***** Tangle
 
-Visit the Actions tab, select the Build workflow, select Run workflow, select the Branch if desired, activate Run workflow, select the Artifacts, and unzip the downloaded zip file.
+After modifying this document, visit the Actions tab, select the Build workflow, select Run workflow, select the Branch if desired, activate Run workflow, select the Artifacts, and unzip the downloaded zip file.
+
+
+** After tangling
+
+After tangling, the resulting layout files can be used by placing them in the ~/miryoku/miryoku_babel~ folder of your miryoku repository files.
 
 
 ** Layer Tables
 
 The layers are maintained in tables.  ~U_NP~ indicates the key is not present and is used to fill in the table around the thumb keys.
 
-Basic keycodes are entered without a common prefix.  Symbols can be entered as-is, except for '-' (~MINS~), '.' (~DOT~), '|' (~PIPE~), and '"' (~DQUO~). Empty cells are unused.
+Basic keycodes are entered without a common prefix.  Symbols can be entered as-is, except for '-' (~MINS~), '.' (~DOT~), '|' (~PIPE~), and '"' (~DQUO~).  Empty cells are unused.  Other keycodes are in the keycode-translations table.  Layers can be changed with ~DF(layer)~ or toggled with ~TG(layer)~' when supported in keycode-translations.
 
-The base layer is maintained as separate tables for tap alphas, tap thumbs, and hold.  Other layers are specified as a single hand including thumbs.  Tables are combined to produce the keymap data for each layer.
+The base layer is maintained as separate tables for tap alphas, tap thumbs, and hold.  Other layers are specified as a single hand including thumbs.  Tables are combined to produce the keymap data for each layer. 
 
 
 *** Base
@@ -167,10 +174,21 @@ The base layer is maintained as separate tables for tap alphas, tap thumbs, and 
 *** Fun
 
 #+NAME: fun-l
-| F12  | F7   | F8   | F9   | PSCR |
-| F11  | F4   | F5   | F6   | SLCK |
-| F10  | F1   | F2   | F3   | PAUS |
-| U_NP | U_NP | APP  | SPC  | TAB  |
+| F12        | F7         | F8         | F9         | PSCR       |
+| F11        | F4         | F5         | F6         | SLCK       |
+| F10        | F1         | F2         | F3         | PAUS       |
+| U_NP       | U_NP       | APP        | SPC        | TAB        |
+
+
+*** Game
+
+The ~Game~ layer isn't used by default, but can be enabled by binding any key to ~TG(U_GAME)~.
+
+#+NAME: game-l
+| 1          | 2          | 3          | 4          | TG(U_GAME) |
+| LSFT       | A          | W          | D          | F          |
+| LALT       | Q          | S          | E          | TAB        |
+| U_NP       | U_NP       | ESC        | LCTL       | SPC        |
 
 
 *** Alternative Layouts
@@ -382,13 +400,19 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 ****** Fun
 
 #+NAME: fun-r
-| PSCR | F7   | F8   | F9   | F12  |
-| SLCK | F4   | F5   | F6   | F11  |
-| PAUS | F1   | F2   | F3   | F10  |
-| TAB  | SPC  | APP  | U_NP | U_NP |
+| PSCR       | F7         | F8         | F9         | F12        |
+| SLCK       | F4         | F5         | F6         | F11        |
+| PAUS       | F1         | F2         | F3         | F10        |
+| TAB        | SPC        | APP        | U_NP       | U_NP       |
 
 
-****** Nav
+****** Game
+
+#+NAME: game-r
+| TG(U_GAME) | 4          | 3          | 2          | 1          |
+| F          | D          | W          | A          | LSFT       |
+| TAB        | e          | S          | Q          | LALT       |
+| SPC        | LCTL       | ESC        | U_NP       | U_NP       |
 
 
 ******* Default
@@ -499,6 +523,7 @@ Not available with ~MIRYOKU_LAYERS=FLIP~.
 | U_NUM    | Num    |
 | U_SYM    | Sym    |
 | U_FUN    | Fun    |
+| U_GAME   | Game   |
 
 
 **** symbol-names
@@ -660,6 +685,9 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | DF(U_BASE)  | TD(U_TD_U_BASE)  | &u_to_U_BASE  | U_DF(U_BASE)  | U_DF(U_BASE)  | U_DF(U_BASE)  |
 | DF(U_EXTRA) | TD(U_TD_U_EXTRA) | &u_to_U_EXTRA | U_DF(U_EXTRA) | U_DF(U_EXTRA) | U_DF(U_EXTRA) |
 | DF(U_TAP)   | TD(U_TD_U_TAP)   | &u_to_U_TAP   | U_DF(U_TAP)   | U_DF(U_TAP)   | U_DF(U_TAP)   |
+| DF(U_GAME)  | TD(U_TD_U_GAME)  | &u_to_U_GAME  | U_DF(U_GAME)  | U_DF(U_GAME)  | U_DF(U_GAME)  |
+| TG(U_GAME)  | TG(U_TD_U_GAME)  | &tog U_GAME   |               |               |               |
+| TG(U_BASE)  | TG(U_TD_U_BASE)  | &tog U_BASE   |               |               |               |
 | DLR         | DLR              | DLLR          | $             | $             | DLR           |
 | DOT         | DOT              | DOT           | .             | .             | DOT           |
 | DOWN        | DOWN             | DOWN          | down          | Down          | DOWN          |
@@ -1299,6 +1327,16 @@ Body of miryoku_layer_selection.h.
 #if !defined(MIRYOKU_LAYERMAPPING_FUN)
   #define MIRYOKU_LAYERMAPPING_FUN MIRYOKU_MAPPING
 #endif
+#if !defined(MIRYOKU_LAYER_GAME)
+  #if defined (MIRYOKU_LAYERS_FLIP)
+    #define MIRYOKU_LAYER_GAME MIRYOKU_ALTERNATIVES_GAME_FLIP
+  #else
+    #define MIRYOKU_LAYER_GAME MIRYOKU_ALTERNATIVES_GAME
+  #endif
+#endif
+#if !defined(MIRYOKU_LAYERMAPPING_GAME)
+  #define MIRYOKU_LAYERMAPPING_GAME MIRYOKU_MAPPING
+#endif
 #+END_SRC
 
 
@@ -1329,7 +1367,8 @@ MIRYOKU_X(MOUSE,  "Mouse") \
 MIRYOKU_X(MEDIA,  "Media") \
 MIRYOKU_X(NUM,    "Num") \
 MIRYOKU_X(SYM,    "Sym") \
-MIRYOKU_X(FUN,    "Fun")
+MIRYOKU_X(FUN,    "Fun") \
+MIRYOKU_X(GAME,   "Gaming")
 #+end_example
 
 
@@ -1363,6 +1402,7 @@ return results
 #define U_NUM    "Num"
 #define U_SYM    "Sym"
 #define U_FUN    "Fun"
+#define U_GAME   "Game"
 #+end_example
 
 
@@ -1647,6 +1687,13 @@ Keycodes that match any of these prefixes will not have ~KC.~ automatically prep
 #define MIRYOKU_ALTERNATIVES_BUTTON \
 <<table-layer-full(current_layer_name="U_BUTTON", alphas_table=button, thumbs_table=button-thumbs)>>
 
+
+#define MIRYOKU_ALTERNATIVES_GAME_FLIP \
+<<table-layer-half(current_layer_name="U_GAME", opposite_layer_name="U_MOUSE", half_table=game-r, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_GAME \
+<<table-layer-half(current_layer_name="U_GAME", opposite_layer_name="U_MOUSE", half_table=game-l, mode="l")>>
+
 #+END_SRC
 
 
@@ -1890,7 +1937,15 @@ Keycodes that match any of these prefixes will not have ~KC.~ automatically prep
 #define MIRYOKU_ALTERNATIVES_BUTTON \
 <<table-layer-full(current_layer_name="U_BUTTON", alphas_table=button, thumbs_table=button-thumbs)>>
 
+
+#define MIRYOKU_ALTERNATIVES_GAME_FLIP \
+<<table-layer-half(current_layer_name="U_GAME", opposite_layer_name="U_MOUSE", half_table=game-r, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_GAME \
+<<table-layer-half(current_layer_name="U_GAME", opposite_layer_name="U_MOUSE", half_table=game-l, mode="l")>>
+
 #+END_SRC
+
 
 **** [[tangled/zmk/miryoku_layer_selection.h]]
 
@@ -2106,6 +2161,7 @@ Keycodes that match any of these prefixes will not have ~KC.~ automatically prep
 <<table-layer-half(current_layer_name="U_MEDIA", opposite_layer_name="U_FUN", half_table=media-r, mode="r")>>
 
 
+
 #define MIRYOKU_ALTERNATIVES_NUM_FLIP \
 <<table-layer-half(current_layer_name="U_NUM", opposite_layer_name="U_NAV", half_table=num-r, mode="r", hold_table=hold-flip)>>
 
@@ -2129,6 +2185,13 @@ Keycodes that match any of these prefixes will not have ~KC.~ automatically prep
 
 #define MIRYOKU_ALTERNATIVES_BUTTON \
 <<table-layer-full(current_layer_name="U_BUTTON", alphas_table=button, thumbs_table=button-thumbs)>>
+
+
+#define MIRYOKU_ALTERNATIVES_GAME_FLIP \
+<<table-layer-half(current_layer_name="U_GAME", opposite_layer_name="U_MOUSE", half_table=game-r, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_GAME \
+<<table-layer-half(current_layer_name="U_GAME", opposite_layer_name="U_MOUSE", half_table=game-l, mode="l")>>
 
 #+END_SRC
 
@@ -2368,6 +2431,13 @@ Keycodes that match any of these prefixes will not have ~KC.~ automatically prep
 
 #define MIRYOKU_ALTERNATIVES_BUTTON \
 <<table-layer-full(current_layer_name="U_BUTTON", alphas_table=button, thumbs_table=button-thumbs)>>
+
+
+#define MIRYOKU_ALTERNATIVES_GAME_FLIP \
+<<table-layer-half(current_layer_name="U_GAME", opposite_layer_name="U_MOUSE", half_table=game-r, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_GAME \
+<<table-layer-half(current_layer_name="U_GAME", opposite_layer_name="U_MOUSE", half_table=game-l, mode="l")>>
 
 #+END_SRC
 
@@ -2609,6 +2679,13 @@ Keycodes that match any of these prefixes will not have ~KC.~ automatically prep
 
 #define MIRYOKU_ALTERNATIVES_BUTTON \
 <<table-layer-full(current_layer_name="U_BUTTON", alphas_table=button, thumbs_table=button-thumbs)>>
+
+
+#define MIRYOKU_ALTERNATIVES_GAME_FLIP \
+<<table-layer-half(current_layer_name="U_GAME", opposite_layer_name="U_MOUSE", half_table=game-r, mode="r")>>
+
+#define MIRYOKU_ALTERNATIVES_GAME \
+<<table-layer-half(current_layer_name="U_GAME", opposite_layer_name="U_MOUSE", half_table=game-l, mode="l")>>
 
 #+END_SRC
 
