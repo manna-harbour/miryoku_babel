@@ -60,6 +60,12 @@ U_MT(a, met),      U_MT(s, alt),      U_MT(d, ctl),      U_MT(f, sft),      g,  
 U_LT(z, U_BUTTON), U_MT(x, ralt),     c,                 v,                 b,                 n,                 m,                 U_COMM,            U_MT(., ralt),     U_LT(/, U_BUTTON), \
 U_NP,              U_NP,              U_LT(del, U_FUN),  U_LT(bspc, U_NUM), U_LT(ent, U_SYM),  U_LT(tab, U_MOUSE),U_LT(spc, U_NAV),  U_LT(esc, U_MEDIA),U_NP,              U_NP
 
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTY_NORMAL_FLIP \
+q,                 w,                 e,                 r,                 t,                 y,                 u,                 i,                 o,                 p,                 \
+U_MT(a, met),      U_MT(s, alt),      U_MT(d, ctl),      U_MT(f, sft),      g,                 h,                 U_MT(j, sft),      U_MT(k, ctl),      U_MT(l, alt),      U_MT(;, met),      \
+U_LT(z, U_BUTTON), U_MT(x, ralt),     c,                 v,                 b,                 n,                 m,                 U_COMM,            U_MT(., ralt),     U_LT(/, U_BUTTON), \
+U_NP,              U_NP,              U_LT(del, U_FUN),  U_LT(bspc, U_NUM), U_LT(ent, U_SYM),  U_LT(tab, U_MOUSE),U_LT(spc, U_NAV),  U_LT(esc, U_MEDIA),U_NP,              U_NP
+
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTZ_FLIP \
 q,                 w,                 e,                 r,                 t,                 z,                 u,                 i,                 o,                 p,                 \
 U_MT(a, met),      U_MT(s, alt),      U_MT(d, ctl),      U_MT(f, sft),      g,                 h,                 U_MT(j, sft),      U_MT(k, ctl),      U_MT(l, alt),      U_MT(U_QUOT, met), \
@@ -117,6 +123,12 @@ U_NP,              U_NP,              U_LT(esc, U_MEDIA),U_LT(spc, U_NAV),  U_LT
 #define MIRYOKU_ALTERNATIVES_BASE_QWERTY \
 q,                 w,                 e,                 r,                 t,                 y,                 u,                 i,                 o,                 p,                 \
 U_MT(a, met),      U_MT(s, alt),      U_MT(d, ctl),      U_MT(f, sft),      g,                 h,                 U_MT(j, sft),      U_MT(k, ctl),      U_MT(l, alt),      U_MT(U_QUOT, met), \
+U_LT(z, U_BUTTON), U_MT(x, ralt),     c,                 v,                 b,                 n,                 m,                 U_COMM,            U_MT(., ralt),     U_LT(/, U_BUTTON), \
+U_NP,              U_NP,              U_LT(esc, U_MEDIA),U_LT(spc, U_NAV),  U_LT(tab, U_MOUSE),U_LT(ent, U_SYM),  U_LT(bspc, U_NUM), U_LT(del, U_FUN),  U_NP,              U_NP
+
+#define MIRYOKU_ALTERNATIVES_BASE_QWERTY_NORMAL \
+q,                 w,                 e,                 r,                 t,                 y,                 u,                 i,                 o,                 p,                 \
+U_MT(a, met),      U_MT(s, alt),      U_MT(d, ctl),      U_MT(f, sft),      g,                 h,                 U_MT(j, sft),      U_MT(k, ctl),      U_MT(l, alt),      U_MT(;, met),      \
 U_LT(z, U_BUTTON), U_MT(x, ralt),     c,                 v,                 b,                 n,                 m,                 U_COMM,            U_MT(., ralt),     U_LT(/, U_BUTTON), \
 U_NP,              U_NP,              U_LT(esc, U_MEDIA),U_LT(spc, U_NAV),  U_LT(tab, U_MOUSE),U_LT(ent, U_SYM),  U_LT(bspc, U_NUM), U_LT(del, U_FUN),  U_NP,              U_NP
 
@@ -181,6 +193,12 @@ a,                 s,                 d,                 f,                 g,  
 z,                 x,                 c,                 v,                 b,                 n,                 m,                 U_COMM,            .,                 /,                 \
 U_NP,              U_NP,              del,               bspc,              ent,               tab,               spc,               esc,               U_NP,              U_NP
 
+#define MIRYOKU_ALTERNATIVES_TAP_QWERTY_NORMAL_FLIP \
+q,                 w,                 e,                 r,                 t,                 y,                 u,                 i,                 o,                 p,                 \
+a,                 s,                 d,                 f,                 g,                 h,                 j,                 k,                 l,                 ;,                 \
+z,                 x,                 c,                 v,                 b,                 n,                 m,                 U_COMM,            .,                 /,                 \
+U_NP,              U_NP,              del,               bspc,              ent,               tab,               spc,               esc,               U_NP,              U_NP
+
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTZ_FLIP \
 q,                 w,                 e,                 r,                 t,                 z,                 u,                 i,                 o,                 p,                 \
 a,                 s,                 d,                 f,                 g,                 h,                 j,                 k,                 l,                 U_QUOT,            \
@@ -238,6 +256,12 @@ U_NP,              U_NP,              esc,               spc,               tab,
 #define MIRYOKU_ALTERNATIVES_TAP_QWERTY \
 q,                 w,                 e,                 r,                 t,                 y,                 u,                 i,                 o,                 p,                 \
 a,                 s,                 d,                 f,                 g,                 h,                 j,                 k,                 l,                 U_QUOT,            \
+z,                 x,                 c,                 v,                 b,                 n,                 m,                 U_COMM,            .,                 /,                 \
+U_NP,              U_NP,              esc,               spc,               tab,               ent,               bspc,              del,               U_NP,              U_NP
+
+#define MIRYOKU_ALTERNATIVES_TAP_QWERTY_NORMAL \
+q,                 w,                 e,                 r,                 t,                 y,                 u,                 i,                 o,                 p,                 \
+a,                 s,                 d,                 f,                 g,                 h,                 j,                 k,                 l,                 ;,                 \
 z,                 x,                 c,                 v,                 b,                 n,                 m,                 U_COMM,            .,                 /,                 \
 U_NP,              U_NP,              esc,               spc,               tab,               ent,               bspc,              del,               U_NP,              U_NP
 
