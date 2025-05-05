@@ -252,132 +252,132 @@ U_NP,              U_NP,              "Esc",             "Space",           "Tab
 "Page Up",         "Home",            "Up",              "End",             "Insert",          U_NA,              U_DF(U_BASE),      U_DF(U_EXTRA),     U_DF(U_TAP),       U_BOOT,            \
 "Page Down",       "Left",            "Down",            "Right",           U_S("Lock", "Caps Word"),U_NA,              "Shift",           "Ctrl",            "Alt",             "Meta",            \
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_NA,              U_DF(U_NAV),       U_DF(U_NUM),       "AltGr",           U_NA,              \
-U_NP,              U_NP,              "Delete",          "Back Space",      "Enter",           U_NA,              U_HELD(U_NA),      U_NA,              U_NP,              U_NP
+U_NP,              U_NP,              "Delete",          "Back Space",      "Enter",           "Enter",           U_HELD(U_NA),      U_NA,              U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_NAV_FLIP \
 "Home",            "Page Down",       "Page Up",         "End",             "Insert",          U_NA,              U_DF(U_BASE),      U_DF(U_EXTRA),     U_DF(U_TAP),       U_BOOT,            \
 "Left",            "Down",            "Up",              "Right",           U_S("Lock", "Caps Word"),U_NA,              "Shift",           "Ctrl",            "Alt",             "Meta",            \
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_NA,              U_DF(U_NAV),       U_DF(U_NUM),       "AltGr",           U_NA,              \
-U_NP,              U_NP,              "Delete",          "Back Space",      "Enter",           U_NA,              U_HELD(U_NA),      U_NA,              U_NP,              U_NP
+U_NP,              U_NP,              "Delete",          "Back Space",      "Enter",           "Enter",           U_HELD(U_NA),      U_NA,              U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_NAV_INVERTEDT \
 U_BOOT,            U_DF(U_TAP),       U_DF(U_EXTRA),     U_DF(U_BASE),      U_NA,              "Insert",          "Home",            "Up",              "End",             "Page Up",         \
 "Meta",            "Alt",             "Ctrl",            "Shift",           U_NA,              U_S("Lock", "Caps Word"),"Left",            "Down",            "Right",           "Page Down",       \
 U_NA,              "AltGr",           U_DF(U_NUM),       U_DF(U_NAV),       U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
-U_NP,              U_NP,              U_NA,              U_HELD(U_NA),      U_NA,              "Enter",           "Back Space",      "Delete",          U_NP,              U_NP
+U_NP,              U_NP,              U_NA,              U_HELD(U_NA),      "Enter",           "Enter",           "Back Space",      "Delete",          U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_NAV_VI \
 U_BOOT,            U_DF(U_TAP),       U_DF(U_EXTRA),     U_DF(U_BASE),      U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
 "Meta",            "Alt",             "Ctrl",            "Shift",           U_NA,              "Left",            "Down",            "Up",              "Right",           U_S("Lock", "Caps Word"),\
 U_NA,              "AltGr",           U_DF(U_NUM),       U_DF(U_NAV),       U_NA,              "Home",            "Page Down",       "Page Up",         "End",             "Insert",          \
-U_NP,              U_NP,              U_NA,              U_HELD(U_NA),      U_NA,              "Enter",           "Back Space",      "Delete",          U_NP,              U_NP
+U_NP,              U_NP,              U_NA,              U_HELD(U_NA),      "Enter",           "Enter",           "Back Space",      "Delete",          U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_NAV \
 U_BOOT,            U_DF(U_TAP),       U_DF(U_EXTRA),     U_DF(U_BASE),      U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
 "Meta",            "Alt",             "Ctrl",            "Shift",           U_NA,              U_S("Lock", "Caps Word"),"Left",            "Down",            "Up",              "Right",           \
 U_NA,              "AltGr",           U_DF(U_NUM),       U_DF(U_NAV),       U_NA,              "Insert",          "Home",            "Page Down",       "Page Up",         "End",             \
-U_NP,              U_NP,              U_NA,              U_HELD(U_NA),      U_NA,              "Enter",           "Back Space",      "Delete",          U_NP,              U_NP
+U_NP,              U_NP,              U_NA,              U_HELD(U_NA),      "Enter",           "Enter",           "Back Space",      "Delete",          U_NP,              U_NP
 
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT_FLIP \
 "Scroll Up",       "Scroll Left",     "Mouse Up",        "Scroll Right",    U_NU,              U_NA,              U_DF(U_BASE),      U_DF(U_EXTRA),     U_DF(U_TAP),       U_BOOT,            \
 "Scroll Down",     "Mouse Left",      "Mouse Down",      "Mouse Right",     U_NU,              U_NA,              "Shift",           "Ctrl",            "Alt",             "Meta",            \
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_NA,              U_DF(U_MOUSE),     U_DF(U_SYM),       "AltGr",           U_NA,              \
-U_NP,              U_NP,              "Middle Button",   "Left Button",     "Right Button",    U_HELD(U_NA),      U_NA,              U_NA,              U_NP,              U_NP
+U_NP,              U_NP,              "Middle Button",   "Left Button",     "Right Button",    "Right Button",    U_NA,              U_NA,              U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_FLIP \
 "Scroll Left",     "Scroll Down",     "Scroll Up",       "Scroll Right",    U_NU,              U_NA,              U_DF(U_BASE),      U_DF(U_EXTRA),     U_DF(U_TAP),       U_BOOT,            \
 "Mouse Left",      "Mouse Down",      "Mouse Up",        "Mouse Right",     U_NU,              U_NA,              "Shift",           "Ctrl",            "Alt",             "Meta",            \
 U_UND,             U_CUT,             U_CPY,             U_PST,             U_RDO,             U_NA,              U_DF(U_MOUSE),     U_DF(U_SYM),       "AltGr",           U_NA,              \
-U_NP,              U_NP,              "Middle Button",   "Left Button",     "Right Button",    U_HELD(U_NA),      U_NA,              U_NA,              U_NP,              U_NP
+U_NP,              U_NP,              "Middle Button",   "Left Button",     "Right Button",    "Right Button",    U_NA,              U_NA,              U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_INVERTEDT \
 U_BOOT,            U_DF(U_TAP),       U_DF(U_EXTRA),     U_DF(U_BASE),      U_NA,              U_NU,              "Scroll Left",     "Mouse Up",        "Scroll Right",    "Scroll Up",       \
 "Meta",            "Alt",             "Ctrl",            "Shift",           U_NA,              U_NU,              "Mouse Left",      "Mouse Down",      "Mouse Right",     "Scroll Down",     \
 U_NA,              "AltGr",           U_DF(U_SYM),       U_DF(U_MOUSE),     U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
-U_NP,              U_NP,              U_NA,              U_NA,              U_HELD(U_NA),      "Right Button",    "Left Button",     "Middle Button",   U_NP,              U_NP
+U_NP,              U_NP,              U_NA,              U_NA,              "Right Button",    "Right Button",    "Left Button",     "Middle Button",   U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_MOUSE_VI \
 U_BOOT,            U_DF(U_TAP),       U_DF(U_EXTRA),     U_DF(U_BASE),      U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
 "Meta",            "Alt",             "Ctrl",            "Shift",           U_NA,              "Mouse Left",      "Mouse Down",      "Mouse Up",        "Mouse Right",     U_NU,              \
 U_NA,              "AltGr",           U_DF(U_SYM),       U_DF(U_MOUSE),     U_NA,              "Scroll Left",     "Scroll Down",     "Scroll Up",       "Scroll Right",    U_NU,              \
-U_NP,              U_NP,              U_NA,              U_NA,              U_HELD(U_NA),      "Right Button",    "Left Button",     "Middle Button",   U_NP,              U_NP
+U_NP,              U_NP,              U_NA,              U_NA,              "Right Button",    "Right Button",    "Left Button",     "Middle Button",   U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_MOUSE \
 U_BOOT,            U_DF(U_TAP),       U_DF(U_EXTRA),     U_DF(U_BASE),      U_NA,              U_RDO,             U_PST,             U_CPY,             U_CUT,             U_UND,             \
 "Meta",            "Alt",             "Ctrl",            "Shift",           U_NA,              U_NU,              "Mouse Left",      "Mouse Down",      "Mouse Up",        "Mouse Right",     \
 U_NA,              "AltGr",           U_DF(U_SYM),       U_DF(U_MOUSE),     U_NA,              U_NU,              "Scroll Left",     "Scroll Down",     "Scroll Up",       "Scroll Right",    \
-U_NP,              U_NP,              U_NA,              U_NA,              U_HELD(U_NA),      "Right Button",    "Left Button",     "Middle Button",   U_NP,              U_NP
+U_NP,              U_NP,              U_NA,              U_NA,              "Right Button",    "Right Button",    "Left Button",     "Middle Button",   U_NP,              U_NP
 
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT_FLIP \
 U_S("Hue  -", "RGB Hue  +"),U_S("Sat  -", "RGB Sat  +"),"Volume Up",       U_S("Value  -", "RGB Value  +"),U_S("Off", "RGB Toggle"),U_NA,              U_DF(U_BASE),      U_DF(U_EXTRA),     U_DF(U_TAP),       U_BOOT,            \
 U_S("Mode  -", "RGB Mode  +"),"Prev",            "Volume Down",     "Next",            U_S("Off", "EP Toggle"),U_NA,              "Shift",           "Ctrl",            "Alt",             "Meta",            \
 U_S("Clear", "BT  0 Select"),U_S("Clear", "BT  1 Select"),U_S("Clear", "BT  2 Select"),U_S("Clear", "BT  3 Select"),U_S("USB", "Out Toggle"),U_NA,              U_DF(U_MEDIA),     U_DF(U_FUN),       "AltGr",           U_NA,              \
-U_NP,              U_NP,              "Mute",            "Play Pause",      "Stop",            U_NA,              U_NA,              U_HELD(U_NA),      U_NP,              U_NP
+U_NP,              U_NP,              "Mute",            "Play Pause",      "Stop",            "Stop",            U_NA,              U_HELD(U_NA),      U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_FLIP \
 U_S("Mode  -", "RGB Mode  +"),U_S("Hue  -", "RGB Hue  +"),U_S("Sat  -", "RGB Sat  +"),U_S("Value  -", "RGB Value  +"),U_S("Off", "RGB Toggle"),U_NA,              U_DF(U_BASE),      U_DF(U_EXTRA),     U_DF(U_TAP),       U_BOOT,            \
 "Prev",            "Volume Down",     "Volume Up",       "Next",            U_S("Off", "EP Toggle"),U_NA,              "Shift",           "Ctrl",            "Alt",             "Meta",            \
 U_S("Clear", "BT  0 Select"),U_S("Clear", "BT  1 Select"),U_S("Clear", "BT  2 Select"),U_S("Clear", "BT  3 Select"),U_S("USB", "Out Toggle"),U_NA,              U_DF(U_MEDIA),     U_DF(U_FUN),       "AltGr",           U_NA,              \
-U_NP,              U_NP,              "Mute",            "Play Pause",      "Stop",            U_NA,              U_NA,              U_HELD(U_NA),      U_NP,              U_NP
+U_NP,              U_NP,              "Mute",            "Play Pause",      "Stop",            "Stop",            U_NA,              U_HELD(U_NA),      U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_INVERTEDT \
 U_BOOT,            U_DF(U_TAP),       U_DF(U_EXTRA),     U_DF(U_BASE),      U_NA,              U_S("Off", "RGB Toggle"),U_S("Mode  -", "RGB Mode  +"),"Volume Up",       U_S("Hue  -", "RGB Hue  +"),U_S("Sat  -", "RGB Sat  +"),\
 "Meta",            "Alt",             "Ctrl",            "Shift",           U_NA,              U_S("Off", "EP Toggle"),"Prev",            "Volume Down",     "Next",            U_S("Value  -", "RGB Value  +"),\
 U_NA,              "AltGr",           U_DF(U_FUN),       U_DF(U_MEDIA),     U_NA,              U_S("USB", "Out Toggle"),U_S("Clear", "BT  0 Select"),U_S("Clear", "BT  1 Select"),U_S("Clear", "BT  2 Select"),U_S("Clear", "BT  3 Select"),\
-U_NP,              U_NP,              U_HELD(U_NA),      U_NA,              U_NA,              "Stop",            "Play Pause",      "Mute",            U_NP,              U_NP
+U_NP,              U_NP,              U_HELD(U_NA),      U_NA,              "Stop",            "Stop",            "Play Pause",      "Mute",            U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_MEDIA_VI \
 U_BOOT,            U_DF(U_TAP),       U_DF(U_EXTRA),     U_DF(U_BASE),      U_NA,              U_S("Mode  -", "RGB Mode  +"),U_S("Hue  -", "RGB Hue  +"),U_S("Sat  -", "RGB Sat  +"),U_S("Value  -", "RGB Value  +"),U_S("Off", "RGB Toggle"),\
 "Meta",            "Alt",             "Ctrl",            "Shift",           U_NA,              "Prev",            "Volume Down",     "Volume Up",       "Next",            U_S("Off", "EP Toggle"),\
 U_NA,              "AltGr",           U_DF(U_FUN),       U_DF(U_MEDIA),     U_NA,              U_S("Clear", "BT  0 Select"),U_S("Clear", "BT  1 Select"),U_S("Clear", "BT  2 Select"),U_S("Clear", "BT  3 Select"),U_S("USB", "Out Toggle"),\
-U_NP,              U_NP,              U_HELD(U_NA),      U_NA,              U_NA,              "Stop",            "Play Pause",      "Mute",            U_NP,              U_NP
+U_NP,              U_NP,              U_HELD(U_NA),      U_NA,              "Stop",            "Stop",            "Play Pause",      "Mute",            U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_MEDIA \
 U_BOOT,            U_DF(U_TAP),       U_DF(U_EXTRA),     U_DF(U_BASE),      U_NA,              U_S("Off", "RGB Toggle"),U_S("Mode  -", "RGB Mode  +"),U_S("Hue  -", "RGB Hue  +"),U_S("Sat  -", "RGB Sat  +"),U_S("Value  -", "RGB Value  +"),\
 "Meta",            "Alt",             "Ctrl",            "Shift",           U_NA,              U_S("Off", "EP Toggle"),"Prev",            "Volume Down",     "Volume Up",       "Next",            \
 U_NA,              "AltGr",           U_DF(U_FUN),       U_DF(U_MEDIA),     U_NA,              U_S("USB", "Out Toggle"),U_S("Clear", "BT  0 Select"),U_S("Clear", "BT  1 Select"),U_S("Clear", "BT  2 Select"),U_S("Clear", "BT  3 Select"),\
-U_NP,              U_NP,              U_HELD(U_NA),      U_NA,              U_NA,              "Stop",            "Play Pause",      "Mute",            U_NP,              U_NP
+U_NP,              U_NP,              U_HELD(U_NA),      U_NA,              "Stop",            "Stop",            "Play Pause",      "Mute",            U_NP,              U_NP
 
 
 #define MIRYOKU_ALTERNATIVES_NUM_FLIP \
 U_BOOT,            U_DF(U_TAP),       U_DF(U_EXTRA),     U_DF(U_BASE),      U_NA,              U_S("{", "["),     U_S("&", "7"),     U_S("*", "8"),     U_S("S_LPRN", "9"),U_S("}", "]"),     \
 "Meta",            "Alt",             "Ctrl",            "Shift",           U_NA,              U_S("+", "="),     U_S("$", "4"),     U_S("%", "5"),     U_S("^", "6"),     U_S(":", ";"),     \
 U_NA,              "AltGr",           U_DF(U_NAV),       U_DF(U_NUM),       U_NA,              U_S("S_PIPE", "\\"),U_S("!", "1"),     U_S("@", "2"),     U_S("#", "3"),     U_S("~", "`"),     \
-U_NP,              U_NP,              U_NA,              U_HELD(U_NA),      U_NA,              U_S("_", "-"),     U_S("S_RPRN", "0"),U_S(">", "."),     U_NP,              U_NP
+U_NP,              U_NP,              U_NA,              U_HELD(U_NA),      "-",               U_S("_", "-"),     U_S("S_RPRN", "0"),U_S(">", "."),     U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_NUM \
 U_S("{", "["),     U_S("&", "7"),     U_S("*", "8"),     U_S("S_LPRN", "9"),U_S("}", "]"),     U_NA,              U_DF(U_BASE),      U_DF(U_EXTRA),     U_DF(U_TAP),       U_BOOT,            \
 U_S(":", ";"),     U_S("$", "4"),     U_S("%", "5"),     U_S("^", "6"),     U_S("+", "="),     U_NA,              "Shift",           "Ctrl",            "Alt",             "Meta",            \
 U_S("~", "`"),     U_S("!", "1"),     U_S("@", "2"),     U_S("#", "3"),     U_S("S_PIPE", "\\"),U_NA,              U_DF(U_NUM),       U_DF(U_NAV),       "AltGr",           U_NA,              \
-U_NP,              U_NP,              U_S(">", "."),     U_S("S_RPRN", "0"),U_S("_", "-"),     U_NA,              U_HELD(U_NA),      U_NA,              U_NP,              U_NP
+U_NP,              U_NP,              U_S(">", "."),     U_S("S_RPRN", "0"),U_S("_", "-"),     "-",               U_HELD(U_NA),      U_NA,              U_NP,              U_NP
 
 
 #define MIRYOKU_ALTERNATIVES_SYM_FLIP \
 U_BOOT,            U_DF(U_TAP),       U_DF(U_EXTRA),     U_DF(U_BASE),      U_NA,              "{",               "&",               "*",               "S_LPRN",          "}",               \
 "Meta",            "Alt",             "Ctrl",            "Shift",           U_NA,              "+",               "$",               "%",               "^",               ":",               \
 U_NA,              "AltGr",           U_DF(U_MOUSE),     U_DF(U_SYM),       U_NA,              "S_PIPE",          "!",               "@",               "#",               "~",               \
-U_NP,              U_NP,              U_NA,              U_NA,              U_HELD(U_NA),      "_",               "S_LPRN",          "S_RPRN",          U_NP,              U_NP
+U_NP,              U_NP,              U_NA,              U_NA,              "_",               "_",               "S_LPRN",          "S_RPRN",          U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_SYM \
 "{",               "&",               "*",               "S_LPRN",          "}",               U_NA,              U_DF(U_BASE),      U_DF(U_EXTRA),     U_DF(U_TAP),       U_BOOT,            \
 ":",               "$",               "%",               "^",               "+",               U_NA,              "Shift",           "Ctrl",            "Alt",             "Meta",            \
 "~",               "!",               "@",               "#",               "S_PIPE",          U_NA,              U_DF(U_SYM),       U_DF(U_MOUSE),     "AltGr",           U_NA,              \
-U_NP,              U_NP,              "S_LPRN",          "S_RPRN",          "_",               U_HELD(U_NA),      U_NA,              U_NA,              U_NP,              U_NP
+U_NP,              U_NP,              "S_LPRN",          "S_RPRN",          "_",               "_",               U_NA,              U_NA,              U_NP,              U_NP
 
 
 #define MIRYOKU_ALTERNATIVES_FUN_FLIP \
 U_BOOT,            U_DF(U_TAP),       U_DF(U_EXTRA),     U_DF(U_BASE),      U_NA,              "PrtScn SysRq",    "F7",              "F8",              "F9",              "F12",             \
 "Meta",            "Alt",             "Ctrl",            "Shift",           U_NA,              "Scroll Lock",     "F4",              "F5",              "F6",              "F11",             \
 U_NA,              "AltGr",           U_DF(U_MEDIA),     U_DF(U_FUN),       U_NA,              "Pause Break",     "F1",              "F2",              "F3",              "F10",             \
-U_NP,              U_NP,              U_HELD(U_NA),      U_NA,              U_NA,              "Tab",             "Space",           "App",             U_NP,              U_NP
+U_NP,              U_NP,              U_HELD(U_NA),      U_NA,              "Tab",             "Tab",             "Space",           "App",             U_NP,              U_NP
 
 #define MIRYOKU_ALTERNATIVES_FUN \
 "F12",             "F7",              "F8",              "F9",              "PrtScn SysRq",    U_NA,              U_DF(U_BASE),      U_DF(U_EXTRA),     U_DF(U_TAP),       U_BOOT,            \
 "F11",             "F4",              "F5",              "F6",              "Scroll Lock",     U_NA,              "Shift",           "Ctrl",            "Alt",             "Meta",            \
 "F10",             "F1",              "F2",              "F3",              "Pause Break",     U_NA,              U_DF(U_FUN),       U_DF(U_MEDIA),     "AltGr",           U_NA,              \
-U_NP,              U_NP,              "App",             "Space",           "Tab",             U_NA,              U_NA,              U_HELD(U_NA),      U_NP,              U_NP
+U_NP,              U_NP,              "App",             "Space",           "Tab",             "Tab",             U_NA,              U_HELD(U_NA),      U_NP,              U_NP
 
 
 #define MIRYOKU_ALTERNATIVES_BUTTON \

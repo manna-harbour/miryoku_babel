@@ -926,6 +926,7 @@ Produce sub layers from single hand and hold tables.
 #+NAME: table-layer-half
 #+BEGIN_SRC python :session :var hold_table=hold :var mode="r" :var half_table=media-r :var current_layer_name="U_MOUSE" :var opposite_layer_name="U_SYM" :var shift="false" :tangle no :results verbatim
 length = len(half_table[0])
+hold_table[-1][length - 1] = hold_table[-1][length] = convert_symbol(half_table[-1][-1 if mode == 'l' else 0])
 results = ''
 for half_row, hold_row in zip(half_table, hold_table):
   hold_row_l, hold_row_r = hold_row[:length], hold_row[length:]
