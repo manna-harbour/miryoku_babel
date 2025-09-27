@@ -648,9 +648,9 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | BT_SEL_2    |                  | &u_bt_sel_2   |               | BT  2 Select  |               |
 | BT_SEL_3    |                  | &u_bt_sel_3   |               | BT  3 Select  |               |
 | BT_SEL_4    |                  | &u_bt_sel_4   |               | BT  4 Select  |               |
-| BTN1        | BTN1             | U_BTN1        | #(kp/ kp5)    | Left Button   | MB_LMB        |
-| BTN2        | BTN2             | U_BTN2        | #(kp- kp5)    | Right Button  | MB_RMB        |
-| BTN3        | BTN3             | U_BTN3        | #(kp* kp5)    | Middle Button | MB_MMB        |
+| BTN1        | MS_BTN1          | U_BTN1        | #(kp/ kp5)    | Left Button   | MB_LMB        |
+| BTN2        | MS_BTN2          | U_BTN2        | #(kp- kp5)    | Right Button  | MB_RMB        |
+| BTN3        | MS_BTN3          | U_BTN3        | #(kp* kp5)    | Middle Button | MB_MMB        |
 | CAPS        | CAPS             | CAPS          | caps          | Caps Lock     | CAPS          |
 | CIRC        | CIRC             | CARET         | ^             | ^             | CIRC          |
 | COLN        | COLN             | COLON         | :             | :             | COLN          |
@@ -701,10 +701,10 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | MNXT        | MNXT             | C_NEXT        | nextsong      | Next          | MNXT          |
 | MPLY        | MPLY             | C_PP          | playpause     | Play Pause    | MPLY          |
 | MPRV        | MPRV             | C_PREV        | previoussong  | Prev          | MPRV          |
-| MS_D        | MS_D             | U_MS_D        | kp2           | Mouse Down    | MS_DN         |
-| MS_L        | MS_L             | U_MS_L        | kp4           | Mouse Left    | MS_LT         |
-| MS_R        | MS_R             | U_MS_R        | kp6           | Mouse Right   | MS_RT         |
-| MS_U        | MS_U             | U_MS_U        | kp8           | Mouse Up      | MS_UP         |
+| MS_D        | MS_DOWN          | U_MS_D        | kp2           | Mouse Down    | MS_DN         |
+| MS_L        | MS_LEFT          | U_MS_L        | kp4           | Mouse Left    | MS_LT         |
+| MS_R        | MS_RGHT          | U_MS_R        | kp6           | Mouse Right   | MS_RT         |
+| MS_U        | MS_UP            | U_MS_U        | kp8           | Mouse Up      | MS_UP         |
 | MSTP        | MSTP             | C_STOP        | stopcd        | Stop          | MSTP          |
 | MUTE        | MUTE             | C_MUTE        | mute          | Mute          | MUTE          |
 | NO          | NO               | &none         | XX            |               | NO            |
@@ -723,16 +723,16 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | RBRC        | RBRC             | RBKT          | ]             | ]             | RBRC          |
 | RCBR        | RCBR             | RBRC          | }             | }             | RCBR          |
 | RESET       | QK_RBT           | &reset        |               | Reset         | RESET         |
-| RGB_HUD     | RGB_HUD          |               |               | RGB Hue  -    | U_RGB_HUD     |
-| RGB_HUI     | RGB_HUI          | U_RGB_HUI     |               | RGB Hue  +    | U_RGB_HUI     |
-| RGB_MOD     | RGB_MOD          | U_RGB_EFF     |               | RGB Mode  +   | U_RGB_MOD     |
-| RGB_RMOD    | RGB_RMOD         |               |               | RGB Mode  -   | U_RGB_RMOD    |
+| RGB_HUD     | UG_HUED          |               |               | RGB Hue  -    | U_RGB_HUD     |
+| RGB_HUI     | UG_HUEU          | U_RGB_HUI     |               | RGB Hue  +    | U_RGB_HUI     |
+| RGB_MOD     | UG_NEXT          | U_RGB_EFF     |               | RGB Mode  +   | U_RGB_MOD     |
+| RGB_RMOD    | UG_PREV          |               |               | RGB Mode  -   | U_RGB_RMOD    |
 | RGB_OFF     |                  |               |               | RGB Off       | U_RGB_OFF     |
-| RGB_SAD     | RGB_SAD          |               |               | RGB Sat  -    | U_RGB_SAD     |
-| RGB_SAI     | RGB_SAI          | U_RGB_SAI     |               | RGB Sat  +    | U_RGB_SAI     |
-| RGB_TOG     | RGB_TOG          | U_RGB_TOG     |               | RGB Toggle    | U_RGB_TOG     |
-| RGB_VAD     | RGB_VAD          |               |               | RGB Value  -  | U_RGB_VAD     |
-| RGB_VAI     | RGB_VAI          | U_RGB_BRI     |               | RGB Value  +  | U_RGB_VAI     |
+| RGB_SAD     | UG_SATD          |               |               | RGB Sat  -    | U_RGB_SAD     |
+| RGB_SAI     | UG_SATU          | U_RGB_SAI     |               | RGB Sat  +    | U_RGB_SAI     |
+| RGB_TOG     | UG_TOGG          | U_RGB_TOG     |               | RGB Toggle    | U_RGB_TOG     |
+| RGB_VAD     | UG_VALD          |               |               | RGB Value  -  | U_RGB_VAD     |
+| RGB_VAI     | UG_VALU          | U_RGB_BRI     |               | RGB Value  +  | U_RGB_VAI     |
 | RGHT        | RGHT             | RIGHT         | right         | Right         | RGHT          |
 | RPRN        | RPRN             | RPAR          | U_RPRN        | S_RPRN        | RPRN          |
 | SCLN        | SCLN             | SEMI          | ;             | ;             | SCLN          |
@@ -746,10 +746,10 @@ Source keycode to implementation equivalent (source, QMK, ZMK, KMonad, SVG, KMK)
 | UP          | UP               | UP            | up            | Up            | UP            |
 | VOLD        | VOLD             | C_VOL_DN      | vold          | Volume Down   | VOLD          |
 | VOLU        | VOLU             | C_VOL_UP      | volu          | Volume Up     | VOLU          |
-| WH_D        | WH_D             | U_WH_D        |               | Scroll Down   | MW_DN         |
-| WH_L        | WH_L             | U_WH_L        |               | Scroll Left   |               |
-| WH_R        | WH_R             | U_WH_R        |               | Scroll Right  |               |
-| WH_U        | WH_U             | U_WH_U        |               | Scroll Up     | MW_UP         |
+| WH_D        | MS_WHLD          | U_WH_D        |               | Scroll Down   | MW_DN         |
+| WH_L        | MS_WHLL          | U_WH_L        |               | Scroll Left   |               |
+| WH_R        | MS_WHLR          | U_WH_R        |               | Scroll Right  |               |
+| WH_U        | MS_WHLU          | U_WH_U        |               | Scroll Up     | MW_UP         |
 
 
 **** table-layer-init
@@ -1386,7 +1386,7 @@ Keycodes that match any of these prefixes will not have ~KC_~ automatically
 prepended.
 
 #+NAME: nonkc
-| U_ | RGB_ | OU_  | QK_ | S( | C( | SCMD( | LCMD( | TD( | CW_TOGG |
+| MS_ | U_ | UG_ | RGB_ | OU_  | QK_ | S( | C( | SCMD( | LCMD( | TD( | CW_TOGG |
 
 
 **** license-qmk
@@ -2642,6 +2642,6 @@ Keycodes that match any of these prefixes will not have ~KC.~ automatically prep
 #endif
 #+END_SRC
 
-** 
+**
 
 [[https://github.com/manna-harbour][https://raw.githubusercontent.com/manna-harbour/miryoku/master/data/logos/manna-harbour-boa-32.png]]
